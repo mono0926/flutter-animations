@@ -11,13 +11,6 @@ class AnimatedDefaultTextStylePage extends StatefulWidget {
 
 class _AnimatedDefaultTextStylePageState
     extends State<AnimatedDefaultTextStylePage> {
-  static const _alignments = [
-    Alignment.topLeft,
-    Alignment.topRight,
-    Alignment.bottomRight,
-    Alignment.bottomLeft,
-  ];
-
   var _index = 0;
   TextStyle get _textStyle {
     switch (_index % 4) {

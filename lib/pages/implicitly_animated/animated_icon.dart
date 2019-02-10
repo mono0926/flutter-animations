@@ -11,15 +11,6 @@ class AnimatedIconPage extends StatefulWidget {
 
 class _AnimatedIconPageState extends State<AnimatedIconPage>
     with SingleTickerProviderStateMixin {
-  static const _icons = [
-    AnimatedIcons.add_event,
-    AnimatedIcons.pause_play,
-    AnimatedIcons.close_menu,
-    AnimatedIcons.ellipsis_search,
-  ];
-
-  var _index = 0;
-  AnimatedIconData get _icon => _icons[_index % _icons.length];
   AnimationController _animationController;
   var _playButtonEnabled = true;
 
@@ -30,6 +21,12 @@ class _AnimatedIconPageState extends State<AnimatedIconPage>
       vsync: this,
       duration: Duration(milliseconds: 500),
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   void _play() async {
@@ -50,12 +47,7 @@ class _AnimatedIconPageState extends State<AnimatedIconPage>
       title: 'AnimatedIcon',
       floatingActionButton: _playButtonEnabled
           ? FloatingActionButton(
-              onPressed: () {
-                setState(() {
-                  _index++;
-                });
-                _play();
-              },
+              onPressed: _play,
               child: const Icon(Icons.play_arrow),
             )
           : null,
