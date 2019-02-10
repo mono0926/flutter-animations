@@ -17,9 +17,8 @@ class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
     Alignment.bottomLeft,
   ];
 
-  var _alignmentIndex = 0;
-  AlignmentGeometry get _alignment =>
-      _alignments[_alignmentIndex % _alignments.length];
+  var _index = 0;
+  AlignmentGeometry get _alignment => _alignments[_index % _alignments.length];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            _alignmentIndex++;
+            _index++;
           });
         },
         child: const Icon(Icons.refresh),
