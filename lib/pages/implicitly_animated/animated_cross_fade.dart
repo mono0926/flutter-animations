@@ -16,7 +16,7 @@ class _AnimatedCrossFadePageState extends State<AnimatedCrossFadePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      title: 'AnimatedContainer',
+      title: 'AnimatedCrossFade',
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
