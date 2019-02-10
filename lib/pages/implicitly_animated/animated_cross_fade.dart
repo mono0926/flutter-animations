@@ -1,6 +1,7 @@
 import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
+// TODO: AnimatedWidgetの派生クラスではない
 class AnimatedCrossFadePage extends StatefulWidget {
   static const routeName = 'animatedCrossFade';
 

@@ -18,7 +18,8 @@ class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
   ];
 
   var _alignmentIndex = 0;
-  AlignmentGeometry get _alignment => _alignments[_alignmentIndex % 4];
+  AlignmentGeometry get _alignment =>
+      _alignments[_alignmentIndex % _alignments.length];
 
   @override
   Widget build(BuildContext context) {

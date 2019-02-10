@@ -1,8 +1,9 @@
 import 'package:animations/pages/home/home_page.dart';
-import 'package:animations/pages/implicitly_animated/animated_align_page.dart';
-import 'package:animations/pages/implicitly_animated/animated_container_page.dart';
-import 'package:animations/pages/implicitly_animated/animated_cross_fade_page.dart';
-import 'package:animations/pages/implicitly_animated/animated_default_text_style_page.dart';
+import 'package:animations/pages/implicitly_animated/animated_align.dart';
+import 'package:animations/pages/implicitly_animated/animated_container.dart';
+import 'package:animations/pages/implicitly_animated/animated_cross_fade.dart';
+import 'package:animations/pages/implicitly_animated/animated_default_text_style.dart';
+import 'package:animations/pages/implicitly_animated/animated_icon.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,7 @@ class App extends StatelessWidget {
         AnimatedCrossFadePage.routeName: (_context) => AnimatedCrossFadePage(),
         AnimatedDefaultTextStylePage.routeName: (_context) =>
             AnimatedDefaultTextStylePage(),
+        AnimatedIconPage.routeName: (_context) => AnimatedIconPage(),
       },
     );
   }
