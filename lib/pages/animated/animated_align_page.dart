@@ -18,6 +18,7 @@ class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
   ];
 
   var _alignmentIndex = 0;
+  AlignmentGeometry get _alignment => _alignments[_alignmentIndex % 4];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
         child: const Icon(Icons.refresh),
       ),
       child: AnimatedAlign(
-        alignment: _alignments[_alignmentIndex % 4],
+        alignment: _alignment,
         duration: Duration(milliseconds: 500),
         child: AnimationObject(),
         curve: Curves.easeInOut,
