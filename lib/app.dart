@@ -1,6 +1,6 @@
-import 'package:animations/pages/animated/animated_align_page.dart';
-import 'package:animations/pages/animated/animated_page.dart';
 import 'package:animations/pages/home/home_page.dart';
+import 'package:animations/pages/implicitly_animated/animated_align_page.dart';
+import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -13,7 +13,8 @@ class App extends StatelessWidget {
       ),
       home: HomePage(),
       routes: {
-        AnimatedPage.routeName: (_context) => AnimatedPage(),
+        ImplicitlyAnimatedPage.routeName: (_context) =>
+            ImplicitlyAnimatedPage(),
         AnimatedAlignPage.routeName: (_context) => AnimatedAlignPage(),
       },
     );
