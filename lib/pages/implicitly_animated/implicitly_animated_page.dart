@@ -1,5 +1,7 @@
 import 'package:animations/pages/implicitly_animated/animated_align_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_container_page.dart';
+import 'package:animations/pages/implicitly_animated/animated_cross_fade_page.dart';
+import 'package:animations/pages/implicitly_animated/animated_default_text_style_page.dart';
 import 'package:animations/widget/app_list_tile.dart';
 import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,14 @@ class ImplicitlyAnimatedPage extends StatelessWidget {
           const AppListTile(
             title: 'AnimatedContainer',
             nextRouteName: AnimatedContainerPage.routeName,
+          ),
+          const AppListTile(
+            title: 'AnimatedCrossFade',
+            nextRouteName: AnimatedCrossFadePage.routeName,
+          ),
+          const AppListTile(
+            title: 'AnimatedDefaultTextStyle',
+            nextRouteName: AnimatedDefaultTextStylePage.routeName,
           )
         ],
       ),
