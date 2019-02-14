@@ -10,18 +10,12 @@ class AnimatedListPage extends StatefulWidget {
 }
 
 class _AnimatedListPageState extends State<AnimatedListPage> {
-  var _index = 0;
-
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'AnimatedList(WIP)',
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _index++;
-          });
-        },
+        onPressed: () {},
         child: const Icon(Icons.refresh),
       ),
       child: Container(),

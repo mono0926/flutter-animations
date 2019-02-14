@@ -11,7 +11,6 @@ class AnimatedCrossFadePage extends StatefulWidget {
 
 class _AnimatedCrossFadePageState extends State<AnimatedCrossFadePage> {
   var _showFirst = true;
-  static const double imageSize = 120;
 
   @override
   Widget build(BuildContext context) {
