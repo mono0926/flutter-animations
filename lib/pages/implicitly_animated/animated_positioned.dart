@@ -27,6 +27,7 @@ class _AnimatedPositionedPageState extends State<AnimatedPositionedPage> {
         child: Stack(
           children: [
             Image.asset('assets/love_gray.png'),
+            // nullと数値指定の変化のアニメーションには非対応なので注意
             AnimatedPositioned(
               top: 0,
               left: 0,
