@@ -5,6 +5,7 @@ import 'package:animations/pages/implicitly_animated/animated_default_text_style
 import 'package:animations/pages/implicitly_animated/animated_icon.dart';
 import 'package:animations/pages/implicitly_animated/animated_list.dart';
 import 'package:animations/pages/implicitly_animated/animated_modal_barrier.dart';
+import 'package:animations/pages/implicitly_animated/animated_opacity.dart';
 import 'package:animations/widget/app_list_tile.dart';
 import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,10 @@ class ImplicitlyAnimatedPage extends StatelessWidget {
           const AppListTile(
             title: 'AnimatedModalBarrier',
             nextRouteName: AnimatedModalBarrierPage.routeName,
+          ),
+          const AppListTile(
+            title: 'AnimatedOpacity',
+            nextRouteName: AnimatedOpacityPage.routeName,
           ),
         ],
       ),

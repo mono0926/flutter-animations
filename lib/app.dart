@@ -6,6 +6,7 @@ import 'package:animations/pages/implicitly_animated/animated_default_text_style
 import 'package:animations/pages/implicitly_animated/animated_icon.dart';
 import 'package:animations/pages/implicitly_animated/animated_list.dart';
 import 'package:animations/pages/implicitly_animated/animated_modal_barrier.dart';
+import 'package:animations/pages/implicitly_animated/animated_opacity.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,7 @@ class App extends StatelessWidget {
         AnimatedListPage.routeName: (_context) => AnimatedListPage(),
         AnimatedModalBarrierPage.routeName: (_context) =>
             AnimatedModalBarrierPage(),
+        AnimatedOpacityPage.routeName: (_context) => AnimatedOpacityPage(),
       },
     );
   }
