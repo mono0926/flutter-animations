@@ -6,6 +6,8 @@ import 'package:animations/pages/implicitly_animated/animated_icon.dart';
 import 'package:animations/pages/implicitly_animated/animated_list.dart';
 import 'package:animations/pages/implicitly_animated/animated_modal_barrier.dart';
 import 'package:animations/pages/implicitly_animated/animated_opacity.dart';
+import 'package:animations/pages/implicitly_animated/animated_padding.dart';
+import 'package:animations/pages/implicitly_animated/animated_physical_model.dart';
 import 'package:animations/widget/app_list_tile.dart';
 import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +52,14 @@ class ImplicitlyAnimatedPage extends StatelessWidget {
           const AppListTile(
             title: 'AnimatedOpacity',
             nextRouteName: AnimatedOpacityPage.routeName,
+          ),
+          const AppListTile(
+            title: 'AnimatedPadding',
+            nextRouteName: AnimatedPaddingPage.routeName,
+          ),
+          const AppListTile(
+            title: 'AnimatedPhysicalModel',
+            nextRouteName: AnimatedPhysicalModelPage.routeName,
           ),
         ],
       ),
