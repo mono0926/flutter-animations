@@ -1,4 +1,3 @@
-import 'package:animations/widget/animation_object.dart';
 import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
@@ -10,49 +9,7 @@ class AnimatedPositionedPage extends StatefulWidget {
 }
 
 class _AnimatedPositionedPageState extends State<AnimatedPositionedPage> {
-  static const _alignments = [
-    Alignment.topLeft,
-    Alignment.topRight,
-    Alignment.bottomRight,
-    Alignment.bottomLeft,
-  ];
-
-  var _index = 0;
-  AlignmentGeometry get _alignment => _alignments[_index % _alignments.length];
-
-  double get _right {
-    if (_alignment == Alignment.topLeft) {
-      return null; // ignore: avoid_returning_null
-    }
-    if (_alignment == Alignment.topRight) {
-      return 0;
-    }
-    if (_alignment == Alignment.bottomRight) {
-      return 0;
-    }
-    if (_alignment == Alignment.bottomLeft) {
-      return null; // ignore: avoid_returning_null
-    }
-    assert(false);
-    return null; // ignore: avoid_returning_null
-  }
-
-  double get _bottom {
-    if (_alignment == Alignment.topLeft) {
-      return null; // ignore: avoid_returning_null
-    }
-    if (_alignment == Alignment.topRight) {
-      return null; // ignore: avoid_returning_null
-    }
-    if (_alignment == Alignment.bottomRight) {
-      return 0;
-    }
-    if (_alignment == Alignment.bottomLeft) {
-      return 0;
-    }
-    assert(false);
-    return null; // ignore: avoid_returning_null
-  }
+  var _shrinked = true;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +18,7 @@ class _AnimatedPositionedPageState extends State<AnimatedPositionedPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            _index++;
+            _shrinked = !_shrinked;
           });
         },
         child: const Icon(Icons.refresh),
@@ -70,12 +27,12 @@ class _AnimatedPositionedPageState extends State<AnimatedPositionedPage> {
         child: Stack(
           children: [
             Image.asset('assets/love_gray.png'),
-            // TODO: なぜかアニメーションがされない
             AnimatedPositioned(
-              right: _right,
-              bottom: _bottom,
+              top: 0,
+              left: 0,
+              width: _shrinked ? 50 : 300,
               duration: const Duration(milliseconds: 500),
-              child: AnimationObject(),
+              child: Image.asset('assets/love.png'),
               curve: Curves.easeInOut,
             ),
           ],
