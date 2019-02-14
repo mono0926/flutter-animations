@@ -50,7 +50,7 @@ class _AnimatedDefaultTextStylePageState
       ),
       child: Center(
         child: AnimatedDefaultTextStyle(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           child: const Text('Flutter'),
           curve: Curves.easeInOut,
           style: _textStyle,

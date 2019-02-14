@@ -19,7 +19,7 @@ class _AnimatedIconPageState extends State<AnimatedIconPage>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
   }
 
@@ -34,7 +34,7 @@ class _AnimatedIconPageState extends State<AnimatedIconPage>
       _playButtonEnabled = false;
     });
     await _animationController.forward(from: 0);
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     await _animationController.reverse();
     setState(() {
       _playButtonEnabled = true;

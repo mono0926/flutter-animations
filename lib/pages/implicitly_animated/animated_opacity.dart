@@ -25,7 +25,7 @@ class _AnimatedOpacityPageState extends State<AnimatedOpacityPage> {
       ),
       child: Center(
         child: AnimatedOpacity(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           opacity: _opaque ? 1 : 0.3,
           child: Image.asset('assets/love.png'),
         ),

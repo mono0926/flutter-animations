@@ -28,7 +28,7 @@ class _AnimatedCrossFadePageState extends State<AnimatedCrossFadePage> {
         child: AnimatedCrossFade(
           firstChild: Image.asset('assets/love.png'),
           secondChild: Image.asset('assets/love_gray.png'),
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           crossFadeState:
               _showFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         ),

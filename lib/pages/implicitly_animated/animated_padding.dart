@@ -25,7 +25,7 @@ class _AnimatedPaddingPageState extends State<AnimatedPaddingPage> {
       ),
       child: Center(
         child: AnimatedPadding(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           padding: EdgeInsets.all(_hasPadding ? 64 : 0),
           child: Image.asset('assets/love.png'),
         ),

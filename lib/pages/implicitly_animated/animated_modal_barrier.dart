@@ -71,7 +71,7 @@ class MyPageRoute extends TransitionRoute {
   bool get opaque => false;
 
   @override
-  Duration get transitionDuration => Duration(milliseconds: 500);
+  Duration get transitionDuration => const Duration(milliseconds: 500);
 
   Widget _buildModalBarrier(BuildContext context) {
     return IgnorePointer(

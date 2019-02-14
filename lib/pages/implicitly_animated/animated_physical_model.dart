@@ -31,7 +31,7 @@ class _AnimatedPhysicalModelPageState extends State<AnimatedPhysicalModelPage> {
             color: Colors.purple,
             shadowColor: Colors.black,
             shape: BoxShape.rectangle,
-            duration: Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
             elevation: _hasElevation ? 16 : 0,
             child: Padding(
               padding: const EdgeInsets.all(8),
