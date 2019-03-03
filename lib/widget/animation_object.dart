@@ -18,14 +18,16 @@ class AnimationObject extends StatelessWidget {
           left: 0,
           right: 0,
           top: 30,
-          child: BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 10,
-              sigmaY: 10,
-            ),
-            child: Container(
-              height: 30,
-              color: Colors.white.withAlpha(50),
+          child: ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 10,
+                sigmaY: 10,
+              ),
+              child: Container(
+                height: 30,
+                color: Colors.white.withAlpha(50),
+              ),
             ),
           ),
         )
