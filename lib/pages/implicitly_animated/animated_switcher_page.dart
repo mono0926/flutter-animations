@@ -1,7 +1,7 @@
 import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
-// TODO: AnimatedWidgetの派生クラスではない
+// TODO: ImplicitlyAnimatedWidgetの派生クラスではない
 /// See: https://medium.com/flutter-community/what-do-you-know-about-aniamtedswitcher-53cc3a4bebb8
 class AnimatedSwitcherPage extends StatefulWidget {
   static const routeName = 'animatedSwitcher';

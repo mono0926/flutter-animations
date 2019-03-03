@@ -1,7 +1,7 @@
 import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
-// TODO: AnimatedWidgetの派生クラスではない
+// TODO: ImplicitlyAnimatedWidgetの派生クラスではない
 /// See: https://medium.com/flutter-community/flutter-working-with-animatedsize-35253ff8f16a
 class AnimatedSizePage extends StatefulWidget {
   static const routeName = 'animatedSize';
