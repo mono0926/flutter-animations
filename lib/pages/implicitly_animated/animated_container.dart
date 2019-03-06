@@ -44,7 +44,7 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
         color: _color,
         margin: EdgeInsets.all(20 * ((3 - _index).toDouble() % 4)),
         padding: EdgeInsets.all(20 * (_index.toDouble() % 4)),
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         child: AnimationObject(),
         curve: Curves.easeInOut,
       ),
