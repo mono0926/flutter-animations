@@ -10,4 +10,4 @@
 
 ## Articles
 
-- [Flutter のお手軽にアニメーションを扱える Animated 系 Widget をすべて紹介](https://github.com/mono0926/flutter-animations)
+- [Flutter のお手軽にアニメーションを扱える Animated 系 Widget をすべて紹介](https://medium.com/flutter-jp/implicit-animation-b9d4b7358c28)
