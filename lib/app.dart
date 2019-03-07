@@ -15,6 +15,8 @@ import 'package:animations/pages/implicitly_animated/animated_size_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_switcher_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_theme_page.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
+import 'package:animations/pages/transition/slide_transition_page.dart';
+import 'package:animations/pages/transition/transition_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -27,6 +29,7 @@ class App extends StatelessWidget {
       ),
       home: HomePage(),
       routes: {
+        // Animated
         ImplicitlyAnimatedPage.routeName: (_context) =>
             ImplicitlyAnimatedPage(),
         AnimatedAlignPage.routeName: (_context) => AnimatedAlignPage(),
@@ -49,6 +52,9 @@ class App extends StatelessWidget {
         AnimatedThemePage.routeName: (_context) => AnimatedThemePage(),
         AnimatedSwitcherPage.routeName: (_context) => AnimatedSwitcherPage(),
         AnimatedSizePage.routeName: (_context) => AnimatedSizePage(),
+        // Transition
+        TransitionPage.routeName: (_context) => TransitionPage(),
+        SlideTransitionPage.routeName: (_context) => SlideTransitionPage(),
       },
     );
   }
