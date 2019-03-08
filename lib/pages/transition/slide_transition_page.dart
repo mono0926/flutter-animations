@@ -16,8 +16,10 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
   @override
   void initState() {
     super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
   }
 
   @override
