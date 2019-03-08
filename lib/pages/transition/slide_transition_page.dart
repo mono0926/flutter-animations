@@ -24,21 +24,42 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'SlideTransition',
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await _animationController.forward();
-          _animationController.reverse();
-        },
-        child: const Icon(Icons.refresh),
-      ),
-      child: SlideTransition(
-        position: _animationController.drive(
-          Tween<Offset>(
-            begin: Offset.zero,
-            end: const Offset(1, 1),
+      child: Stack(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset('assets/love.png'),
+              RaisedButton(
+                child: const Text('CLOSE'),
+                onPressed: () {
+                  _animationController.reverse();
+                },
+              )
+            ],
           ),
-        ),
-        child: AnimationObject(),
+          SlideTransition(
+            position: _animationController.drive(
+              Tween<Offset>(
+                begin: Offset.zero,
+                end: const Offset(0, -1),
+              ),
+            ),
+            child: SizedBox.expand(
+              child: Container(
+                color: Colors.black,
+                child: Center(
+                  child: RaisedButton(
+                    onPressed: () {
+                      _animationController.forward();
+                    },
+                    child: const Text('OPEN'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
