@@ -26,18 +26,7 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
       title: 'SlideTransition',
       child: Stack(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset('assets/love.png'),
-              RaisedButton(
-                child: const Text('CLOSE'),
-                onPressed: () {
-                  _animationController.reverse();
-                },
-              )
-            ],
-          ),
+          _buildContent(),
           SlideTransition(
             position: _animationController.drive(
               Tween<Offset>(
@@ -45,21 +34,40 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
                 end: const Offset(0, -1),
               ),
             ),
-            child: SizedBox.expand(
-              child: Container(
-                color: Colors.black,
-                child: Center(
-                  child: RaisedButton(
-                    onPressed: () {
-                      _animationController.forward();
-                    },
-                    child: const Text('OPEN'),
-                  ),
-                ),
-              ),
-            ),
+            child: _buildTransitionScreen(),
           ),
         ],
+      ),
+    );
+  }
+
+  Column _buildContent() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Image.asset('assets/love.png'),
+        RaisedButton(
+          child: const Text('CLOSE'),
+          onPressed: () {
+            _animationController.reverse();
+          },
+        )
+      ],
+    );
+  }
+
+  Widget _buildTransitionScreen() {
+    return SizedBox.expand(
+      child: Container(
+        color: Colors.black,
+        child: Center(
+          child: RaisedButton(
+            onPressed: () {
+              _animationController.forward();
+            },
+            child: const Text('OPEN'),
+          ),
+        ),
       ),
     );
   }
