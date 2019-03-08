@@ -23,6 +23,12 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'SlideTransition',
