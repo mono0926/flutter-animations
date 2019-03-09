@@ -34,31 +34,25 @@ class _RotationTransitionPageState extends State<RotationTransitionPage>
       title: 'RotationTransition',
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            _animationController.forward(from: 0);
-          });
+          _animationController.forward(from: 0);
         },
         child: const Icon(Icons.refresh),
       ),
-      child: Column(
-        children: [
-          RotationTransition(
-            alignment: Alignment.bottomCenter,
-            turns: _animationController
-                .drive(
-                  CurveTween(
-                    curve: Curves.elasticOut,
-                  ),
-                )
-                .drive(
-                  Tween<double>(
-                    begin: 0,
-                    end: 1,
-                  ),
-                ),
-            child: Image.asset('assets/love.png'),
-          )
-        ],
+      child: RotationTransition(
+        alignment: Alignment.bottomCenter,
+        turns: _animationController
+            .drive(
+              CurveTween(
+                curve: Curves.elasticOut,
+              ),
+            )
+            .drive(
+              Tween<double>(
+                begin: 0,
+                end: 1,
+              ),
+            ),
+        child: Image.asset('assets/love.png'),
       ),
     );
   }

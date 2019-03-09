@@ -36,14 +36,12 @@ class _FadeTransitionPageState extends State<FadeTransitionPage>
       title: 'FadeTransition',
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            if (_isScaledUp) {
-              _animationController.reverse();
-            } else {
-              _animationController.forward();
-            }
-            _isScaledUp = !_isScaledUp;
-          });
+          if (_isScaledUp) {
+            _animationController.reverse();
+          } else {
+            _animationController.forward();
+          }
+          _isScaledUp = !_isScaledUp;
         },
         child: const Icon(Icons.refresh),
       ),

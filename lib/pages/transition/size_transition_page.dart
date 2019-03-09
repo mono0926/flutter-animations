@@ -35,34 +35,28 @@ class _SizeTransitionPageState extends State<SizeTransitionPage>
       title: 'SizeTransition',
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            if (_isScaledUp) {
-              _animationController.reverse();
-            } else {
-              _animationController.forward();
-            }
-            _isScaledUp = !_isScaledUp;
-          });
+          if (_isScaledUp) {
+            _animationController.reverse();
+          } else {
+            _animationController.forward();
+          }
+          _isScaledUp = !_isScaledUp;
         },
         child: const Icon(Icons.refresh),
       ),
-      child: Column(
-        children: [
-          SizeTransition(
-            axisAlignment: -0.3,
-            sizeFactor: _animationController
-                .drive(
-                  CurveTween(curve: Curves.fastOutSlowIn),
-                )
-                .drive(
-                  Tween<double>(
-                    begin: 0.2,
-                    end: 1,
-                  ),
-                ),
-            child: Image.asset('assets/love.png'),
-          )
-        ],
+      child: SizeTransition(
+        axisAlignment: -0.3,
+        sizeFactor: _animationController
+            .drive(
+              CurveTween(curve: Curves.fastOutSlowIn),
+            )
+            .drive(
+              Tween<double>(
+                begin: 0.2,
+                end: 1,
+              ),
+            ),
+        child: Image.asset('assets/love.png'),
       ),
     );
   }
