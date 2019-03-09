@@ -18,6 +18,7 @@ import 'package:animations/pages/implicitly_animated/hero_page.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
 import 'package:animations/pages/transition/fade_transition_page.dart';
 import 'package:animations/pages/transition/positioned_transition_page.dart';
+import 'package:animations/pages/transition/relative_positioned_transition_page.dart';
 import 'package:animations/pages/transition/rotation_transition_page.dart';
 import 'package:animations/pages/transition/scale_transition_page.dart';
 import 'package:animations/pages/transition/size_transition_page.dart';
@@ -69,6 +70,8 @@ class App extends StatelessWidget {
         FadeTransitionPage.routeName: (_context) => FadeTransitionPage(),
         PositionedTransitionPage.routeName: (_context) =>
             PositionedTransitionPage(),
+        RelativePositionedTransitionPage.routeName: (_context) =>
+            RelativePositionedTransitionPage(),
       },
     );
   }
