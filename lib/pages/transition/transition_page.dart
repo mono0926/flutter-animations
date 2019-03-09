@@ -1,3 +1,4 @@
+import 'package:animations/pages/transition/rotation_transition_page.dart';
 import 'package:animations/pages/transition/scale_transition_page.dart';
 import 'package:animations/pages/transition/slide_transition_page.dart';
 import 'package:animations/widget/app_list_tile.dart';
@@ -20,6 +21,10 @@ class TransitionPage extends StatelessWidget {
           const AppListTile(
             title: 'ScaleTransition',
             nextRouteName: ScaleTransitionPage.routeName,
+          ),
+          const AppListTile(
+            title: 'RotationTransition',
+            nextRouteName: RotationTransitionPage.routeName,
           ),
         ],
       ),
