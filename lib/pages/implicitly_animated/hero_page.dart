@@ -1,8 +1,10 @@
 import 'package:animations/widget/widget.dart';
 import 'package:flutter/material.dart';
 
-const _heroTag = 'imageHero';
+const _heroTagImage = 'image';
+const _heroTagText = 'text';
 final _image = Image.asset('assets/love.png');
+const _text = 'I am a dog 🐶';
 
 class HeroPage extends StatelessWidget {
   static const routeName = 'Hero';
@@ -16,11 +18,17 @@ class HeroPage extends StatelessWidget {
           child: Row(
             children: [
               Hero(
-                tag: _heroTag,
+                tag: _heroTagImage,
                 child: _image,
               ),
               const SizedBox(width: 16),
-              const Text('I am a dog 🐶'),
+              Hero(
+                tag: _heroTagText,
+                child: Material(
+                  color: Colors.transparent,
+                  child: const Text(_text),
+                ),
+              ),
             ],
           ),
         ),
@@ -36,11 +44,24 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Detail',
-      child: Center(
-        child: Hero(
-          tag: _heroTag,
-          child: _image,
-        ),
+      child: Column(
+        children: [
+          Hero(
+            tag: _heroTagImage,
+            child: _image,
+          ),
+          const SizedBox(height: 16),
+          Hero(
+            tag: _heroTagText,
+            child: Material(
+              color: Colors.transparent,
+              child: Text(
+                _text,
+                style: TextStyle(fontSize: 32),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
