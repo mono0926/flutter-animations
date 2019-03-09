@@ -16,6 +16,7 @@ import 'package:animations/pages/implicitly_animated/animated_switcher_page.dart
 import 'package:animations/pages/implicitly_animated/animated_theme_page.dart';
 import 'package:animations/pages/implicitly_animated/hero_page.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
+import 'package:animations/pages/transition/scale_transition_page.dart';
 import 'package:animations/pages/transition/slide_transition_page.dart';
 import 'package:animations/pages/transition/transition_page.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +58,7 @@ class App extends StatelessWidget {
         // Transition
         TransitionPage.routeName: (_context) => TransitionPage(),
         SlideTransitionPage.routeName: (_context) => SlideTransitionPage(),
+        ScaleTransitionPage.routeName: (_context) => ScaleTransitionPage(),
       },
     );
   }

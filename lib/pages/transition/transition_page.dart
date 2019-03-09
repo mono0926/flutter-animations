@@ -1,3 +1,4 @@
+import 'package:animations/pages/transition/scale_transition_page.dart';
 import 'package:animations/pages/transition/slide_transition_page.dart';
 import 'package:animations/widget/app_list_tile.dart';
 import 'package:animations/widget/app_scaffold.dart';
@@ -15,6 +16,10 @@ class TransitionPage extends StatelessWidget {
           const AppListTile(
             title: 'SlideTransition',
             nextRouteName: SlideTransitionPage.routeName,
+          ),
+          const AppListTile(
+            title: 'ScaleTransition',
+            nextRouteName: ScaleTransitionPage.routeName,
           ),
         ],
       ),
