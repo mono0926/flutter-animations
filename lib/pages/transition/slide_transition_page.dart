@@ -1,6 +1,6 @@
-import 'package:animations/widget/animation_object.dart';
-import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
+
+import '../../widget/app_scaffold.dart';
 
 class SlideTransitionPage extends StatefulWidget {
   static const routeName = 'slideTransition';
@@ -65,12 +65,14 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
         children: [
           _buildContent(),
           SlideTransition(
-            position: _animationController.drive(
-              Tween<Offset>(
-                begin: Offset.zero,
-                end: const Offset(0, -1),
-              ),
-            ),
+            position: _animationController
+                .drive(CurveTween(curve: Curves.easeInOut))
+                .drive(
+                  Tween<Offset>(
+                    begin: Offset.zero,
+                    end: const Offset(0, -1),
+                  ),
+                ),
             child: _buildTransitionScreen(),
           ),
         ],
