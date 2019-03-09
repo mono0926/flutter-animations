@@ -31,6 +31,7 @@ class _FadeTransitionPageState extends State<FadeTransitionPage>
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.width / 2;
     return AppScaffold(
       title: 'FadeTransition',
       floatingActionButton: FloatingActionButton(
@@ -48,21 +49,47 @@ class _FadeTransitionPageState extends State<FadeTransitionPage>
       ),
       child: Column(
         children: [
-          FadeTransition(
-            opacity: _animationController
-                .drive(
-                  CurveTween(curve: Curves.fastOutSlowIn),
-                )
-                .drive(
-                  Tween<double>(
-                    begin: 1,
-                    end: 0.2,
-                  ),
-                ),
-            child: Image.asset('assets/love.png'),
-          )
+          SizedBox(
+            height: height,
+            child: Row(
+              children: [
+                _buildContent(0),
+                _buildContent(0.2),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: height,
+            child: Row(
+              children: [
+                _buildContent(0.4),
+                _buildContent(0.6),
+              ],
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  FadeTransition _buildContent(double start) {
+    return FadeTransition(
+      opacity: _animationController
+          .drive(
+            CurveTween(
+                curve: Interval(
+              start,
+              start + 0.4,
+              curve: Curves.fastOutSlowIn,
+            )),
+          )
+          .drive(
+            Tween<double>(
+              begin: 0.1,
+              end: 1,
+            ),
+          ),
+      child: Image.asset('assets/love.png'),
     );
   }
 }
