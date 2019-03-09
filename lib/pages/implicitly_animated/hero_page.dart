@@ -12,7 +12,7 @@ class HeroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Hero',
-      child: GestureDetector(
+      child: InkWell(
         child: SizedBox(
           height: 60,
           child: Row(
