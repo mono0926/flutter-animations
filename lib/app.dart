@@ -18,6 +18,7 @@ import 'package:animations/pages/implicitly_animated/hero_page.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
 import 'package:animations/pages/transition/rotation_transition_page.dart';
 import 'package:animations/pages/transition/scale_transition_page.dart';
+import 'package:animations/pages/transition/size_transition_page.dart';
 import 'package:animations/pages/transition/slide_transition_page.dart';
 import 'package:animations/pages/transition/transition_page.dart';
 import 'package:flutter/material.dart';
@@ -62,6 +63,7 @@ class App extends StatelessWidget {
         ScaleTransitionPage.routeName: (_context) => ScaleTransitionPage(),
         RotationTransitionPage.routeName: (_context) =>
             RotationTransitionPage(),
+        SizeTransitionPage.routeName: (_context) => SizeTransitionPage(),
       },
     );
   }
