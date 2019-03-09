@@ -1,3 +1,4 @@
+import 'package:animations/pages/transition/decorated_box_transition_page.dart';
 import 'package:animations/pages/transition/fade_transition_page.dart';
 import 'package:animations/pages/transition/positioned_transition_page.dart';
 import 'package:animations/pages/transition/relative_positioned_transition_page.dart';
@@ -45,6 +46,10 @@ class TransitionPage extends StatelessWidget {
           const AppListTile(
             title: 'RelativePositionedTransition',
             nextRouteName: RelativePositionedTransitionPage.routeName,
+          ),
+          const AppListTile(
+            title: 'DecoratedBoxTransition',
+            nextRouteName: DecoratedBoxTransitionPage.routeName,
           ),
         ],
       ),
