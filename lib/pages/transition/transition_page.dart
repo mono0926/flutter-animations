@@ -1,5 +1,6 @@
 import 'package:animations/pages/transition/align_transition_page.dart';
 import 'package:animations/pages/transition/decorated_box_transition_page.dart';
+import 'package:animations/pages/transition/default_text_style_transition_page.dart';
 import 'package:animations/pages/transition/fade_transition_page.dart';
 import 'package:animations/pages/transition/positioned_transition_page.dart';
 import 'package:animations/pages/transition/relative_positioned_transition_page.dart';
@@ -55,6 +56,10 @@ class TransitionPage extends StatelessWidget {
           const AppListTile(
             title: 'AlignTransition',
             nextRouteName: AlignTransitionPage.routeName,
+          ),
+          const AppListTile(
+            title: 'DefaultTextStyleTransition',
+            nextRouteName: DefaultTextStyleTransitionPage.routeName,
           ),
         ],
       ),

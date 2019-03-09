@@ -18,6 +18,7 @@ import 'package:animations/pages/implicitly_animated/hero_page.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
 import 'package:animations/pages/transition/align_transition_page.dart';
 import 'package:animations/pages/transition/decorated_box_transition_page.dart';
+import 'package:animations/pages/transition/default_text_style_transition_page.dart';
 import 'package:animations/pages/transition/fade_transition_page.dart';
 import 'package:animations/pages/transition/positioned_transition_page.dart';
 import 'package:animations/pages/transition/relative_positioned_transition_page.dart';
@@ -77,6 +78,8 @@ class App extends StatelessWidget {
         DecoratedBoxTransitionPage.routeName: (_context) =>
             DecoratedBoxTransitionPage(),
         AlignTransitionPage.routeName: (_context) => AlignTransitionPage(),
+        DefaultTextStyleTransitionPage.routeName: (_context) =>
+            DefaultTextStyleTransitionPage(),
       },
     );
   }
