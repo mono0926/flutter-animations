@@ -13,6 +13,7 @@ import 'package:animations/pages/implicitly_animated/animated_positioned_directi
 import 'package:animations/pages/implicitly_animated/animated_size_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_switcher_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_theme_page.dart';
+import 'package:animations/pages/implicitly_animated/hero_page.dart';
 import 'package:animations/widget/app_list_tile.dart';
 import 'package:animations/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -85,6 +86,10 @@ class ImplicitlyAnimatedPage extends StatelessWidget {
           const AppListTile(
             title: 'AnimatedSizePage',
             nextRouteName: AnimatedSizePage.routeName,
+          ),
+          const AppListTile(
+            title: 'HeroPage',
+            nextRouteName: HeroPage.routeName,
           ),
         ],
       ),
