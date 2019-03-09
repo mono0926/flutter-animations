@@ -16,6 +16,7 @@ import 'package:animations/pages/implicitly_animated/animated_switcher_page.dart
 import 'package:animations/pages/implicitly_animated/animated_theme_page.dart';
 import 'package:animations/pages/implicitly_animated/hero_page.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
+import 'package:animations/pages/transition/fade_transition_page.dart';
 import 'package:animations/pages/transition/rotation_transition_page.dart';
 import 'package:animations/pages/transition/scale_transition_page.dart';
 import 'package:animations/pages/transition/size_transition_page.dart';
@@ -64,6 +65,7 @@ class App extends StatelessWidget {
         RotationTransitionPage.routeName: (_context) =>
             RotationTransitionPage(),
         SizeTransitionPage.routeName: (_context) => SizeTransitionPage(),
+        FadeTransitionPage.routeName: (_context) => FadeTransitionPage(),
       },
     );
   }

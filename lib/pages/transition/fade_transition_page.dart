@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../widget/app_scaffold.dart';
 
-class SizeTransitionPage extends StatefulWidget {
-  static const routeName = 'SizeTransition';
+class FadeTransitionPage extends StatefulWidget {
+  static const routeName = 'FadeTransition';
 
   @override
-  _SizeTransitionPageState createState() => _SizeTransitionPageState();
+  _FadeTransitionPageState createState() => _FadeTransitionPageState();
 }
 
-class _SizeTransitionPageState extends State<SizeTransitionPage>
+class _FadeTransitionPageState extends State<FadeTransitionPage>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   var _isScaledUp = false;
@@ -32,7 +32,7 @@ class _SizeTransitionPageState extends State<SizeTransitionPage>
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      title: 'SizeTransition',
+      title: 'FadeTransition',
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
@@ -48,16 +48,15 @@ class _SizeTransitionPageState extends State<SizeTransitionPage>
       ),
       child: Column(
         children: [
-          SizeTransition(
-            axisAlignment: -0.3,
-            sizeFactor: _animationController
+          FadeTransition(
+            opacity: _animationController
                 .drive(
                   CurveTween(curve: Curves.fastOutSlowIn),
                 )
                 .drive(
                   Tween<double>(
-                    begin: 0.2,
-                    end: 1,
+                    begin: 1,
+                    end: 0.2,
                   ),
                 ),
             child: Image.asset('assets/love.png'),

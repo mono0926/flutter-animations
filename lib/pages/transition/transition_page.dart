@@ -1,3 +1,4 @@
+import 'package:animations/pages/transition/fade_transition_page.dart';
 import 'package:animations/pages/transition/rotation_transition_page.dart';
 import 'package:animations/pages/transition/scale_transition_page.dart';
 import 'package:animations/pages/transition/size_transition_page.dart';
@@ -30,6 +31,10 @@ class TransitionPage extends StatelessWidget {
           const AppListTile(
             title: 'SizeTransition',
             nextRouteName: SizeTransitionPage.routeName,
+          ),
+          const AppListTile(
+            title: 'FadeTransition',
+            nextRouteName: FadeTransitionPage.routeName,
           ),
         ],
       ),
