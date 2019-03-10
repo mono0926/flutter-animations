@@ -20,35 +20,6 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
-
-    // TODO: どこかに移動
-    // animate() - CurvedAnimation
-    final animation = Tween<double>(begin: 800, end: 0).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: const Interval(0.1, 0.5, curve: Curves.decelerate),
-      ),
-    );
-
-    // animate() - CurveTween
-    final animation2 = Tween<double>(begin: 800, end: 0)
-        .chain(CurveTween(
-          curve: const Interval(0.1, 0.5, curve: Curves.decelerate),
-        ))
-        .animate(_animationController);
-
-    // drive()
-    final animation3 = _animationController
-        .drive(CurveTween(
-          curve: const Interval(0.1, 0.5, curve: Curves.decelerate),
-        ))
-        .drive(Tween<double>(begin: 800, end: 0));
-
-    _animationController.addListener(() {
-      print('animation: ${animation.value}');
-      print('animation2: ${animation2.value}');
-      print('animation3: ${animation3.value}');
-    });
   }
 
   @override
