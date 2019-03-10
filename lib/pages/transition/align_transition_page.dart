@@ -54,7 +54,7 @@ class _AlignTransitionPageState extends State<AlignTransitionPage>
                   ),
                 )
                 .drive(
-                  AlignmentGeometryTween(
+                  AlignmentTween(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -72,7 +72,7 @@ class _AlignTransitionPageState extends State<AlignTransitionPage>
                   ),
                 )
                 .drive(
-                  AlignmentGeometryTween(
+                  AlignmentTween(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
