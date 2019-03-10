@@ -12,7 +12,7 @@ class AlignTransitionPage extends StatefulWidget {
 class _AlignTransitionPageState extends State<AlignTransitionPage>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
-  var _isScaledUp = false;
+  var _isMoved = false;
 
   @override
   void initState() {
@@ -35,12 +35,12 @@ class _AlignTransitionPageState extends State<AlignTransitionPage>
       title: 'AlignTransition',
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (_isScaledUp) {
+          if (_isMoved) {
             _animationController.reverse();
           } else {
             _animationController.forward();
           }
-          _isScaledUp = !_isScaledUp;
+          _isMoved = !_isMoved;
         },
         child: const Icon(Icons.refresh),
       ),
@@ -49,7 +49,9 @@ class _AlignTransitionPageState extends State<AlignTransitionPage>
           AlignTransition(
             alignment: _animationController
                 .drive(
-                  CurveTween(curve: Curves.fastOutSlowIn),
+                  CurveTween(
+                    curve: const Interval(0.4, 1, curve: Curves.fastOutSlowIn),
+                  ),
                 )
                 .drive(
                   AlignmentGeometryTween(
@@ -57,7 +59,28 @@ class _AlignTransitionPageState extends State<AlignTransitionPage>
                     end: Alignment.bottomRight,
                   ),
                 ),
-            child: SizedBox(width: 200, child: Image.asset('assets/love.png')),
+            child: Image.asset(
+              'assets/love_gray.png',
+              width: 200,
+            ),
+          ),
+          AlignTransition(
+            alignment: _animationController
+                .drive(
+                  CurveTween(
+                    curve: const Interval(0, 0.6, curve: Curves.fastOutSlowIn),
+                  ),
+                )
+                .drive(
+                  AlignmentGeometryTween(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+            child: Image.asset(
+              'assets/love.png',
+              width: 200,
+            ),
           ),
         ],
       ),
