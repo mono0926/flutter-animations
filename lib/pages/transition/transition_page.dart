@@ -22,20 +22,16 @@ class TransitionPage extends StatelessWidget {
       child: ListView(
         children: [
           const AppListTile(
-            title: 'SlideTransition',
-            nextRouteName: SlideTransitionPage.routeName,
+            title: 'AlignTransition',
+            nextRouteName: AlignTransitionPage.routeName,
           ),
           const AppListTile(
-            title: 'ScaleTransition',
-            nextRouteName: ScaleTransitionPage.routeName,
+            title: 'DecoratedBoxTransition',
+            nextRouteName: DecoratedBoxTransitionPage.routeName,
           ),
           const AppListTile(
-            title: 'RotationTransition',
-            nextRouteName: RotationTransitionPage.routeName,
-          ),
-          const AppListTile(
-            title: 'SizeTransition',
-            nextRouteName: SizeTransitionPage.routeName,
+            title: 'DefaultTextStyleTransition',
+            nextRouteName: DefaultTextStyleTransitionPage.routeName,
           ),
           const AppListTile(
             title: 'FadeTransition',
@@ -50,16 +46,20 @@ class TransitionPage extends StatelessWidget {
             nextRouteName: RelativePositionedTransitionPage.routeName,
           ),
           const AppListTile(
-            title: 'DecoratedBoxTransition',
-            nextRouteName: DecoratedBoxTransitionPage.routeName,
+            title: 'RotationTransition',
+            nextRouteName: RotationTransitionPage.routeName,
           ),
           const AppListTile(
-            title: 'AlignTransition',
-            nextRouteName: AlignTransitionPage.routeName,
+            title: 'ScaleTransition',
+            nextRouteName: ScaleTransitionPage.routeName,
           ),
           const AppListTile(
-            title: 'DefaultTextStyleTransition',
-            nextRouteName: DefaultTextStyleTransitionPage.routeName,
+            title: 'SizeTransition',
+            nextRouteName: SizeTransitionPage.routeName,
+          ),
+          const AppListTile(
+            title: 'SlideTransition',
+            nextRouteName: SlideTransitionPage.routeName,
           ),
         ],
       ),
