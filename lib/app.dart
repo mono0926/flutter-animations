@@ -1,3 +1,4 @@
+import 'package:animations/pages/flight_search/flight_search_page.dart';
 import 'package:animations/pages/home/home_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_align.dart';
 import 'package:animations/pages/implicitly_animated/animated_container.dart';
@@ -82,6 +83,7 @@ class App extends StatelessWidget {
         AlignTransitionPage.routeName: (_context) => AlignTransitionPage(),
         DefaultTextStyleTransitionPage.routeName: (_context) =>
             DefaultTextStyleTransitionPage(),
+        FlightSearchPage.routeName: (_context) => FlightSearchPage(),
       },
     );
   }

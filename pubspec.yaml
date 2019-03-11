@@ -17,3 +17,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+  fonts:
+    - family: NothingYouCouldDo
+      fonts:
+        - asset: fonts/NothingYouCouldDo.ttf
