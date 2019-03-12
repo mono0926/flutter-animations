@@ -3,10 +3,18 @@ import 'package:animations/pages/flight_search/content_card.dart';
 import 'package:animations/pages/flight_search/rounded_button.dart';
 import 'package:flutter/material.dart';
 
-class FlightSearchPage extends StatelessWidget {
+class FlightSearchPage extends StatefulWidget {
   const FlightSearchPage();
 
   static const routeName = 'FlightSearchPage';
+
+  @override
+  _FlightSearchPageState createState() => _FlightSearchPageState();
+}
+
+class _FlightSearchPageState extends State<FlightSearchPage> {
+  var _showInput = true;
+
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.of(context).padding.top;
@@ -25,7 +33,10 @@ class FlightSearchPage extends StatelessWidget {
                 child: Column(
                   children: [
                     _buildButtonsRow(),
-                    const Expanded(child: ContentCard()),
+                    Expanded(
+                        child: ContentCard(
+                      showInput: _showInput,
+                    )),
                   ],
                 ),
               ),
@@ -33,13 +44,19 @@ class FlightSearchPage extends StatelessWidget {
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(
-            Icons.timeline,
-            size: 36,
-          ),
-        ),
+        floatingActionButton: _showInput
+            ? FloatingActionButton(
+                onPressed: () {
+                  setState(() {
+                    _showInput = !_showInput;
+                  });
+                },
+                child: const Icon(
+                  Icons.timeline,
+                  size: 36,
+                ),
+              )
+            : null,
       ),
     );
   }

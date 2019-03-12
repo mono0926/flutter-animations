@@ -1,8 +1,13 @@
 import 'package:animations/pages/flight_search/multicity_input.dart';
+import 'package:animations/pages/flight_search/price_tab.dart';
 import 'package:flutter/material.dart';
 
 class ContentCard extends StatelessWidget {
-  const ContentCard();
+  const ContentCard({
+    @required this.showInput,
+  });
+
+  final bool showInput;
 
   static const _tabs = <Tab>[
     Tab(text: 'Flight'),
@@ -51,9 +56,18 @@ class ContentCard extends StatelessWidget {
   }
 
   Widget _buildTabContent() {
-    return SingleChildScrollView(
-      physics: const AlwaysScrollableScrollPhysics(),
-      child: const MulticityInput(),
+    return AnimatedCrossFade(
+      firstChild: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: const MulticityInput(),
+      ),
+      secondChild: LayoutBuilder(
+        builder: (context, constraints) =>
+            PriceTab(height: constraints.maxHeight),
+      ),
+      crossFadeState:
+          showInput ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+      duration: Duration(milliseconds: 200),
     );
   }
 }
