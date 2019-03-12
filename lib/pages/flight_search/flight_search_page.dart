@@ -1,5 +1,5 @@
 import 'package:animations/pages/flight_search/air_asia_bar.dart';
-import 'package:animations/pages/flight_search/center_card.dart';
+import 'package:animations/pages/flight_search/content_card.dart';
 import 'package:animations/pages/flight_search/rounded_button.dart';
 import 'package:flutter/material.dart';
 
