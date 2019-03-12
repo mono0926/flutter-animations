@@ -56,17 +56,18 @@ class ContentCard extends StatelessWidget {
   }
 
   Widget _buildTabContent() {
-    return AnimatedCrossFade(
-      firstChild: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        child: const MulticityInput(),
+    return AnimatedSwitcher(
+      child: SizedBox.expand(
+        child: showInput
+            ? SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: const MulticityInput(),
+              )
+            : LayoutBuilder(
+                builder: (context, constraints) =>
+                    PriceTab(height: constraints.maxHeight),
+              ),
       ),
-      secondChild: LayoutBuilder(
-        builder: (context, constraints) =>
-            PriceTab(height: constraints.maxHeight),
-      ),
-      crossFadeState:
-          showInput ? CrossFadeState.showFirst : CrossFadeState.showSecond,
       duration: Duration(milliseconds: 200),
     );
   }
