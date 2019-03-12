@@ -4,6 +4,8 @@ import 'package:animations/pages/flight_search/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class FlightSearchPage extends StatelessWidget {
+  const FlightSearchPage();
+
   static const routeName = 'FlightSearchPage';
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class FlightSearchPage extends StatelessWidget {
                 child: Column(
                   children: [
                     _buildButtonsRow(),
-                    Expanded(child: ContentCard()),
+                    const Expanded(child: ContentCard()),
                   ],
                 ),
               ),

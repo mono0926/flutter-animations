@@ -1,10 +1,13 @@
+import 'package:animations/pages/flight_search/multicity_input.dart';
 import 'package:flutter/material.dart';
 
 class ContentCard extends StatelessWidget {
-  final _tabs = <Tab>[
-    const Tab(text: 'Flight'),
-    const Tab(text: 'Train'),
-    const Tab(text: 'Bus'),
+  const ContentCard();
+
+  static const _tabs = <Tab>[
+    Tab(text: 'Flight'),
+    Tab(text: 'Train'),
+    Tab(text: 'Bus'),
   ];
 
   @override
@@ -19,7 +22,7 @@ class ContentCard extends StatelessWidget {
             _buildTabBar(),
             Expanded(
               child: TabBarView(
-                children: _tabs.map((_) => _buildContentContainer()).toList(),
+                children: _tabs.map((_) => _buildTabContent()).toList(),
               ),
             ),
           ],
@@ -47,30 +50,10 @@ class ContentCard extends StatelessWidget {
     );
   }
 
-  Widget _buildContentContainer() {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: constraints.maxHeight,
-            ),
-            child: IntrinsicHeight(
-              child: _buildMulticityTab(),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildMulticityTab() {
-    return Column(
-      children: [
-        const Text('Inputs'), //TODO: Add MultiCity input
-        const Expanded(child: SizedBox()),
-      ],
+  Widget _buildTabContent() {
+    return SingleChildScrollView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      child: const MulticityInput(),
     );
   }
 }
