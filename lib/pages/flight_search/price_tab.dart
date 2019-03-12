@@ -16,10 +16,10 @@ class PriceTab extends StatefulWidget {
 class _PriceTabState extends State<PriceTab>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
-  Animation<double> _planeSizeAnimation;
+  Animation<double> _planeScaleAnimation;
 
   static const double _initialPlanePaddingBottom = 16;
-  static const double _planeSize = 60;
+  static const double _planeSize = 36;
 
   double get _planeTopPadding =>
       widget.height - (_initialPlanePaddingBottom + _planeSize);
@@ -31,12 +31,16 @@ class _PriceTabState extends State<PriceTab>
       vsync: this,
       duration: const Duration(milliseconds: 340),
     );
-    _planeSizeAnimation = _animationController.drive(
-      Tween<double>(
-        begin: 60,
-        end: 36,
-      ),
-    );
+    _planeScaleAnimation = _animationController
+        .drive(
+          CurveTween(curve: Curves.easeOut),
+        )
+        .drive(
+          Tween<double>(
+            begin: 5 / 3,
+            end: 1,
+          ),
+        );
 
     _animationController.forward();
   }
@@ -60,7 +64,10 @@ class _PriceTabState extends State<PriceTab>
       top: _planeTopPadding,
       child: Column(
         children: [
-          AnimatedPlaneIcon(animation: _planeSizeAnimation),
+          AnimatedPlaneIcon(
+            size: 36,
+            scaleAnimation: _planeScaleAnimation,
+          ),
         ],
       ),
     );

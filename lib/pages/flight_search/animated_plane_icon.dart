@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 
-class AnimatedPlaneIcon extends AnimatedWidget {
+class AnimatedPlaneIcon extends StatelessWidget {
   const AnimatedPlaneIcon({
     Key key,
-    @required Animation<double> animation,
-  }) : super(
-          key: key,
-          listenable: animation,
-        );
+    @required this.size,
+    @required this.scaleAnimation,
+  }) : super(key: key);
+
+  final double size;
+  final Animation<double> scaleAnimation;
 
   @override
   Widget build(BuildContext context) {
-    final animation = super.listenable as Animation<double>;
-    return Icon(
-      Icons.airplanemode_active,
-      color: Colors.red,
-      size: animation.value,
+    return ScaleTransition(
+      alignment: Alignment.bottomCenter,
+      scale: scaleAnimation,
+      child: const Icon(
+        Icons.airplanemode_active,
+        color: Colors.red,
+        size: 36,
+      ),
     );
   }
 }
