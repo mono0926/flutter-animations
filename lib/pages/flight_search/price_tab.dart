@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 class PriceTab extends StatefulWidget {
   const PriceTab({
     Key key,
-    @required this.height,
   }) : super(key: key);
-
-  final double height;
 
   @override
   _PriceTabState createState() => _PriceTabState();
@@ -21,8 +18,8 @@ class _PriceTabState extends State<PriceTab>
   static const double _initialPlanePaddingBottom = 16;
   static const double _planeSize = 36;
 
-  double get _planeTopPadding =>
-      widget.height - (_initialPlanePaddingBottom + _planeSize);
+  // double get _planeTopPadding =>
+  //     widget.height - (_initialPlanePaddingBottom + _planeSize);
 
   @override
   void initState() {
@@ -53,19 +50,23 @@ class _PriceTabState extends State<PriceTab>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [_buildPlane()],
+    return LayoutBuilder(
+      builder: (context, constraints) => Stack(
+            alignment: Alignment.center,
+            children: [_buildPlane(constraints: constraints)],
+          ),
     );
   }
 
-  Widget _buildPlane() {
+  Widget _buildPlane({
+    @required BoxConstraints constraints,
+  }) {
     return Positioned(
-      top: _planeTopPadding,
+      top: constraints.maxHeight - (_initialPlanePaddingBottom + _planeSize),
       child: Column(
         children: [
           AnimatedPlaneIcon(
-            size: 36,
+            size: _planeSize,
             scaleAnimation: _planeScaleAnimation,
           ),
         ],

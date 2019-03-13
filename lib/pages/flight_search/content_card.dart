@@ -63,10 +63,7 @@ class ContentCard extends StatelessWidget {
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: const MulticityInput(),
               )
-            : LayoutBuilder(
-                builder: (context, constraints) =>
-                    PriceTab(height: constraints.maxHeight),
-              ),
+            : const PriceTab(),
       ),
       duration: Duration(milliseconds: 200),
     );

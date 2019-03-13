@@ -22,7 +22,7 @@ class RoundedButton extends StatelessWidget {
             secondChild: _buildUnselectedButton(),
             crossFadeState:
                 selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-            duration: Duration(milliseconds: 200),
+            duration: const Duration(milliseconds: 200),
           )),
     );
   }
