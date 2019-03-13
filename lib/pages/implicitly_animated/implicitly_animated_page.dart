@@ -13,6 +13,7 @@ import 'package:animations/pages/implicitly_animated/animated_positioned_directi
 import 'package:animations/pages/implicitly_animated/animated_size_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_switcher_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_theme_page.dart';
+import 'package:animations/pages/implicitly_animated/fade_in_image_page.dart';
 import 'package:animations/pages/implicitly_animated/hero_page.dart';
 import 'package:animations/widget/app_list_tile.dart';
 import 'package:animations/widget/app_scaffold.dart';
@@ -76,20 +77,24 @@ class ImplicitlyAnimatedPage extends StatelessWidget {
             nextRouteName: AnimatedPositionedDirectionalPage.routeName,
           ),
           const AppListTile(
-            title: 'AnimatedThemePage',
+            title: 'AnimatedTheme',
             nextRouteName: AnimatedThemePage.routeName,
           ),
           const AppListTile(
-            title: 'AnimatedSwitcherPage',
+            title: 'AnimatedSwitcher',
             nextRouteName: AnimatedSwitcherPage.routeName,
           ),
           const AppListTile(
-            title: 'AnimatedSizePage',
+            title: 'AnimatedSize',
             nextRouteName: AnimatedSizePage.routeName,
           ),
           const AppListTile(
-            title: 'HeroPage',
+            title: 'Hero',
             nextRouteName: HeroPage.routeName,
+          ),
+          const AppListTile(
+            title: 'FadeInImage',
+            nextRouteName: FadeInImagePage.routeName,
           ),
         ],
       ),

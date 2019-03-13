@@ -14,6 +14,7 @@ import 'package:animations/pages/implicitly_animated/animated_positioned_directi
 import 'package:animations/pages/implicitly_animated/animated_size_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_switcher_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_theme_page.dart';
+import 'package:animations/pages/implicitly_animated/fade_in_image_page.dart';
 import 'package:animations/pages/implicitly_animated/hero_page.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
 import 'package:animations/pages/transition/align_transition_page.dart';
@@ -63,6 +64,7 @@ class App extends StatelessWidget {
         AnimatedSwitcherPage.routeName: (_context) => AnimatedSwitcherPage(),
         AnimatedSizePage.routeName: (_context) => AnimatedSizePage(),
         HeroPage.routeName: (_context) => HeroPage(),
+        FadeInImagePage.routeName: (_context) => FadeInImagePage(),
         // Transition
         TransitionPage.routeName: (_context) => TransitionPage(),
         SlideTransitionPage.routeName: (_context) => SlideTransitionPage(),

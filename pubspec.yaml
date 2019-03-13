@@ -9,6 +9,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   simple_logger: any
   quiver: any
+  transparent_image: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
