@@ -10,25 +10,22 @@ class PriceTab extends StatefulWidget {
   _PriceTabState createState() => _PriceTabState();
 }
 
-class _PriceTabState extends State<PriceTab>
-    with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
+  AnimationController _planeSizeAnimationController;
+  AnimationController _planeTravelController;
   Animation<double> _planeScaleAnimation;
 
   static const double _initialPlanePaddingBottom = 16;
   static const double _planeSize = 36;
 
-  // double get _planeTopPadding =>
-  //     widget.height - (_initialPlanePaddingBottom + _planeSize);
-
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
+    _planeSizeAnimationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 340),
     );
-    _planeScaleAnimation = _animationController
+    _planeScaleAnimation = _planeSizeAnimationController
         .drive(
           CurveTween(curve: Curves.easeOut),
         )
@@ -39,12 +36,24 @@ class _PriceTabState extends State<PriceTab>
           ),
         );
 
-    _animationController.forward();
+    _planeTravelController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 400),
+    );
+
+    _forwardAnimation();
+  }
+
+  void _forwardAnimation() async {
+    await _planeSizeAnimationController.forward();
+    await Future.delayed(const Duration(milliseconds: 500));
+    await _planeTravelController.forward();
   }
 
   @override
   void dispose() {
-    _animationController.dispose();
+    _planeSizeAnimationController.dispose();
+    _planeTravelController.dispose();
     super.dispose();
   }
 
@@ -53,7 +62,9 @@ class _PriceTabState extends State<PriceTab>
     return LayoutBuilder(
       builder: (context, constraints) => Stack(
             alignment: Alignment.center,
-            children: [_buildPlane(constraints: constraints)],
+            children: [
+              _buildPlane(constraints: constraints),
+            ],
           ),
     );
   }
@@ -61,14 +72,27 @@ class _PriceTabState extends State<PriceTab>
   Widget _buildPlane({
     @required BoxConstraints constraints,
   }) {
-    return Positioned(
-      top: constraints.maxHeight - (_initialPlanePaddingBottom + _planeSize),
+    final beginTop =
+        constraints.maxHeight - (_initialPlanePaddingBottom + _planeSize);
+    const endTop = 16.0;
+    return PositionedTransition(
+      rect: _planeTravelController
+          .drive(CurveTween(curve: Curves.fastOutSlowIn))
+          .drive(RelativeRectTween(
+            begin: RelativeRect.fromLTRB(0, beginTop, 0, -beginTop),
+            end: const RelativeRect.fromLTRB(0, endTop, 0, endTop),
+          )),
       child: Column(
         children: [
           AnimatedPlaneIcon(
             size: _planeSize,
             scaleAnimation: _planeScaleAnimation,
           ),
+          Container(
+            width: 2,
+            height: 240,
+            color: const Color.fromARGB(255, 200, 200, 200),
+          )
         ],
       ),
     );
