@@ -56,10 +56,12 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
 
   void _forwardAnimation() async {
     await _planeSizeAnimationController.forward();
-    await Future.delayed(const Duration(milliseconds: 500));
-    await _planeTravelController.forward();
-    await Future.delayed(const Duration(milliseconds: 700));
-    await _dotsAnimationController.forward();
+    // ignore: unawaited_futures
+    Future.delayed(const Duration(milliseconds: 500))
+        .then((_) => _planeTravelController.forward());
+    // ignore: unawaited_futures
+    Future.delayed(const Duration(milliseconds: 700))
+        .then((_) => _dotsAnimationController.forward());
   }
 
   @override
