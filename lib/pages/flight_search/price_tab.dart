@@ -1,3 +1,4 @@
+import 'package:animations/pages/flight_search/animated_dot.dart';
 import 'package:animations/pages/flight_search/animated_plane_icon.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +14,14 @@ class PriceTab extends StatefulWidget {
 class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   AnimationController _planeSizeAnimationController;
   AnimationController _planeTravelController;
+  AnimationController _dotsAnimationController;
   Animation<double> _planeScaleAnimation;
 
   static const double _initialPlanePaddingBottom = 16;
+  static const double _minPlanePaddingTop = 16;
   static const double _planeSize = 36;
+  static const double _cardHeight = 80;
+  static const _flightStops = [1, 2, 3, 4];
 
   @override
   void initState() {
@@ -41,6 +46,11 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 400),
     );
 
+    _dotsAnimationController = new AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+
     _forwardAnimation();
   }
 
@@ -48,12 +58,15 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
     await _planeSizeAnimationController.forward();
     await Future.delayed(const Duration(milliseconds: 500));
     await _planeTravelController.forward();
+    await Future.delayed(const Duration(milliseconds: 700));
+    await _dotsAnimationController.forward();
   }
 
   @override
   void dispose() {
     _planeSizeAnimationController.dispose();
     _planeTravelController.dispose();
+    _dotsAnimationController.dispose();
     super.dispose();
   }
 
@@ -64,7 +77,14 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
             alignment: Alignment.center,
             children: [
               _buildPlane(constraints: constraints),
-            ],
+            ]..addAll(
+                _flightStops.map(
+                  (stop) => _mapFlightStopToDot(
+                        stop: stop,
+                        constraints: constraints,
+                      ),
+                ),
+              ),
           ),
     );
   }
@@ -74,13 +94,13 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   }) {
     final beginTop =
         constraints.maxHeight - (_initialPlanePaddingBottom + _planeSize);
-    const endTop = 16.0;
     return PositionedTransition(
       rect: _planeTravelController
           .drive(CurveTween(curve: Curves.fastOutSlowIn))
           .drive(RelativeRectTween(
             begin: RelativeRect.fromLTRB(0, beginTop, 0, -beginTop),
-            end: const RelativeRect.fromLTRB(0, endTop, 0, endTop),
+            end: const RelativeRect.fromLTRB(
+                0, _minPlanePaddingTop, 0, _minPlanePaddingTop),
           )),
       child: Column(
         children: [
@@ -90,11 +110,45 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
           ),
           Container(
             width: 2,
-            height: 240,
+            height: _flightStops.length * _cardHeight * 0.8,
             color: const Color.fromARGB(255, 200, 200, 200),
           )
         ],
       ),
+    );
+  }
+
+  Widget _mapFlightStopToDot({
+    @required BoxConstraints constraints,
+    @required int stop,
+  }) {
+    final index = _flightStops.indexOf(stop);
+    final start = 0.2 * index;
+    final minMarginTop =
+        _minPlanePaddingTop + _planeSize + 0.5 * (0.8 * _cardHeight);
+    final finalMarginTop = index * (0.8 * _cardHeight) + minMarginTop;
+    final animation = _dotsAnimationController
+        .drive(
+          CurveTween(
+            curve: Interval(
+              start,
+              start + 0.4,
+              curve: Curves.easeOut,
+            ),
+          ),
+        )
+        .drive(
+          Tween<double>(
+            begin: constraints.maxHeight,
+            end: finalMarginTop,
+          ),
+        );
+
+    final isStartOrEnd = index == 0 || index == _flightStops.length - 1;
+    final color = isStartOrEnd ? Colors.red : Colors.green;
+    return AnimatedDot(
+      animation: animation,
+      color: color,
     );
   }
 }
