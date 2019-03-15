@@ -1,5 +1,7 @@
 import 'package:animations/pages/flight_search/flight_stop.dart';
+import 'package:animations/util/util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class FlightStopCard extends StatefulWidget {
   const FlightStopCard({
@@ -10,7 +12,6 @@ class FlightStopCard extends StatefulWidget {
 
   final FlightStop flightStop;
   final bool isLeft;
-
   static const double height = 80;
   static const double width = 140;
 
@@ -20,27 +21,80 @@ class FlightStopCard extends StatefulWidget {
 
 class FlightStopCardState extends State<FlightStopCard>
     with SingleTickerProviderStateMixin {
+  AnimationController _animationController;
+  Animation<double> _cardSizeAnimation;
+  Animation<double> _durationPositionAnimation;
+  Animation<double> _airportsPositionAnimation;
+  Animation<double> _datePositionAnimation;
+  Animation<double> _pricePositionAnimation;
+  Animation<double> _fromToPositionAnimation;
+  Animation<double> _lineAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 600),
+    );
+    _cardSizeAnimation = CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.8)));
+    _durationPositionAnimation = CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0.05, 0.95, curve: ElasticOutCurve(0.95)));
+    _airportsPositionAnimation = CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0.1, 1, curve: ElasticOutCurve(0.95)));
+    _datePositionAnimation = CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0.1, 0.8, curve: ElasticOutCurve(0.95)));
+    _pricePositionAnimation = CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.95)));
+    _fromToPositionAnimation = CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0.1, 0.95, curve: ElasticOutCurve(0.95)));
+    _lineAnimation = CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0, 0.2, curve: Curves.linear));
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void runAnimation() {
+    _animationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: FlightStopCard.height,
-      child: Stack(
-        alignment: Alignment.centerLeft,
-        children: [
-          buildLine(),
-          buildCard(),
-          buildDurationText(),
-          buildAirportNamesText(),
-          buildDateText(),
-          buildPriceText(),
-          buildFromToTimeText(),
-        ],
+      child: AnimatedBuilder(
+        animation: _animationController,
+        builder: (context, child) => Stack(
+              alignment: Alignment.centerLeft,
+              children: <Widget>[
+                buildLine(),
+                buildCard(),
+                buildDurationText(),
+                buildAirportNamesText(),
+                buildDateText(),
+                buildPriceText(),
+                buildFromToTimeText(),
+              ],
+            ),
       ),
     );
   }
 
-  // TODO: LayoutBuilder使う？
+// TODO: LayoutBuilder
   double get maxWidth {
+    return 180;
     final renderBox = context.findRenderObject() as RenderBox;
     final constraints = renderBox?.constraints;
     final maxWidth = constraints?.maxWidth ?? 180;
@@ -48,13 +102,14 @@ class FlightStopCardState extends State<FlightStopCard>
   }
 
   Positioned buildDurationText() {
+    final animationValue = _durationPositionAnimation.value;
     return Positioned(
-      top: getMarginTop(),
-      right: getMarginRight(),
+      top: getMarginTop(animationValue), //<--- animate vertical position
+      right: getMarginRight(animationValue), //<--- animate horizontal pozition
       child: Text(
         widget.flightStop.duration,
         style: TextStyle(
-          fontSize: 10,
+          fontSize: 10 * animationValue, //<--- animate fontsize
           color: Colors.grey,
         ),
       ),
@@ -62,13 +117,14 @@ class FlightStopCardState extends State<FlightStopCard>
   }
 
   Positioned buildAirportNamesText() {
+    final animationValue = _airportsPositionAnimation.value;
     return Positioned(
-      top: getMarginTop(),
-      left: getMarginLeft(),
+      top: getMarginTop(animationValue),
+      left: getMarginLeft(animationValue),
       child: Text(
         '${widget.flightStop.from} \u00B7 ${widget.flightStop.to}',
         style: TextStyle(
-          fontSize: 14,
+          fontSize: 14 * animationValue,
           color: Colors.grey,
         ),
       ),
@@ -76,12 +132,13 @@ class FlightStopCardState extends State<FlightStopCard>
   }
 
   Positioned buildDateText() {
+    final animationValue = _datePositionAnimation.value;
     return Positioned(
-      left: getMarginLeft(),
+      left: getMarginLeft(animationValue),
       child: Text(
         '${widget.flightStop.date}',
         style: TextStyle(
-          fontSize: 14,
+          fontSize: 14 * animationValue,
           color: Colors.grey,
         ),
       ),
@@ -89,12 +146,13 @@ class FlightStopCardState extends State<FlightStopCard>
   }
 
   Positioned buildPriceText() {
+    final animationValue = _pricePositionAnimation.value;
     return Positioned(
-      right: getMarginRight(),
+      right: getMarginRight(animationValue),
       child: Text(
         '${widget.flightStop.price}',
         style: TextStyle(
-          fontSize: 16,
+          fontSize: 16 * animationValue,
           color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
@@ -103,13 +161,14 @@ class FlightStopCardState extends State<FlightStopCard>
   }
 
   Positioned buildFromToTimeText() {
+    final animationValue = _fromToPositionAnimation.value;
     return Positioned(
-      left: getMarginLeft(),
-      bottom: getMarginBottom(),
+      left: getMarginLeft(animationValue),
+      bottom: getMarginBottom(animationValue),
       child: Text(
         '${widget.flightStop.fromToTime}',
         style: TextStyle(
-          fontSize: 12,
+          fontSize: 12 * animationValue,
           color: Colors.grey,
           fontWeight: FontWeight.w500,
         ),
@@ -118,57 +177,73 @@ class FlightStopCardState extends State<FlightStopCard>
   }
 
   Widget buildLine() {
+    final animationValue = _lineAnimation.value;
     final maxLength = maxWidth - FlightStopCard.width;
     return Align(
-      alignment: widget.isLeft ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
-        height: 2,
-        width: maxLength,
-        color: const Color.fromARGB(255, 200, 200, 200),
-      ),
-    );
+        alignment: widget.isLeft ? Alignment.centerRight : Alignment.centerLeft,
+        child: Container(
+          height: 2,
+          width: maxLength * animationValue,
+          color: const Color.fromARGB(255, 200, 200, 200),
+        ));
   }
 
   Positioned buildCard() {
-    final outerMargin = 8.0;
+    final animationValue = _cardSizeAnimation.value;
+    final minOuterMargin = 8;
+    final outerMargin = minOuterMargin + (1 - animationValue) * maxWidth;
     return Positioned(
       right: widget.isLeft ? null : outerMargin,
       left: widget.isLeft ? outerMargin : null,
-      child: Container(
-        width: 140,
-        height: 80,
-        child: Card(
-          color: Colors.grey.shade100,
+      child: Transform.scale(
+        scale: animationValue,
+        child: Container(
+          width: 140,
+          height: 80,
+          child: Card(
+            color: Colors.grey.shade100,
+          ),
         ),
       ),
     );
   }
 
-  double getMarginBottom() {
+  double getMarginBottom(double animationValue) {
     final minBottomMargin = 8.0;
-    return minBottomMargin;
+    final bottomMargin =
+        minBottomMargin + (1 - animationValue) * minBottomMargin;
+    return bottomMargin;
   }
 
-  double getMarginTop() {
+  double getMarginTop(double animationValue) {
     final minMarginTop = 8.0;
-    return minMarginTop;
+    final marginTop =
+        minMarginTop + (1 - animationValue) * FlightStopCard.height * 0.5;
+    return marginTop;
   }
 
-  double getMarginLeft() {
-    return getMarginHorizontal(isTextLeft: true);
+  double getMarginLeft(double animationValue) {
+    return getMarginHorizontal(animationValue, isTextLeft: true);
   }
 
-  double getMarginRight() {
-    return getMarginHorizontal(isTextLeft: false);
+  double getMarginRight(double animationValue) {
+    return getMarginHorizontal(animationValue, isTextLeft: false);
   }
 
-  double getMarginHorizontal({@required bool isTextLeft}) {
+  double getMarginHorizontal(
+    double animationValue, {
+    @required bool isTextLeft,
+  }) {
     if (isTextLeft == widget.isLeft) {
       final minHorizontalMargin = 16.0;
-      return minHorizontalMargin;
+      final maxHorizontalMargin = maxWidth - minHorizontalMargin;
+      final horizontalMargin =
+          minHorizontalMargin + (1 - animationValue) * maxHorizontalMargin;
+      return horizontalMargin;
     } else {
       final maxHorizontalMargin = maxWidth - FlightStopCard.width;
-      return maxHorizontalMargin;
+      final horizontalMargin = animationValue * maxHorizontalMargin;
+      return horizontalMargin;
     }
   }
 }

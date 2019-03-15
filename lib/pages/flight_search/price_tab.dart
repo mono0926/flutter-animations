@@ -57,6 +57,8 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
       fromToTime: '9:26 am - 3:43 pm',
     ),
   ];
+  final _stopKeys =
+      _flightStops.map((_s) => GlobalKey<FlightStopCardState>()).toList();
 
   @override
   void initState() {
@@ -95,8 +97,18 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
     Future.delayed(const Duration(milliseconds: 500))
         .then((_) => _planeTravelController.forward());
     // ignore: unawaited_futures
-    Future.delayed(const Duration(milliseconds: 700))
-        .then((_) => _dotsAnimationController.forward());
+    Future.delayed(const Duration(milliseconds: 700)).then((_) async {
+      await _dotsAnimationController.forward();
+      await _animateFlightStopCards();
+    });
+  }
+
+  Future _animateFlightStopCards() async {
+    return Future.forEach(_stopKeys, (stopKey) {
+      return new Future.delayed(const Duration(milliseconds: 250), () {
+        stopKey.currentState.runAnimation();
+      });
+    });
   }
 
   @override
@@ -229,6 +241,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
             isLeft ? Container() : Expanded(child: Container()),
             Expanded(
               child: FlightStopCard(
+                key: _stopKeys[index],
                 flightStop: stop,
                 isLeft: isLeft,
               ),
