@@ -130,8 +130,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   }) {
     final index = _flightStops.indexOf(stop);
     final start = 0.2 * index;
-    final minMarginTop =
-        _minPlanePaddingTop + _planeSize + 0.5 * (0.8 * _cardHeight);
+    final minMarginTop = _minPlanePaddingTop + _planeSize + (0.8 * _cardHeight);
     final finalMarginTop = index * (0.8 * _cardHeight) + minMarginTop;
     final animation = _dotsAnimationController
         .drive(
