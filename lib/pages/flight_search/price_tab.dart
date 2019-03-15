@@ -96,14 +96,18 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   }) {
     final beginTop =
         constraints.maxHeight - (_initialPlanePaddingBottom + _planeSize);
-    return PositionedTransition(
-      rect: _planeTravelController
-          .drive(CurveTween(curve: Curves.fastOutSlowIn))
-          .drive(RelativeRectTween(
-            begin: RelativeRect.fromLTRB(0, beginTop, 0, -beginTop),
-            end: const RelativeRect.fromLTRB(
-                0, _minPlanePaddingTop, 0, _minPlanePaddingTop),
-          )),
+    final planeTravelAnimation = _planeTravelController
+        .drive(CurveTween(curve: Curves.fastOutSlowIn))
+        .drive(Tween<double>(
+          begin: beginTop,
+          end: _minPlanePaddingTop,
+        ));
+    return AnimatedBuilder(
+      animation: planeTravelAnimation,
+      builder: (context, child) => Positioned(
+            child: child,
+            top: planeTravelAnimation.value,
+          ),
       child: Column(
         children: [
           AnimatedPlaneIcon(
