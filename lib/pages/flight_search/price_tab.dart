@@ -1,5 +1,7 @@
 import 'package:animations/pages/flight_search/animated_dot.dart';
 import 'package:animations/pages/flight_search/animated_plane_icon.dart';
+import 'package:animations/pages/flight_search/flight_stop.dart';
+import 'package:animations/pages/flight_search/flight_stop_card.dart';
 import 'package:flutter/material.dart';
 
 class PriceTab extends StatefulWidget {
@@ -21,7 +23,40 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   static const double _minPlanePaddingTop = 16;
   static const double _planeSize = 36;
   static const double _cardHeight = 80;
-  static const _flightStops = [1, 2, 3, 4];
+  static const _flightStops = [
+    FlightStop(
+      from: 'JFK',
+      to: 'ORY',
+      date: 'JUN 05',
+      duration: '6h 25m',
+      price: '\$851',
+      fromToTime: '9:26 am - 3:43 pm',
+    ),
+    FlightStop(
+      from: 'MRG',
+      to: 'FTB',
+      date: 'JUN 20',
+      duration: '6h 25m',
+      price: '\$532',
+      fromToTime: '9:26 am - 3:43 pm',
+    ),
+    FlightStop(
+      from: 'ERT',
+      to: 'TVS',
+      date: 'JUN 20',
+      duration: '6h 25m',
+      price: '\$718',
+      fromToTime: '9:26 am - 3:43 pm',
+    ),
+    FlightStop(
+      from: 'KKR',
+      to: 'RTY',
+      date: 'JUN 20',
+      duration: '6h 25m',
+      price: '\$663',
+      fromToTime: '9:26 am - 3:43 pm',
+    ),
+  ];
 
   @override
   void initState() {
@@ -75,19 +110,42 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, constraints) => Stack(
-            alignment: Alignment.center,
-            children: [
-              _buildPlane(constraints: constraints),
-            ]..addAll(
-                _flightStops.map(
-                  (stop) => _mapFlightStopToDot(
-                        stop: stop,
-                        constraints: constraints,
-                      ),
-                ),
+      builder: (context, constraints) {
+        final flightStopTweenMap = _flightStops.asMap().map((index, stop) {
+          final minMarginTop =
+              _minPlanePaddingTop + _planeSize + (0.8 * _cardHeight);
+          final finalMarginTop = index * (0.8 * _cardHeight) + minMarginTop;
+          return MapEntry(
+            stop,
+            Tween<double>(
+              begin: constraints.maxHeight,
+              end: finalMarginTop,
+            ),
+          );
+        });
+        return Stack(
+          alignment: Alignment.center,
+          children: [
+            _buildPlane(constraints: constraints),
+          ]
+            ..addAll(
+              _flightStops.map(
+                (stop) => _buildStopCard(
+                      stop: stop,
+                      tween: flightStopTweenMap[stop],
+                    ),
               ),
-          ),
+            )
+            ..addAll(
+              _flightStops.map(
+                (stop) => _mapFlightStopToDot(
+                      stop: stop,
+                      tween: flightStopTweenMap[stop],
+                    ),
+              ),
+            ),
+        );
+      },
     );
   }
 
@@ -98,10 +156,12 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
         constraints.maxHeight - (_initialPlanePaddingBottom + _planeSize);
     final planeTravelAnimation = _planeTravelController
         .drive(CurveTween(curve: Curves.fastOutSlowIn))
-        .drive(Tween<double>(
-          begin: beginTop,
-          end: _minPlanePaddingTop,
-        ));
+        .drive(
+          Tween<double>(
+            begin: beginTop,
+            end: _minPlanePaddingTop,
+          ),
+        );
     return AnimatedBuilder(
       animation: planeTravelAnimation,
       builder: (context, child) => Positioned(
@@ -125,13 +185,11 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   }
 
   Widget _mapFlightStopToDot({
-    @required BoxConstraints constraints,
-    @required int stop,
+    @required FlightStop stop,
+    @required Tween<double> tween,
   }) {
     final index = _flightStops.indexOf(stop);
     final start = 0.2 * index;
-    final minMarginTop = _minPlanePaddingTop + _planeSize + (0.8 * _cardHeight);
-    final finalMarginTop = index * (0.8 * _cardHeight) + minMarginTop;
     final animation = _dotsAnimationController
         .drive(
           CurveTween(
@@ -142,18 +200,43 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
             ),
           ),
         )
-        .drive(
-          Tween<double>(
-            begin: constraints.maxHeight,
-            end: finalMarginTop,
-          ),
-        );
+        .drive(tween);
 
     final isStartOrEnd = index == 0 || index == _flightStops.length - 1;
     final color = isStartOrEnd ? Colors.red : Colors.green;
     return AnimatedDot(
       animation: animation,
       color: color,
+    );
+  }
+
+  Widget _buildStopCard({
+    @required FlightStop stop,
+    @required Tween<double> tween,
+  }) {
+    final index = _flightStops.indexOf(stop);
+    final topMargin =
+        tween.end - 0.5 * (FlightStopCard.height - AnimatedDot.size);
+    final isLeft = index.isOdd;
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Padding(
+        padding: EdgeInsets.only(top: topMargin),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            isLeft ? Container() : Expanded(child: Container()),
+            Expanded(
+              child: FlightStopCard(
+                flightStop: stop,
+                isLeft: isLeft,
+              ),
+            ),
+            !isLeft ? Container() : Expanded(child: Container()),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -11,6 +11,7 @@ class AnimatedDot extends AnimatedWidget {
         );
 
   final Color color;
+  static const double size = 24;
 
   @override
   Widget build(BuildContext context) {

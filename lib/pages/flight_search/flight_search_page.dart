@@ -34,9 +34,10 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                   children: [
                     _buildButtonsRow(),
                     Expanded(
-                        child: ContentCard(
-                      showInput: _showInput,
-                    )),
+                      child: ContentCard(
+                        showInput: _showInput,
+                      ),
+                    ),
                   ],
                 ),
               ),

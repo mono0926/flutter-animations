@@ -65,7 +65,7 @@ class ContentCard extends StatelessWidget {
               )
             : const PriceTab(),
       ),
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
     );
   }
 }

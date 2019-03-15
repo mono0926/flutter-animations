@@ -16,14 +16,15 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-          padding: const EdgeInsets.all(4),
-          child: AnimatedCrossFade(
-            firstChild: _buildSelectedButton(),
-            secondChild: _buildUnselectedButton(),
-            crossFadeState:
-                selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-            duration: const Duration(milliseconds: 200),
-          )),
+        padding: const EdgeInsets.all(4),
+        child: AnimatedCrossFade(
+          firstChild: _buildSelectedButton(),
+          secondChild: _buildUnselectedButton(),
+          crossFadeState:
+              selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          duration: const Duration(milliseconds: 200),
+        ),
+      ),
     );
   }
 
