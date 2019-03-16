@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MulticityInput extends StatelessWidget {
+class MulticityInput extends StatefulWidget {
   const MulticityInput();
 
   static const double _rightMargin = 64;
@@ -8,19 +8,24 @@ class MulticityInput extends StatelessWidget {
   static const rowSpaceBox = SizedBox(height: _rowSpace);
 
   @override
+  _MulticityInputState createState() => _MulticityInputState();
+}
+
+class _MulticityInputState extends State<MulticityInput> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
           _buildFrom(),
-          rowSpaceBox,
+          MulticityInput.rowSpaceBox,
           _buildTo1(),
-          rowSpaceBox,
+          MulticityInput.rowSpaceBox,
           _buildTo2(),
-          rowSpaceBox,
+          MulticityInput.rowSpaceBox,
           _buildPassengers(),
-          rowSpaceBox,
+          MulticityInput.rowSpaceBox,
           _buildDateRow(),
         ],
       ),
@@ -29,7 +34,7 @@ class MulticityInput extends StatelessWidget {
 
   Widget _buildFrom() {
     return Padding(
-      padding: const EdgeInsets.only(right: _rightMargin),
+      padding: const EdgeInsets.only(right: MulticityInput._rightMargin),
       child: _buildTextField(
         icon: Icons.flight_takeoff,
         labelText: 'From',
@@ -39,7 +44,7 @@ class MulticityInput extends StatelessWidget {
 
   Widget _buildTo1() {
     return Padding(
-      padding: const EdgeInsets.only(right: _rightMargin),
+      padding: const EdgeInsets.only(right: MulticityInput._rightMargin),
       child: _buildTextField(
         icon: Icons.flight_land,
         labelText: 'To',
@@ -57,7 +62,7 @@ class MulticityInput extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: _rightMargin,
+          width: MulticityInput._rightMargin,
           child: IconButton(
             onPressed: () {},
             icon: const Icon(
@@ -72,7 +77,7 @@ class MulticityInput extends StatelessWidget {
 
   Widget _buildPassengers() {
     return Padding(
-      padding: const EdgeInsets.only(right: _rightMargin),
+      padding: const EdgeInsets.only(right: MulticityInput._rightMargin),
       child: _buildTextField(
         icon: Icons.person,
         labelText: 'Passengers',
