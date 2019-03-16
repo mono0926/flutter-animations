@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 class PriceTab extends StatefulWidget {
   const PriceTab({
     Key key,
+    @required this.onCompleted,
   }) : super(key: key);
+
+  final void Function() onCompleted;
 
   @override
   _PriceTabState createState() => _PriceTabState();
@@ -108,6 +111,8 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
       await Future.delayed(const Duration(milliseconds: 250));
       stopKey.currentState?.runAnimation();
     }
+    await Future.delayed(const Duration(milliseconds: 100));
+    widget.onCompleted();
   }
 
   @override

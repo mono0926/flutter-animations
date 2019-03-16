@@ -59,6 +59,11 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
                     _buildButtonsRow(),
                     Expanded(
                       child: ContentCard(
+                        onCompleted: () {
+                          setState(() {
+                            _mode = FlightSearchMode.done;
+                          });
+                        },
                         showInput: _mode == FlightSearchMode.normal,
                       ),
                     ),
@@ -94,7 +99,13 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
       case FlightSearchMode.plane:
         return null;
       case FlightSearchMode.done:
-        return null;
+        return FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(
+            Icons.check,
+            size: 36,
+          ),
+        );
     }
     assert(false);
     return null;

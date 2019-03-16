@@ -66,8 +66,8 @@ class FlightStopCardState extends State<FlightStopCard>
     super.dispose();
   }
 
-  void runAnimation() {
-    _animationController.forward();
+  TickerFuture runAnimation() {
+    return _animationController.forward();
   }
 
   @override

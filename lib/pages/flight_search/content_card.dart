@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 class ContentCard extends StatelessWidget {
   const ContentCard({
     @required this.showInput,
+    @required this.onCompleted,
   });
 
   final bool showInput;
+  final void Function() onCompleted;
 
   static const _tabs = <Tab>[
     Tab(text: 'Flight'),
@@ -63,7 +65,7 @@ class ContentCard extends StatelessWidget {
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: const MulticityInput(),
               )
-            : const PriceTab(),
+            : PriceTab(onCompleted: onCompleted),
       ),
       duration: const Duration(milliseconds: 200),
     );
