@@ -78,7 +78,7 @@ class FlightStopCardState extends State<FlightStopCard>
         animation: _animationController,
         builder: (context, child) => Stack(
               alignment: Alignment.centerLeft,
-              children: <Widget>[
+              children: [
                 buildLine(),
                 buildCard(),
                 buildDurationText(),

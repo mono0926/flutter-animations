@@ -39,7 +39,7 @@ class AirAsiaBar extends StatelessWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
-      title: Text(
+      title: const Text(
         'AirAsia',
         style: TextStyle(
           fontFamily: 'NothingYouCouldDo',
