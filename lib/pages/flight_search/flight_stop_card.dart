@@ -4,13 +4,14 @@ import 'package:flutter/rendering.dart';
 
 class FlightStopCard extends StatefulWidget {
   const FlightStopCard({
-    Key key,
+    @required Key key,
     @required this.flightStop,
     @required this.isLeft,
   }) : super(key: key);
 
   final FlightStop flightStop;
   final bool isLeft;
+
   static const double height = 80;
   static const double width = 140;
 
@@ -36,27 +37,27 @@ class FlightStopCardState extends State<FlightStopCard>
       vsync: this,
       duration: Duration(milliseconds: 600),
     );
-    _cardSizeAnimation = CurvedAnimation(
-        parent: _animationController,
-        curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.8)));
-    _durationPositionAnimation = CurvedAnimation(
-        parent: _animationController,
-        curve: const Interval(0.05, 0.95, curve: ElasticOutCurve(0.95)));
-    _airportsPositionAnimation = CurvedAnimation(
-        parent: _animationController,
-        curve: const Interval(0.1, 1, curve: ElasticOutCurve(0.95)));
-    _datePositionAnimation = CurvedAnimation(
-        parent: _animationController,
-        curve: const Interval(0.1, 0.8, curve: ElasticOutCurve(0.95)));
-    _pricePositionAnimation = CurvedAnimation(
-        parent: _animationController,
-        curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.95)));
-    _fromToPositionAnimation = CurvedAnimation(
-        parent: _animationController,
-        curve: const Interval(0.1, 0.95, curve: ElasticOutCurve(0.95)));
-    _lineAnimation = CurvedAnimation(
-        parent: _animationController,
-        curve: const Interval(0, 0.2, curve: Curves.linear));
+    _cardSizeAnimation = _animationController.drive(CurveTween(
+      curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.8)),
+    ));
+    _durationPositionAnimation = _animationController.drive(CurveTween(
+      curve: const Interval(0.05, 0.95, curve: ElasticOutCurve(0.95)),
+    ));
+    _airportsPositionAnimation = _animationController.drive(CurveTween(
+      curve: const Interval(0.1, 1, curve: ElasticOutCurve(0.95)),
+    ));
+    _datePositionAnimation = _animationController.drive(CurveTween(
+      curve: const Interval(0.1, 0.8, curve: ElasticOutCurve(0.95)),
+    ));
+    _pricePositionAnimation = _animationController.drive(CurveTween(
+      curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.95)),
+    ));
+    _fromToPositionAnimation = _animationController.drive(CurveTween(
+      curve: const Interval(0.1, 0.95, curve: ElasticOutCurve(0.95)),
+    ));
+    _lineAnimation = _animationController.drive(CurveTween(
+      curve: const Interval(0, 0.2, curve: Curves.linear),
+    ));
   }
 
   @override
@@ -178,12 +179,13 @@ class FlightStopCardState extends State<FlightStopCard>
     final animationValue = _lineAnimation.value;
     final maxLength = maxWidth - FlightStopCard.width;
     return Align(
-        alignment: widget.isLeft ? Alignment.centerRight : Alignment.centerLeft,
-        child: Container(
-          height: 2,
-          width: maxLength * animationValue,
-          color: const Color.fromARGB(255, 200, 200, 200),
-        ));
+      alignment: widget.isLeft ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        height: 2,
+        width: maxLength * animationValue,
+        color: const Color.fromARGB(255, 200, 200, 200),
+      ),
+    );
   }
 
   Positioned buildCard() {
