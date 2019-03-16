@@ -200,7 +200,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
     @required Tween<double> tween,
   }) {
     final index = _flightStops.indexOf(stop);
-    final start = 0.2 * index;
+    final start = 0.2 * _flightStops.indexOf(stop);
     final animation = _dotsAnimationController
         .drive(
           CurveTween(
@@ -236,7 +236,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
         child: Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: [
             isLeft ? Container() : Expanded(child: Container()),
             Expanded(
               child: FlightStopCard(
