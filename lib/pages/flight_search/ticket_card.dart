@@ -47,15 +47,25 @@ class TicketCard extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
-          _buildFrom(),
+          Expanded(
+            child: _buildLocation(
+              name: stop.from,
+              nameShort: stop.fromShort,
+            ),
+          ),
           _buildFlightNumber(),
-          _buildTo(),
+          Expanded(
+            child: _buildLocation(
+              name: stop.to,
+              nameShort: stop.toShort,
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Column _buildFlightNumber() {
+  Widget _buildFlightNumber() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -75,57 +85,26 @@ class TicketCard extends StatelessWidget {
     );
   }
 
-  Expanded _buildFrom() {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          left: 32,
-          top: 16,
+  Widget _buildLocation({
+    @required String name,
+    @required String nameShort,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Text(
+            name,
+            style: airportNameStyle,
+          ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Text(
-                stop.from,
-                style: airportNameStyle,
-              ),
-            ),
-            Text(
-              stop.fromShort,
-              style: airportShortNameStyle,
-            ),
-          ],
+        Text(
+          nameShort,
+          style: airportShortNameStyle,
         ),
-      ),
-    );
-  }
-
-  Expanded _buildTo() {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          left: 40,
-          top: 16,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Text(
-                stop.to,
-                style: airportNameStyle,
-              ),
-            ),
-            Text(
-              stop.toShort,
-              style: airportShortNameStyle,
-            ),
-          ],
-        ),
-      ),
+      ],
     );
   }
 }
