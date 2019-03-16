@@ -9,7 +9,7 @@ class TicketsPage extends StatefulWidget {
 }
 
 class _TicketsPageState extends State<TicketsPage>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   static const stops = [
     FlightStopTicket(
       from: 'Sahara',
@@ -40,17 +40,59 @@ class _TicketsPageState extends State<TicketsPage>
       flightNumber: 'MR4321',
     ),
   ];
+  AnimationController _cardEntranceAnimationController;
+  Map<FlightStopTicket, Animation<double>> _ticketAnimations;
+
+  @override
+  void initState() {
+    super.initState();
+    _cardEntranceAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1100),
+    );
+
+    _ticketAnimations = stops.asMap().map((index, stop) {
+      final start = index * 0.1;
+      return MapEntry(
+        stop,
+        _cardEntranceAnimationController
+            .drive(
+              CurveTween(
+                curve: Interval(
+                  start,
+                  start + 0.6,
+                  curve: Curves.decelerate,
+                ),
+              ),
+            )
+            .drive(
+              Tween<double>(begin: 800, end: 0),
+            ),
+      );
+    });
+    _cardEntranceAnimationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _cardEntranceAnimationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          const AirAsiaBar(height: 180),
+          const AirAsiaBar(
+            height: 180,
+          ),
           Positioned.fill(
-            top: 64,
-            child: ListView(
-              children: _buildTickets().toList(),
+            top: MediaQuery.of(context).padding.top + 64,
+            child: SingleChildScrollView(
+              child: Column(
+                children: _buildTickets().toList(),
+              ),
             ),
           )
         ],
@@ -62,9 +104,22 @@ class _TicketsPageState extends State<TicketsPage>
 
   Iterable<Widget> _buildTickets() {
     return stops.map((stop) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-        child: TicketCard(stop: stop),
+      return AnimatedBuilder(
+        animation: _cardEntranceAnimationController,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 4,
+            horizontal: 8,
+          ),
+          child: TicketCard(stop: stop),
+        ),
+        builder: (context, child) {
+          print(_ticketAnimations[stop].value);
+          return Transform.translate(
+            offset: Offset(0, _ticketAnimations[stop].value),
+            child: child,
+          );
+        },
       );
     });
   }
