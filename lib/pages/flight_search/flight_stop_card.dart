@@ -94,10 +94,9 @@ class FlightStopCardState extends State<FlightStopCard>
 
 // TODO: LayoutBuilder
   double get maxWidth {
-    return 180;
     final renderBox = context.findRenderObject() as RenderBox;
     final constraints = renderBox?.constraints;
-    final maxWidth = constraints?.maxWidth ?? 180;
+    final maxWidth = constraints?.maxWidth ?? 0;
     return maxWidth;
   }
 
