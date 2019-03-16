@@ -104,11 +104,10 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   }
 
   Future _animateFlightStopCards() async {
-    return Future.forEach(_stopKeys, (stopKey) {
-      return new Future.delayed(const Duration(milliseconds: 250), () {
-        stopKey.currentState.runAnimation();
-      });
-    });
+    for (final stopKey in _stopKeys) {
+      await Future.delayed(const Duration(milliseconds: 250));
+      stopKey.currentState.runAnimation();
+    }
   }
 
   @override
