@@ -100,7 +100,7 @@ class FlightStopCardState extends State<FlightStopCard>
     return maxWidth;
   }
 
-  Positioned buildDurationText() {
+  Widget buildDurationText() {
     final animationValue = _durationPositionAnimation.value;
     return Positioned(
       top: getMarginTop(animationValue), //<--- animate vertical position
@@ -115,7 +115,7 @@ class FlightStopCardState extends State<FlightStopCard>
     );
   }
 
-  Positioned buildAirportNamesText() {
+  Widget buildAirportNamesText() {
     final animationValue = _airportsPositionAnimation.value;
     return Positioned(
       top: getMarginTop(animationValue),
@@ -130,7 +130,7 @@ class FlightStopCardState extends State<FlightStopCard>
     );
   }
 
-  Positioned buildDateText() {
+  Widget buildDateText() {
     final animationValue = _datePositionAnimation.value;
     return Positioned(
       left: getMarginLeft(animationValue),
@@ -144,7 +144,7 @@ class FlightStopCardState extends State<FlightStopCard>
     );
   }
 
-  Positioned buildPriceText() {
+  Widget buildPriceText() {
     final animationValue = _pricePositionAnimation.value;
     return Positioned(
       right: getMarginRight(animationValue),
@@ -159,7 +159,7 @@ class FlightStopCardState extends State<FlightStopCard>
     );
   }
 
-  Positioned buildFromToTimeText() {
+  Widget buildFromToTimeText() {
     final animationValue = _fromToPositionAnimation.value;
     return Positioned(
       left: getMarginLeft(animationValue),
@@ -188,7 +188,7 @@ class FlightStopCardState extends State<FlightStopCard>
     );
   }
 
-  Positioned buildCard() {
+  Widget buildCard() {
     final animationValue = _cardSizeAnimation.value;
     final minOuterMargin = 8;
     final outerMargin = minOuterMargin + (1 - animationValue) * maxWidth;
