@@ -86,7 +86,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 400),
     );
 
-    _dotsAnimationController = new AnimationController(
+    _dotsAnimationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );

@@ -1,6 +1,8 @@
 import 'package:animations/pages/flight_search/air_asia_bar.dart';
 import 'package:animations/pages/flight_search/content_card.dart';
+import 'package:animations/pages/flight_search/fade_route.dart';
 import 'package:animations/pages/flight_search/rounded_button.dart';
+import 'package:animations/pages/flight_search/ticker_page.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 
@@ -43,32 +45,29 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
   Widget build(BuildContext context) {
     final top = MediaQuery.of(context).padding.top;
     return Theme(
-      data: new ThemeData(
+      data: ThemeData(
         primarySwatch: Colors.red,
       ),
       child: Scaffold(
         body: Stack(
           children: [
             AirAsiaBar(height: top + 200),
-            // TODO: 不要かも？
-            Positioned.fill(
-              child: Padding(
-                padding: EdgeInsets.only(top: top + 40.0),
-                child: Column(
-                  children: [
-                    _buildButtonsRow(),
-                    Expanded(
-                      child: ContentCard(
-                        onCompleted: () {
-                          setState(() {
-                            _mode = FlightSearchMode.done;
-                          });
-                        },
-                        showInput: _mode == FlightSearchMode.normal,
-                      ),
+            Padding(
+              padding: EdgeInsets.only(top: top + 40.0),
+              child: Column(
+                children: [
+                  _buildButtonsRow(),
+                  Expanded(
+                    child: ContentCard(
+                      onCompleted: () {
+                        setState(() {
+                          _mode = FlightSearchMode.done;
+                        });
+                      },
+                      showInput: _mode == FlightSearchMode.normal,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -100,7 +99,10 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
         return null;
       case FlightSearchMode.done:
         return FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context)
+                .push(FadeRoute(builder: (context) => TicketsPage()));
+          },
           child: const Icon(
             Icons.check,
             size: 36,
