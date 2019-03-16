@@ -14,7 +14,7 @@ class PriceTab extends StatefulWidget {
 }
 
 class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
-  AnimationController _planeSizeAnimationController;
+  AnimationController _planeSizeController;
   AnimationController _planeTravelController;
   AnimationController _dotsAnimationController;
   Animation<double> _planeScaleAnimation;
@@ -63,11 +63,11 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _planeSizeAnimationController = AnimationController(
+    _planeSizeController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 340),
     );
-    _planeScaleAnimation = _planeSizeAnimationController
+    _planeScaleAnimation = _planeSizeController
         .drive(
           CurveTween(curve: Curves.easeOut),
         )
@@ -92,7 +92,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
   }
 
   void _forwardAnimation() async {
-    await _planeSizeAnimationController.forward();
+    await _planeSizeController.forward();
     // ignore: unawaited_futures
     Future.delayed(const Duration(milliseconds: 500))
         .then((_) => _planeTravelController.forward());
@@ -113,7 +113,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    _planeSizeAnimationController.dispose();
+    _planeSizeController.dispose();
     _planeTravelController.dispose();
     _dotsAnimationController.dispose();
     super.dispose();
