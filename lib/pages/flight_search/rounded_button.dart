@@ -35,7 +35,7 @@ class RoundedButton extends StatelessWidget {
       highlightedBorderColor: color,
       textColor: color,
       color: Colors.white,
-      onPressed: onPressed ?? () {},
+      onPressed: onPressed,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       child: Center(child: Text(text)),
     );

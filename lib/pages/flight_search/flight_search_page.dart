@@ -20,6 +20,7 @@ class FlightSearchPage extends StatefulWidget {
 class _FlightSearchPageState extends State<FlightSearchPage> {
   var _mode = FlightSearchMode.normal;
   var _isKeyboardVisible = false;
+  var _selectedButtonIndex = 2;
   final _keyboardVisibilityNotification = KeyboardVisibilityNotification();
   int _keyboardVisibilityNotificationSubscription;
 
@@ -118,9 +119,27 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
       padding: const EdgeInsets.all(8),
       child: Row(
         children: [
-          const RoundedButton(text: 'ONE WAY'),
-          const RoundedButton(text: 'ROUND'),
-          const RoundedButton(text: 'MULTICITY', selected: true),
+          RoundedButton(
+            text: 'ONE WAY',
+            selected: _selectedButtonIndex == 0,
+            onPressed: () {
+              setState(() => _selectedButtonIndex = 0);
+            },
+          ),
+          RoundedButton(
+            text: 'ROUND',
+            selected: _selectedButtonIndex == 1,
+            onPressed: () {
+              setState(() => _selectedButtonIndex = 1);
+            },
+          ),
+          RoundedButton(
+            text: 'MULTICITY',
+            selected: _selectedButtonIndex == 2,
+            onPressed: () {
+              setState(() => _selectedButtonIndex = 2);
+            },
+          ),
         ],
       ),
     );
