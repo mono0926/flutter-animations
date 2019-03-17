@@ -37,13 +37,15 @@ class AirAsiaBar extends StatelessWidget {
 
   Widget _buildAppBar(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        icon: const BackButtonIcon(),
-        tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-        onPressed: () {
-          rootNavigatorKey.currentState.pop();
-        },
-      ),
+      leading: Navigator.of(context).canPop()
+          ? null
+          : IconButton(
+              icon: const BackButtonIcon(),
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+              onPressed: () {
+                rootNavigatorKey.currentState.pop();
+              },
+            ),
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
