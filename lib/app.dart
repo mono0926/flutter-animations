@@ -83,7 +83,10 @@ class App extends StatelessWidget {
         AlignTransitionPage.routeName: (_context) => AlignTransitionPage(),
         DefaultTextStyleTransitionPage.routeName: (_context) =>
             DefaultTextStyleTransitionPage(),
-        FlightSearchPage.routeName: (_context) => const FlightSearchPage(),
+        FlightSearchPage.routeName: (_context) => MaterialApp(
+              theme: ThemeData(primarySwatch: Colors.red),
+              home: const FlightSearchPage(),
+            )
       },
     );
   }

@@ -45,37 +45,32 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
   @override
   Widget build(BuildContext context) {
     final top = MediaQuery.of(context).padding.top;
-    return Theme(
-      data: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      child: Scaffold(
-        body: Stack(
-          children: [
-            AirAsiaBar(height: top + 200),
-            Padding(
-              padding: EdgeInsets.only(top: top + 40.0),
-              child: Column(
-                children: [
-                  _buildButtonsRow(),
-                  Expanded(
-                    child: ContentCard(
-                      onCompleted: () {
-                        setState(() {
-                          _mode = FlightSearchMode.done;
-                        });
-                      },
-                      showInput: _mode == FlightSearchMode.normal,
-                    ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          AirAsiaBar(height: top + 200),
+          Padding(
+            padding: EdgeInsets.only(top: top + 40.0),
+            child: Column(
+              children: [
+                _buildButtonsRow(),
+                Expanded(
+                  child: ContentCard(
+                    onCompleted: () {
+                      setState(() {
+                        _mode = FlightSearchMode.done;
+                      });
+                    },
+                    showInput: _mode == FlightSearchMode.normal,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: _buildFab(),
+          ),
+        ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: _buildFab(),
     );
   }
 
