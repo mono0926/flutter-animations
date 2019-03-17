@@ -86,6 +86,9 @@ class App extends StatelessWidget {
         AlignTransitionPage.routeName: (_context) => AlignTransitionPage(),
         DefaultTextStyleTransitionPage.routeName: (_context) =>
             DefaultTextStyleTransitionPage(),
+        // ここ配下に別テーマを適用させるためにMaterialAppを使ったが問題あり
+        // - ナビゲーションで戻れない(とりあえずグローバルなrootNavigatorKeyで暫定対処)
+        // - インスペクターがエラーになる
         FlightSearchPage.routeName: (_context) => MaterialApp(
               theme: ThemeData(primarySwatch: Colors.red),
               home: const FlightSearchPage(),
