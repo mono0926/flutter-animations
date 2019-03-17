@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class FadeRoute<T> extends MaterialPageRoute<T> {
   FadeRoute({
     @required WidgetBuilder builder,
-  }) : super(builder: builder);
+  }) : super(
+          builder: builder,
+          fullscreenDialog: true,
+        );
 
   @override
   Duration get transitionDuration => const Duration(milliseconds: 100);

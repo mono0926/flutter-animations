@@ -35,7 +35,7 @@ class FlightStopCardState extends State<FlightStopCard>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 600),
     );
     _cardSizeAnimation = _animationController.drive(CurveTween(
       curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.8)),
