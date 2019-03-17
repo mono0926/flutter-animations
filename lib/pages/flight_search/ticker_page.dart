@@ -1,3 +1,4 @@
+import 'package:animations/app.dart';
 import 'package:animations/pages/flight_search/air_asia_bar.dart';
 import 'package:animations/pages/flight_search/flight_stop_ticker.dart';
 import 'package:animations/pages/flight_search/ticket_card.dart';
@@ -135,7 +136,7 @@ class _TicketsPageState extends State<TicketsPage>
       return null;
     }
     return FloatingActionButton(
-      onPressed: () => Navigator.of(context).popUntil((route) => route.isFirst),
+      onPressed: () => rootNavigatorKey.currentState.pop(),
       child: const Icon(Icons.fingerprint),
     );
   }

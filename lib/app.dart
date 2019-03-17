@@ -31,10 +31,13 @@ import 'package:animations/pages/transition/slide_transition_page.dart';
 import 'package:animations/pages/transition/transition_page.dart';
 import 'package:flutter/material.dart';
 
+final rootNavigatorKey = GlobalKey<NavigatorState>();
+
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: rootNavigatorKey,
       title: 'Animations',
       theme: ThemeData(
         primarySwatch: Colors.purple,

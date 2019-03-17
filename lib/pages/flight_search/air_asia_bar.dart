@@ -1,3 +1,4 @@
+import 'package:animations/app.dart';
 import 'package:flutter/material.dart';
 
 class AirAsiaBar extends StatelessWidget {
@@ -13,7 +14,7 @@ class AirAsiaBar extends StatelessWidget {
     return Stack(
       children: [
         _buildBackground(),
-        _buildAppBar(),
+        _buildAppBar(context),
       ],
     );
   }
@@ -34,8 +35,15 @@ class AirAsiaBar extends StatelessWidget {
     );
   }
 
-  Widget _buildAppBar() {
+  Widget _buildAppBar(BuildContext context) {
     return AppBar(
+      leading: IconButton(
+        icon: const BackButtonIcon(),
+        tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+        onPressed: () {
+          rootNavigatorKey.currentState.pop();
+        },
+      ),
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
