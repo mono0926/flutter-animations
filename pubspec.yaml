@@ -10,6 +10,7 @@ dependencies:
   simple_logger: any
   quiver: any
   transparent_image: any
+  keyboard_visibility: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -17,3 +18,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+  fonts:
+    - family: NothingYouCouldDo
+      fonts:
+        - asset: fonts/NothingYouCouldDo.ttf

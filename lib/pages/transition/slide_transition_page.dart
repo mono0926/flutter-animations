@@ -54,7 +54,7 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
   Column _buildContent() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
+      children: [
         Image.asset('assets/love.png'),
         RaisedButton(
           child: const Text('CLOSE'),

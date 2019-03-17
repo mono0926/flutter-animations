@@ -6,7 +6,7 @@ class AnimatedModalBarrierPage extends StatefulWidget {
 
   @override
   _AnimatedModalBarrierPageState createState() {
-    return new _AnimatedModalBarrierPageState();
+    return _AnimatedModalBarrierPageState();
   }
 }
 

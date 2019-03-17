@@ -45,6 +45,7 @@ class _SizeTransitionPageState extends State<SizeTransitionPage>
         child: const Icon(Icons.refresh),
       ),
       child: SizeTransition(
+        axis: Axis.vertical, // default
         axisAlignment: -0.3,
         sizeFactor: _animationController
             .drive(
