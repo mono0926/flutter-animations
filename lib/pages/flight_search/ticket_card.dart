@@ -34,14 +34,14 @@ class TicketCard extends StatelessWidget {
           child: Card(
             elevation: 0,
             margin: const EdgeInsets.all(2),
-            child: _buildCardContent(),
+            child: _buildCardContent(context),
           ),
         ),
       ),
     );
   }
 
-  Container _buildCardContent() {
+  Container _buildCardContent(BuildContext context) {
     return Container(
       height: 104,
       child: Row(
@@ -53,7 +53,7 @@ class TicketCard extends StatelessWidget {
               nameShort: stop.fromShort,
             ),
           ),
-          _buildFlightNumber(),
+          _buildFlightNumber(context),
           Expanded(
             child: _buildLocation(
               name: stop.to,
@@ -65,16 +65,16 @@ class TicketCard extends StatelessWidget {
     );
   }
 
-  Widget _buildFlightNumber() {
+  Widget _buildFlightNumber(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Padding(
+        Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: Icon(
             Icons.airplanemode_active,
-            color: Colors.red,
+            color: Theme.of(context).primaryColor,
           ),
         ),
         Text(

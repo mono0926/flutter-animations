@@ -18,7 +18,7 @@ class RoundedButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(4),
         child: AnimatedCrossFade(
-          firstChild: _buildSelectedButton(),
+          firstChild: _buildSelectedButton(context),
           secondChild: _buildUnselectedButton(),
           crossFadeState:
               selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
@@ -41,8 +41,8 @@ class RoundedButton extends StatelessWidget {
     );
   }
 
-  Widget _buildSelectedButton() {
-    final textColor = Colors.red;
+  Widget _buildSelectedButton(BuildContext context) {
+    final textColor = Theme.of(context).primaryColor;
     return RaisedButton(
       elevation: 0,
       highlightElevation: 0,

@@ -111,7 +111,7 @@ class _MulticityInputState extends State<MulticityInput> {
       decoration: InputDecoration(
         icon: Icon(
           icon,
-          color: Colors.red,
+          color: Theme.of(context).primaryColor,
         ),
         labelText: labelText,
       ),

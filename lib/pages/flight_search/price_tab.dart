@@ -219,7 +219,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
         .drive(tween);
 
     final isStartOrEnd = index == 0 || index == _flightStops.length - 1;
-    final color = isStartOrEnd ? Colors.red : Colors.green;
+    final color = isStartOrEnd ? Theme.of(context).primaryColor : Colors.green;
     return AnimatedDot(
       animation: animation,
       color: color,

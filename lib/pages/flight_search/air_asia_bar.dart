@@ -13,20 +13,20 @@ class AirAsiaBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        _buildBackground(),
+        _buildBackground(context),
         _buildAppBar(context),
       ],
     );
   }
 
-  Widget _buildBackground() {
+  Widget _buildBackground(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.red,
+            Theme.of(context).primaryColor,
             const Color(0xFFE64C85),
           ],
         ),

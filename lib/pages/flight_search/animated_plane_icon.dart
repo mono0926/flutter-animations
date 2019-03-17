@@ -15,9 +15,9 @@ class AnimatedPlaneIcon extends StatelessWidget {
     return ScaleTransition(
       alignment: Alignment.bottomCenter,
       scale: scaleAnimation,
-      child: const Icon(
+      child: Icon(
         Icons.airplanemode_active,
-        color: Colors.red,
+        color: Theme.of(context).primaryColor,
         size: 36,
       ),
     );
