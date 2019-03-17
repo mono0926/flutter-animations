@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             nextRouteName: TransitionPage.routeName,
           ),
           const AppListTile(
-            title: 'Flight Serach (Advanced Example)',
+            title: 'Flight Search (Advanced Example)',
             nextRouteName: FlightSearchPage.routeName,
           ),
         ],
