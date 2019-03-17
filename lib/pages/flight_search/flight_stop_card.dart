@@ -2,6 +2,7 @@ import 'package:animations/pages/flight_search/flight_stop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+// DefaultTextStyleTransitionで分けているのはやり過ぎかも
 class FlightStopCard extends StatefulWidget {
   const FlightStopCard({
     @required Key key,
