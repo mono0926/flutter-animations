@@ -70,7 +70,13 @@ class _TicketsPageState extends State<TicketsPage>
             ),
       );
     });
-    _cardEntranceAnimationController.forward();
+
+    _runAnimation();
+  }
+
+  void _runAnimation() async {
+    await _cardEntranceAnimationController.forward();
+    setState(() {});
   }
 
   @override
@@ -103,28 +109,31 @@ class _TicketsPageState extends State<TicketsPage>
   }
 
   Iterable<Widget> _buildTickets() {
-    return stops.map((stop) {
-      return AnimatedBuilder(
-        animation: _cardEntranceAnimationController,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 4,
-            horizontal: 8,
+    return stops.map(
+      (stop) {
+        final animation = _ticketAnimations[stop];
+        return AnimatedBuilder(
+          animation: animation,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 4,
+              horizontal: 8,
+            ),
+            child: TicketCard(stop: stop),
           ),
-          child: TicketCard(stop: stop),
-        ),
-        builder: (context, child) {
-          print(_ticketAnimations[stop].value);
-          return Transform.translate(
-            offset: Offset(0, _ticketAnimations[stop].value),
-            child: child,
-          );
-        },
-      );
-    });
+          builder: (context, child) => Transform.translate(
+                offset: Offset(0, animation.value),
+                child: child,
+              ),
+        );
+      },
+    );
   }
 
   Widget _buildFab() {
+    if (_cardEntranceAnimationController.status != AnimationStatus.completed) {
+      return null;
+    }
     return FloatingActionButton(
       onPressed: () => Navigator.of(context).popUntil((route) => route.isFirst),
       child: const Icon(Icons.fingerprint),
