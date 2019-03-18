@@ -1,13 +1,14 @@
-import 'package:animations/app.dart';
 import 'package:flutter/material.dart';
 
 class AirAsiaBar extends StatelessWidget {
   const AirAsiaBar({
     Key key,
     @required this.height,
+    this.leading,
   }) : super(key: key);
 
   final double height;
+  final Widget leading;
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +38,7 @@ class AirAsiaBar extends StatelessWidget {
 
   Widget _buildAppBar(BuildContext context) {
     return AppBar(
-      leading: Navigator.of(context).canPop()
-          ? null
-          : IconButton(
-              icon: const BackButtonIcon(),
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              onPressed: () {
-                rootNavigatorKey.currentState.pop();
-              },
-            ),
+      leading: leading,
       backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,

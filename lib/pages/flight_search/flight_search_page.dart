@@ -1,3 +1,4 @@
+import 'package:animations/app.dart';
 import 'package:animations/pages/flight_search/air_asia_bar.dart';
 import 'package:animations/pages/flight_search/content_card.dart';
 import 'package:animations/pages/flight_search/fade_route.dart';
@@ -9,7 +10,7 @@ import 'package:keyboard_visibility/keyboard_visibility.dart';
 enum FlightSearchMode { normal, plane, done }
 
 class FlightSearchPage extends StatefulWidget {
-  const FlightSearchPage();
+  const FlightSearchPage({Key key}) : super(key: key);
 
   static const routeName = 'FlightSearchPage';
 
@@ -48,7 +49,16 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
     return Scaffold(
       body: Stack(
         children: [
-          AirAsiaBar(height: top + 200),
+          AirAsiaBar(
+            height: top + 200,
+            leading: IconButton(
+              icon: const BackButtonIcon(),
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+              onPressed: () {
+                rootNavigatorKey.currentState.pop();
+              },
+            ),
+          ),
           Padding(
             padding: EdgeInsets.only(top: top + 40.0),
             child: Column(
