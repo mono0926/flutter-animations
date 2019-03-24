@@ -1,3 +1,4 @@
+import 'package:animations/pages/custom/custom_page.dart';
 import 'package:animations/pages/flight_search/flight_search_page.dart';
 import 'package:animations/pages/implicitly_animated/implicitly_animated_page.dart';
 import 'package:animations/pages/transition/transition_page.dart';
@@ -23,6 +24,10 @@ class HomePage extends StatelessWidget {
           const AppListTile(
             title: 'Flight Search (Advanced Example)',
             nextRouteName: FlightSearchPage.routeName,
+          ),
+          const AppListTile(
+            title: 'Custom',
+            nextRouteName: CustomPage.routeName,
           ),
         ],
       ),

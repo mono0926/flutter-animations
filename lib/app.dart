@@ -1,3 +1,10 @@
+import 'package:animations/pages/custom/animated_builder_page.dart';
+import 'package:animations/pages/custom/animated_widget_page.dart';
+import 'package:animations/pages/custom/animation_controller_set_state_enhanced2_page.dart';
+import 'package:animations/pages/custom/animation_controller_set_state_enhanced_page.dart';
+import 'package:animations/pages/custom/animation_controller_set_state_page.dart';
+import 'package:animations/pages/custom/custom_page.dart';
+import 'package:animations/pages/custom/implicitly_animated_widget_page.dart';
 import 'package:animations/pages/flight_search/flight_search_page.dart';
 import 'package:animations/pages/home/home_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_align.dart';
@@ -92,7 +99,18 @@ class App extends StatelessWidget {
         FlightSearchPage.routeName: (_context) => MaterialApp(
               theme: ThemeData(primarySwatch: Colors.red),
               home: const FlightSearchPage(),
-            )
+            ),
+        CustomPage.routeName: (_context) => CustomPage(),
+        AnimationControllerSetStatePage.routeName: (_context) =>
+            AnimationControllerSetStatePage(),
+        AnimationControllerSetStateEnhancedPage.routeName: (_context) =>
+            AnimationControllerSetStateEnhancedPage(),
+        AnimationControllerSetStateEnhanced2Page.routeName: (_context) =>
+            AnimationControllerSetStateEnhanced2Page(),
+        AnimatedWidgetPage.routeName: (_context) => AnimatedWidgetPage(),
+        AnimatedBuilderPage.routeName: (_context) => AnimatedBuilderPage(),
+        ImplicitlyAnimatedWidgetPage.routeName: (_context) =>
+            ImplicitlyAnimatedWidgetPage(),
       },
     );
   }
