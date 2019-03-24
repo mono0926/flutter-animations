@@ -1,4 +1,5 @@
 import 'package:animations/pages/custom/animated_builder_page.dart';
+import 'package:animations/pages/custom/animated_switcher_page.dart';
 import 'package:animations/pages/custom/animated_widget_page.dart';
 import 'package:animations/pages/custom/animation_controller_set_state_enhanced2_page.dart';
 import 'package:animations/pages/custom/animation_controller_set_state_enhanced_page.dart';
@@ -35,6 +36,10 @@ class CustomPage extends StatelessWidget {
           const AppListTile(
             title: 'AnimatedBuilder',
             nextRouteName: AnimatedBuilderPage.routeName,
+          ),
+          const AppListTile(
+            title: 'AnimatedSwitcher',
+            nextRouteName: AnimatedSwitcher2Page.routeName,
           ),
           const AppListTile(
             title: 'ImplicitlyAnimatedWidget',

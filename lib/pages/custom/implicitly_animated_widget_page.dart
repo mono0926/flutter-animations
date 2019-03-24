@@ -12,8 +12,7 @@ class ImplicitlyAnimatedWidgetPage extends StatefulWidget {
 }
 
 class _ImplicitlyAnimatedWidgetPageState
-    extends State<ImplicitlyAnimatedWidgetPage>
-    with SingleTickerProviderStateMixin {
+    extends State<ImplicitlyAnimatedWidgetPage> {
   static const _texts = [
     'First',
     'Second',
@@ -28,20 +27,6 @@ class _ImplicitlyAnimatedWidgetPageState
   String get _currentText => _texts[_index % 3];
   Color get _currentColor => _colors[_index % 3];
 
-  GhostFadeTween _colorTween;
-  SwitchStringTween _stringTween;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _colorTween = GhostFadeTween(end: _currentColor);
-    _stringTween = SwitchStringTween(
-      begin: _currentText,
-      end: _currentText,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -50,14 +35,6 @@ class _ImplicitlyAnimatedWidgetPageState
         onPressed: () {
           setState(() {
             _index++;
-            _colorTween = GhostFadeTween(
-              begin: _colorTween.end,
-              end: _currentColor,
-            );
-            _stringTween = SwitchStringTween(
-              begin: _stringTween.end,
-              end: _currentText,
-            );
           });
         },
         child: const Icon(Icons.refresh),

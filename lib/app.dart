@@ -1,4 +1,5 @@
 import 'package:animations/pages/custom/animated_builder_page.dart';
+import 'package:animations/pages/custom/animated_switcher_page.dart';
 import 'package:animations/pages/custom/animated_widget_page.dart';
 import 'package:animations/pages/custom/animation_controller_set_state_enhanced2_page.dart';
 import 'package:animations/pages/custom/animation_controller_set_state_enhanced_page.dart';
@@ -109,6 +110,7 @@ class App extends StatelessWidget {
             AnimationControllerSetStateEnhanced2Page(),
         AnimatedWidgetPage.routeName: (_context) => AnimatedWidgetPage(),
         AnimatedBuilderPage.routeName: (_context) => AnimatedBuilderPage(),
+        AnimatedSwitcher2Page.routeName: (_context) => AnimatedSwitcher2Page(),
         ImplicitlyAnimatedWidgetPage.routeName: (_context) =>
             ImplicitlyAnimatedWidgetPage(),
       },
