@@ -37,7 +37,7 @@ class _AnimatedWidgetPageState extends State<AnimatedWidgetPage>
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
-    // TODO: setState不要になった
+    // setState不要になった
 
     _colorTween = GhostFadeTween(end: _currentColor);
     _stringTween = SwitchStringTween(

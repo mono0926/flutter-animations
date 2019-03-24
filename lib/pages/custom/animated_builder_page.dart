@@ -33,11 +33,12 @@ class _AnimatedBuilderPageState extends State<AnimatedBuilderPage>
   @override
   void initState() {
     super.initState();
+
     _animation = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
-    // TODO: setState不要になった
+    // setState不要になった
 
     _colorTween = GhostFadeTween(end: _currentColor);
     _stringTween = SwitchStringTween(
@@ -77,7 +78,7 @@ class _AnimatedBuilderPageState extends State<AnimatedBuilderPage>
         child: AnimatedBuilder(
           animation: _animation,
           builder: (context, _child) {
-            // TODO: 一般的にchildは利用するべきだが今回は不要
+            // 一般的にchildは利用するべきだが今回は不要
             return Text(
               _stringTween.evaluate(_animation),
               style: Theme.of(context)
