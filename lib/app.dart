@@ -6,6 +6,8 @@ import 'package:animations/pages/custom/animation_controller_set_state_enhanced_
 import 'package:animations/pages/custom/animation_controller_set_state_page.dart';
 import 'package:animations/pages/custom/custom_page.dart';
 import 'package:animations/pages/custom/implicitly_animated_widget_page.dart';
+import 'package:animations/pages/flare/apple_lock_page.dart';
+import 'package:animations/pages/flare/flare_page.dart';
 import 'package:animations/pages/flight_search/flight_search_page.dart';
 import 'package:animations/pages/home/home_page.dart';
 import 'package:animations/pages/implicitly_animated/animated_align.dart';
@@ -113,6 +115,8 @@ class App extends StatelessWidget {
         AnimatedSwitcher2Page.routeName: (_context) => AnimatedSwitcher2Page(),
         ImplicitlyAnimatedWidgetPage.routeName: (_context) =>
             ImplicitlyAnimatedWidgetPage(),
+        FlarePage.routeName: (_context) => FlarePage(),
+        AppleLockPage.routeName: (_context) => AppleLockPage(),
       },
     );
   }
