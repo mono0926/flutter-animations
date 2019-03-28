@@ -82,7 +82,7 @@ class _HeadlineState extends AnimatedWidgetBaseState<Headline> {
   }
 
   @override
-  void forEachTween(visitor) {
+  void forEachTween(TweenVisitor<dynamic> visitor) {
     _colorTween = visitor(
       _colorTween,
       widget.targetColor,
