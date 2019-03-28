@@ -40,7 +40,8 @@ class _AnimatedSwitcher2PageState extends State<AnimatedSwitcher2Page> {
           duration: const Duration(milliseconds: 1000),
           transitionBuilder: (child, animation) {
             return FadeTransition(
-              opacity: animation.drive(CurveTween(curve: Interval(0.5, 1))),
+              opacity:
+                  animation.drive(CurveTween(curve: const Interval(0.5, 1))),
               child: child,
             );
           },
