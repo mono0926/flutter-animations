@@ -1,5 +1,5 @@
-import 'package:animations/pages/flight_search/multicity_input.dart';
-import 'package:animations/pages/flight_search/price_tab.dart';
+import 'package:animations_app/pages/flight_search/multicity_input.dart';
+import 'package:animations_app/pages/flight_search/price_tab.dart';
 import 'package:flutter/material.dart';
 
 class ContentCard extends StatelessWidget {

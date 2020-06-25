@@ -1,4 +1,4 @@
-import 'package:animations/widget/widget.dart';
+import 'package:animations_app/widget/widget.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 

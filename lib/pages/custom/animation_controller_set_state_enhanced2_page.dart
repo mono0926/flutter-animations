@@ -1,6 +1,6 @@
-import 'package:animations/pages/custom/widget/ghost_fade_tween.dart';
-import 'package:animations/pages/custom/widget/switch_string_tween.dart';
-import 'package:animations/widget/app_scaffold.dart';
+import 'package:animations_app/pages/custom/widget/ghost_fade_tween.dart';
+import 'package:animations_app/pages/custom/widget/switch_string_tween.dart';
+import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimationControllerSetStateEnhanced2Page extends StatefulWidget {

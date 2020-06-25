@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:animations/util/util.dart';
+import 'package:animations_app/util/util.dart';
 import 'package:flutter/material.dart';
 
 class AnimationObject extends StatelessWidget {

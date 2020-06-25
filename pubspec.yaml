@@ -1,4 +1,4 @@
-name: animations
+name: animations_app
 description: A new Flutter application.
 version: 1.1.0
 environment:
@@ -12,7 +12,7 @@ dependencies:
   transparent_image: any
   keyboard_visibility: any
   flare_flutter: any
-  mono_kit: any
+  mono_kit:
 dev_dependencies:
   flutter_test:
     sdk: flutter

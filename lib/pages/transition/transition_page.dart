@@ -1,15 +1,15 @@
-import 'package:animations/pages/transition/align_transition_page.dart';
-import 'package:animations/pages/transition/decorated_box_transition_page.dart';
-import 'package:animations/pages/transition/default_text_style_transition_page.dart';
-import 'package:animations/pages/transition/fade_transition_page.dart';
-import 'package:animations/pages/transition/positioned_transition_page.dart';
-import 'package:animations/pages/transition/relative_positioned_transition_page.dart';
-import 'package:animations/pages/transition/rotation_transition_page.dart';
-import 'package:animations/pages/transition/scale_transition_page.dart';
-import 'package:animations/pages/transition/size_transition_page.dart';
-import 'package:animations/pages/transition/slide_transition_page.dart';
-import 'package:animations/widget/app_list_tile.dart';
-import 'package:animations/widget/app_scaffold.dart';
+import 'package:animations_app/pages/transition/align_transition_page.dart';
+import 'package:animations_app/pages/transition/decorated_box_transition_page.dart';
+import 'package:animations_app/pages/transition/default_text_style_transition_page.dart';
+import 'package:animations_app/pages/transition/fade_transition_page.dart';
+import 'package:animations_app/pages/transition/positioned_transition_page.dart';
+import 'package:animations_app/pages/transition/relative_positioned_transition_page.dart';
+import 'package:animations_app/pages/transition/rotation_transition_page.dart';
+import 'package:animations_app/pages/transition/scale_transition_page.dart';
+import 'package:animations_app/pages/transition/size_transition_page.dart';
+import 'package:animations_app/pages/transition/slide_transition_page.dart';
+import 'package:animations_app/widget/app_list_tile.dart';
+import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 /// Examples of [TransitionPage]

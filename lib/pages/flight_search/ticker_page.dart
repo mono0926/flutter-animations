@@ -1,7 +1,7 @@
-import 'package:animations/app.dart';
-import 'package:animations/pages/flight_search/air_asia_bar.dart';
-import 'package:animations/pages/flight_search/flight_stop_ticker.dart';
-import 'package:animations/pages/flight_search/ticket_card.dart';
+import 'package:animations_app/app.dart';
+import 'package:animations_app/pages/flight_search/air_asia_bar.dart';
+import 'package:animations_app/pages/flight_search/flight_stop_ticker.dart';
+import 'package:animations_app/pages/flight_search/ticket_card.dart';
 import 'package:flutter/material.dart';
 
 class TicketsPage extends StatefulWidget {
@@ -123,9 +123,9 @@ class _TicketsPageState extends State<TicketsPage>
             child: TicketCard(stop: stop),
           ),
           builder: (context, child) => Transform.translate(
-                offset: Offset(0, animation.value),
-                child: child,
-              ),
+            offset: Offset(0, animation.value),
+            child: child,
+          ),
         );
       },
     );

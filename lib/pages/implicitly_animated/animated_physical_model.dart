@@ -1,4 +1,4 @@
-import 'package:animations/widget/app_scaffold.dart';
+import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedPhysicalModelPage extends StatefulWidget {

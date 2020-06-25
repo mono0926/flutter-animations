@@ -1,5 +1,5 @@
-import 'package:animations/widget/animation_object.dart';
-import 'package:animations/widget/app_scaffold.dart';
+import 'package:animations_app/widget/animation_object.dart';
+import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedAlignPage extends StatefulWidget {

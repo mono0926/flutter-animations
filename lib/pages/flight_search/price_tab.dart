@@ -1,7 +1,7 @@
-import 'package:animations/pages/flight_search/animated_dot.dart';
-import 'package:animations/pages/flight_search/animated_plane_icon.dart';
-import 'package:animations/pages/flight_search/flight_stop.dart';
-import 'package:animations/pages/flight_search/flight_stop_card.dart';
+import 'package:animations_app/pages/flight_search/animated_dot.dart';
+import 'package:animations_app/pages/flight_search/animated_plane_icon.dart';
+import 'package:animations_app/pages/flight_search/flight_stop.dart';
+import 'package:animations_app/pages/flight_search/flight_stop_card.dart';
 import 'package:flutter/material.dart';
 
 class PriceTab extends StatefulWidget {
@@ -147,17 +147,17 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
             ..addAll(
               _flightStops.map(
                 (stop) => _buildStopCard(
-                      stop: stop,
-                      tween: flightStopTweenMap[stop],
-                    ),
+                  stop: stop,
+                  tween: flightStopTweenMap[stop],
+                ),
               ),
             )
             ..addAll(
               _flightStops.map(
                 (stop) => _mapFlightStopToDot(
-                      stop: stop,
-                      tween: flightStopTweenMap[stop],
-                    ),
+                  stop: stop,
+                  tween: flightStopTweenMap[stop],
+                ),
               ),
             ),
         );
@@ -181,9 +181,9 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
     return AnimatedBuilder(
       animation: planeTravelAnimation,
       builder: (context, child) => Positioned(
-            child: child,
-            top: planeTravelAnimation.value,
-          ),
+        child: child,
+        top: planeTravelAnimation.value,
+      ),
       child: Column(
         children: [
           AnimatedPlaneIcon(

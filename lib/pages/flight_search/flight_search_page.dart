@@ -1,9 +1,9 @@
-import 'package:animations/app.dart';
-import 'package:animations/pages/flight_search/air_asia_bar.dart';
-import 'package:animations/pages/flight_search/content_card.dart';
-import 'package:animations/pages/flight_search/fade_route.dart';
-import 'package:animations/pages/flight_search/rounded_button.dart';
-import 'package:animations/pages/flight_search/ticker_page.dart';
+import 'package:animations_app/app.dart';
+import 'package:animations_app/pages/flight_search/air_asia_bar.dart';
+import 'package:animations_app/pages/flight_search/content_card.dart';
+import 'package:animations_app/pages/flight_search/fade_route.dart';
+import 'package:animations_app/pages/flight_search/rounded_button.dart';
+import 'package:animations_app/pages/flight_search/ticker_page.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 

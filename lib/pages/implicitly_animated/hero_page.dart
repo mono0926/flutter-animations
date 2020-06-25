@@ -1,4 +1,4 @@
-import 'package:animations/widget/widget.dart';
+import 'package:animations_app/widget/widget.dart';
 import 'package:flutter/material.dart';
 
 const _heroTagImage = 'image';

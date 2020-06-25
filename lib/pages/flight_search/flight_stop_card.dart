@@ -1,4 +1,4 @@
-import 'package:animations/pages/flight_search/flight_stop.dart';
+import 'package:animations_app/pages/flight_search/flight_stop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
