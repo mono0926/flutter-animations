@@ -40,6 +40,7 @@ import 'package:animations/pages/transition/size_transition_page.dart';
 import 'package:animations/pages/transition/slide_transition_page.dart';
 import 'package:animations/pages/transition/transition_page.dart';
 import 'package:flutter/material.dart';
+import 'package:mono_kit/mono_kit.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -49,9 +50,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       navigatorKey: rootNavigatorKey,
       title: 'Animations',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-      ),
+      theme: lightTheme(),
+      darkTheme: darkTheme(),
       home: HomePage(),
       routes: {
         // Animated

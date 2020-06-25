@@ -6,12 +6,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^0.1.3
   simple_logger: any
   quiver: any
   transparent_image: any
   keyboard_visibility: any
   flare_flutter: any
+  mono_kit: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
