@@ -104,10 +104,10 @@ class FlightStopCardState extends State<FlightStopCard>
       child: AnimatedBuilder(
         animation: _lineAnimation,
         builder: (context, child) => Container(
-              height: 2,
-              width: maxLength * _lineAnimation.value,
-              color: const Color.fromARGB(255, 200, 200, 200),
-            ),
+          height: 2,
+          width: maxLength * _lineAnimation.value,
+          color: const Color.fromARGB(255, 200, 200, 200),
+        ),
       ),
     );
   }
@@ -146,21 +146,21 @@ class FlightStopCardState extends State<FlightStopCard>
     return AnimatedBuilder(
       animation: _durationPositionAnimation,
       builder: (context, child) => Positioned(
-            top: _getMarginTop(_durationPositionAnimation.value),
-            right: _getMarginRight(_durationPositionAnimation.value,
-                maxWidth: maxWidth),
-            child: child,
-          ),
+        top: _getMarginTop(_durationPositionAnimation.value),
+        right: _getMarginRight(_durationPositionAnimation.value,
+            maxWidth: maxWidth),
+        child: child,
+      ),
       child: DefaultTextStyleTransition(
         style: _durationPositionAnimation.drive(
           TextStyleTween(
-            begin: TextStyle(fontSize: 0),
-            end: TextStyle(fontSize: 10),
+            begin: const TextStyle(fontSize: 0),
+            end: const TextStyle(fontSize: 10),
           ),
         ),
         child: Text(
           widget.flightStop.duration,
-          style: TextStyle(color: Colors.grey),
+          style: const TextStyle(color: Colors.grey),
         ),
       ),
     );
@@ -172,21 +172,21 @@ class FlightStopCardState extends State<FlightStopCard>
     return AnimatedBuilder(
       animation: _airportsPositionAnimation,
       builder: (context, child) => Positioned(
-            top: _getMarginTop(_airportsPositionAnimation.value),
-            left: _getMarginLeft(_airportsPositionAnimation.value,
-                maxWidth: maxWidth),
-            child: child,
-          ),
+        top: _getMarginTop(_airportsPositionAnimation.value),
+        left: _getMarginLeft(_airportsPositionAnimation.value,
+            maxWidth: maxWidth),
+        child: child,
+      ),
       child: DefaultTextStyleTransition(
         style: _airportsPositionAnimation.drive(
           TextStyleTween(
-            begin: TextStyle(fontSize: 0),
-            end: TextStyle(fontSize: 14),
+            begin: const TextStyle(fontSize: 0),
+            end: const TextStyle(fontSize: 14),
           ),
         ),
         child: Text(
           '${widget.flightStop.from} \u00B7 ${widget.flightStop.to}',
-          style: TextStyle(color: Colors.grey),
+          style: const TextStyle(color: Colors.grey),
         ),
       ),
     );
@@ -198,22 +198,22 @@ class FlightStopCardState extends State<FlightStopCard>
     return AnimatedBuilder(
       animation: _datePositionAnimation,
       builder: (context, child) => Positioned(
-            left: _getMarginLeft(
-              _datePositionAnimation.value,
-              maxWidth: maxWidth,
-            ),
-            child: child,
-          ),
+        left: _getMarginLeft(
+          _datePositionAnimation.value,
+          maxWidth: maxWidth,
+        ),
+        child: child,
+      ),
       child: DefaultTextStyleTransition(
         style: _airportsPositionAnimation.drive(
           TextStyleTween(
-            begin: TextStyle(fontSize: 0),
-            end: TextStyle(fontSize: 14),
+            begin: const TextStyle(fontSize: 0),
+            end: const TextStyle(fontSize: 14),
           ),
         ),
         child: Text(
           '${widget.flightStop.date}',
-          style: TextStyle(color: Colors.grey),
+          style: const TextStyle(color: Colors.grey),
         ),
       ),
     );
@@ -225,22 +225,22 @@ class FlightStopCardState extends State<FlightStopCard>
     return AnimatedBuilder(
       animation: _pricePositionAnimation,
       builder: (context, child) => Positioned(
-            right: _getMarginRight(
-              _pricePositionAnimation.value,
-              maxWidth: maxWidth,
-            ),
-            child: child,
-          ),
+        right: _getMarginRight(
+          _pricePositionAnimation.value,
+          maxWidth: maxWidth,
+        ),
+        child: child,
+      ),
       child: DefaultTextStyleTransition(
         style: _airportsPositionAnimation.drive(
           TextStyleTween(
-            begin: TextStyle(fontSize: 0),
-            end: TextStyle(fontSize: 16),
+            begin: const TextStyle(fontSize: 0),
+            end: const TextStyle(fontSize: 16),
           ),
         ),
         child: Text(
           '${widget.flightStop.price}',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
@@ -255,23 +255,23 @@ class FlightStopCardState extends State<FlightStopCard>
     return AnimatedBuilder(
       animation: _fromToPositionAnimation,
       builder: (context, child) => Positioned(
-            left: _getMarginLeft(
-              _fromToPositionAnimation.value,
-              maxWidth: maxWidth,
-            ),
-            bottom: _getMarginBottom(_fromToPositionAnimation.value),
-            child: child,
-          ),
+        left: _getMarginLeft(
+          _fromToPositionAnimation.value,
+          maxWidth: maxWidth,
+        ),
+        bottom: _getMarginBottom(_fromToPositionAnimation.value),
+        child: child,
+      ),
       child: DefaultTextStyleTransition(
         style: _airportsPositionAnimation.drive(
           TextStyleTween(
-            begin: TextStyle(fontSize: 0),
-            end: TextStyle(fontSize: 12),
+            begin: const TextStyle(fontSize: 0),
+            end: const TextStyle(fontSize: 12),
           ),
         ),
         child: Text(
           '${widget.flightStop.fromToTime}',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.grey,
             fontWeight: FontWeight.w500,
           ),

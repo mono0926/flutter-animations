@@ -76,7 +76,7 @@ class _AnimatedWidgetPageState extends State<AnimatedWidgetPage>
       child: Center(
         child: _TextStyleColorTransition(
           animation: _animation.drive(_colorTween),
-          style: Theme.of(context).textTheme.title,
+          style: Theme.of(context).textTheme.headline6,
           child: _StringTransition(animation: _animation.drive(_stringTween)),
         ),
       ),

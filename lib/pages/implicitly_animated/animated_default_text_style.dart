@@ -15,21 +15,24 @@ class _AnimatedDefaultTextStylePageState
   TextStyle get _textStyle {
     switch (_index % 4) {
       case 0:
-        return Theme.of(context).textTheme.display1.copyWith(color: Colors.red);
+        return Theme.of(context)
+            .textTheme
+            .headline4
+            .copyWith(color: Colors.red);
       case 1:
         return Theme.of(context)
             .textTheme
-            .display2
+            .headline3
             .copyWith(color: Colors.green);
       case 2:
         return Theme.of(context)
             .textTheme
-            .display3
+            .headline2
             .copyWith(color: Colors.blue);
       case 3:
         return Theme.of(context)
             .textTheme
-            .display4
+            .headline1
             .copyWith(color: Colors.orange);
     }
     assert(false);

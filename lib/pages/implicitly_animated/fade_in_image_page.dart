@@ -24,7 +24,7 @@ class _FadeInImagePageState extends State<FadeInImagePage> {
       child: index % 2 == 0
           ? Stack(
               children: [
-                Center(child: const CircularProgressIndicator()),
+                const Center(child: const CircularProgressIndicator()),
                 Center(
                   child: FadeInImage.memoryNetwork(
                     placeholder: kTransparentImage,
@@ -41,7 +41,7 @@ class _FadeInImagePageState extends State<FadeInImagePage> {
                 ),
               ],
             )
-          : Center(
+          : const Center(
               child: const Text('Press button one more.'),
             ),
     );

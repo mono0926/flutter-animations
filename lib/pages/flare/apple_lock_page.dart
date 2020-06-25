@@ -24,7 +24,7 @@ class _AppleLockPageState extends State<AppleLockPage> {
                 width: 300,
                 height: 300,
                 child: _isLocked
-                    ? FlareActor(
+                    ? const FlareActor(
                         'assets/apple_lock.flr',
                         animation: 'Untitled',
                       )

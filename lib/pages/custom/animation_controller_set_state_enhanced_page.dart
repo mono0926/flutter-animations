@@ -78,7 +78,7 @@ class _AnimationControllerSetStateEnhancedPageState
       child: Center(
         child: Text(
           _stringTween.evaluate(_animation),
-          style: Theme.of(context).textTheme.title.copyWith(
+          style: Theme.of(context).textTheme.headline6.copyWith(
                 color: _colorTween.evaluate(_animation),
               ),
         ),

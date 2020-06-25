@@ -77,7 +77,7 @@ class _ScaleTransitionPageState extends State<ScaleTransitionPage>
                     end: 1,
                   ),
                 ),
-            child: Text(
+            child: const Text(
               'I am a dog 🐶',
               style: TextStyle(fontSize: 32),
             ),

@@ -49,7 +49,7 @@ class _AnimatedSwitcher2PageState extends State<AnimatedSwitcher2Page> {
               key: ValueKey(_currentText),
               style: Theme.of(context)
                   .textTheme
-                  .title
+                  .headline6
                   .copyWith(color: _currentColor)),
         ),
       ),

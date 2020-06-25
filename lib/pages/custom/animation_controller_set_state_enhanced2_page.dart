@@ -120,7 +120,7 @@ class __MyAnimatedWidgetState extends State<_MyAnimatedWidget>
   Widget build(BuildContext context) {
     return Text(
       widget.stringTween.evaluate(_animation),
-      style: Theme.of(context).textTheme.title.copyWith(
+      style: Theme.of(context).textTheme.headline6.copyWith(
             color: widget.colorTween.evaluate(_animation),
           ),
     );

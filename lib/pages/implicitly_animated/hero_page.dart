@@ -22,7 +22,7 @@ class HeroPage extends StatelessWidget {
                 child: _image,
               ),
               const SizedBox(width: 16),
-              Hero(
+              const Hero(
                 tag: _heroTagText,
                 child: Material(
                   color: Colors.transparent,
@@ -51,7 +51,7 @@ class DetailScreen extends StatelessWidget {
             child: _image,
           ),
           const SizedBox(height: 16),
-          Hero(
+          const Hero(
             tag: _heroTagText,
             child: Material(
               color: Colors.transparent,

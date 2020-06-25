@@ -76,7 +76,7 @@ class _HeadlineState extends AnimatedWidgetBaseState<Headline> {
       _stringTween.evaluate(animation),
       style: Theme.of(context)
           .textTheme
-          .title
+          .headline6
           .copyWith(color: _colorTween.evaluate(animation)),
     );
   }

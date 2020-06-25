@@ -57,8 +57,8 @@ class _RelativePositionedTransitionPageState
                 )
                 .drive(
                   RectTween(
-                    begin: Rect.fromLTRB(10, 10, -100, -400),
-                    end: Rect.fromLTRB(200, 500, 0, 0),
+                    begin: const Rect.fromLTRB(10, 10, -100, -400),
+                    end: const Rect.fromLTRB(200, 500, 0, 0),
                   ),
                 ),
             size: const Size(50, 50),

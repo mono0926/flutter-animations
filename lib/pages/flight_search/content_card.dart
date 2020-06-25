@@ -48,7 +48,7 @@ class ContentCard extends StatelessWidget {
             color: const Color(0xFFEEEEEE),
           ),
         ),
-        TabBar(
+        const TabBar(
           tabs: _tabs,
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
@@ -61,7 +61,7 @@ class ContentCard extends StatelessWidget {
     return AnimatedSwitcher(
       child: SizedBox.expand(
         child: showInput
-            ? SingleChildScrollView(
+            ? const SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: const MulticityInput(),
               )

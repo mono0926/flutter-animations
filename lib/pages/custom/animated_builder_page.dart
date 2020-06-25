@@ -83,7 +83,7 @@ class _AnimatedBuilderPageState extends State<AnimatedBuilderPage>
               _stringTween.evaluate(_animation),
               style: Theme.of(context)
                   .textTheme
-                  .title
+                  .headline6
                   .copyWith(color: _colorTween.evaluate(_animation)),
             );
           },

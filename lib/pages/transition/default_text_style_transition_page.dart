@@ -53,11 +53,11 @@ class _DefaultTextStyleTransitionPageState
             )
             .drive(
               TextStyleTween(
-                begin: Theme.of(context).textTheme.display1,
-                end: Theme.of(context).textTheme.display4,
+                begin: Theme.of(context).textTheme.headline4,
+                end: Theme.of(context).textTheme.headline1,
               ),
             ),
-        child: Center(child: const Text('Flutter')),
+        child: const Center(child: const Text('Flutter')),
       ),
     );
   }

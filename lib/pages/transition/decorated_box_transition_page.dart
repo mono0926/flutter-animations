@@ -53,10 +53,10 @@ class _DecoratedBoxTransitionPageState extends State<DecoratedBoxTransitionPage>
               )
               .drive(
                 DecorationTween(
-                  begin: FlutterLogoDecoration(
+                  begin: const FlutterLogoDecoration(
                     style: FlutterLogoStyle.horizontal,
                   ),
-                  end: FlutterLogoDecoration(
+                  end: const FlutterLogoDecoration(
                     lightColor: Colors.red,
                     darkColor: Colors.purple,
                     style: FlutterLogoStyle.stacked,
