@@ -51,9 +51,6 @@ class _DecoratedBoxTransitionPageState extends State<DecoratedBoxTransitionPage>
                     style: FlutterLogoStyle.horizontal,
                   ),
                   end: const FlutterLogoDecoration(
-                    // TODO(mono): あとで
-                    // lightColor: Colors.red,
-                    // darkColor: Colors.purple,
                     style: FlutterLogoStyle.stacked,
                   ),
                 ),
