@@ -11,17 +11,11 @@ class SizeTransitionPage extends StatefulWidget {
 
 class _SizeTransitionPageState extends State<SizeTransitionPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 500),
+  );
   var _isScaledUp = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 500),
-    );
-  }
 
   @override
   void dispose() {

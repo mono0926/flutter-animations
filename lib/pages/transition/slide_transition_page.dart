@@ -11,16 +11,10 @@ class SlideTransitionPage extends StatefulWidget {
 
 class _SlideTransitionPageState extends State<SlideTransitionPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 500),
-    );
-  }
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 500),
+  );
 
   @override
   void dispose() {
@@ -56,11 +50,9 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset('assets/love.png'),
-        RaisedButton(
+        ElevatedButton(
+          onPressed: _animationController.reverse,
           child: const Text('CLOSE'),
-          onPressed: () {
-            _animationController.reverse();
-          },
         )
       ],
     );
@@ -71,10 +63,8 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
       child: Container(
         color: Colors.black,
         child: Center(
-          child: RaisedButton(
-            onPressed: () {
-              _animationController.forward();
-            },
+          child: ElevatedButton(
+            onPressed: _animationController.forward,
             child: const Text('OPEN'),
           ),
         ),

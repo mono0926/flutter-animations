@@ -41,41 +41,40 @@ class _TicketsPageState extends State<TicketsPage>
       flightNumber: 'MR4321',
     ),
   ];
-  AnimationController _cardEntranceAnimationController;
-  Map<FlightStopTicket, Animation<double>> _ticketAnimations;
+  late final AnimationController _cardEntranceAnimationController =
+      AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1100),
+  );
+  late final Map<FlightStopTicket, Animation<double>> _ticketAnimations =
+      stops.asMap().map((index, stop) {
+    final start = index * 0.1;
+    return MapEntry(
+      stop,
+      _cardEntranceAnimationController
+          .drive(
+            CurveTween(
+              curve: Interval(
+                start,
+                start + 0.6,
+                curve: Curves.decelerate,
+              ),
+            ),
+          )
+          .drive(
+            Tween<double>(begin: 800, end: 0),
+          ),
+    );
+  });
 
   @override
   void initState() {
     super.initState();
-    _cardEntranceAnimationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1100),
-    );
-
-    _ticketAnimations = stops.asMap().map((index, stop) {
-      final start = index * 0.1;
-      return MapEntry(
-        stop,
-        _cardEntranceAnimationController
-            .drive(
-              CurveTween(
-                curve: Interval(
-                  start,
-                  start + 0.6,
-                  curve: Curves.decelerate,
-                ),
-              ),
-            )
-            .drive(
-              Tween<double>(begin: 800, end: 0),
-            ),
-      );
-    });
 
     _runAnimation();
   }
 
-  void _runAnimation() async {
+  Future<void> _runAnimation() async {
     await _cardEntranceAnimationController.forward();
     setState(() {});
   }
@@ -112,9 +111,13 @@ class _TicketsPageState extends State<TicketsPage>
   Iterable<Widget> _buildTickets() {
     return stops.map(
       (stop) {
-        final animation = _ticketAnimations[stop];
+        final animation = _ticketAnimations[stop]!;
         return AnimatedBuilder(
           animation: animation,
+          builder: (context, child) => Transform.translate(
+            offset: Offset(0, animation.value),
+            child: child,
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(
               vertical: 4,
@@ -122,21 +125,17 @@ class _TicketsPageState extends State<TicketsPage>
             ),
             child: TicketCard(stop: stop),
           ),
-          builder: (context, child) => Transform.translate(
-            offset: Offset(0, animation.value),
-            child: child,
-          ),
         );
       },
     );
   }
 
-  Widget _buildFab() {
+  Widget? _buildFab() {
     if (_cardEntranceAnimationController.status != AnimationStatus.completed) {
       return null;
     }
     return FloatingActionButton(
-      onPressed: () => rootNavigatorKey.currentState.pop(),
+      onPressed: () => rootNavigatorKey.currentState!.pop(),
       child: const Icon(Icons.fingerprint),
     );
   }

@@ -20,44 +20,44 @@ class TransitionPage extends StatelessWidget {
     return AppScaffold(
       title: 'TransitionPage',
       child: ListView(
-        children: [
-          const AppListTile(
+        children: const [
+          AppListTile(
             title: 'AlignTransition',
             nextRouteName: AlignTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'DecoratedBoxTransition',
             nextRouteName: DecoratedBoxTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'DefaultTextStyleTransition',
             nextRouteName: DefaultTextStyleTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'FadeTransition',
             nextRouteName: FadeTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'PositionedTransition',
             nextRouteName: PositionedTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'RelativePositionedTransition',
             nextRouteName: RelativePositionedTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'RotationTransition',
             nextRouteName: RotationTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'ScaleTransition',
             nextRouteName: ScaleTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'SizeTransition',
             nextRouteName: SizeTransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'SlideTransition',
             nextRouteName: SlideTransitionPage.routeName,
           ),

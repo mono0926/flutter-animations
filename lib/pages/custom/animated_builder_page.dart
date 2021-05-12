@@ -26,26 +26,18 @@ class _AnimatedBuilderPageState extends State<AnimatedBuilderPage>
   String get _currentText => _texts[_index % 3];
   Color get _currentColor => _colors[_index % 3];
 
-  AnimationController _animation;
-  GhostFadeTween _colorTween;
-  SwitchStringTween _stringTween;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _animation = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    );
-    // setState不要になった
-
-    _colorTween = GhostFadeTween(end: _currentColor);
-    _stringTween = SwitchStringTween(
-      begin: _currentText,
-      end: _currentText,
-    );
-  }
+  late final AnimationController _animation = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1000),
+  );
+  late GhostFadeTween _colorTween = GhostFadeTween(
+    begin: _currentColor,
+    end: _currentColor,
+  );
+  late SwitchStringTween _stringTween = SwitchStringTween(
+    begin: _currentText,
+    end: _currentText,
+  );
 
   @override
   void dispose() {
@@ -83,7 +75,7 @@ class _AnimatedBuilderPageState extends State<AnimatedBuilderPage>
               _stringTween.evaluate(_animation),
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .headline6!
                   .copyWith(color: _colorTween.evaluate(_animation)),
             );
           },

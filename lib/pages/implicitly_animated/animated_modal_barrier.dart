@@ -20,14 +20,14 @@ class _AnimatedModalBarrierPageState extends State<AnimatedModalBarrierPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RaisedButton(
-              child: const Text('Open Modal View'),
+            ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MyPageRoute(
+                Navigator.of(context).push<void>(MyPageRoute(
                   page: _ModalPage(),
                   dismissible: _dismissible,
                 ));
               },
+              child: const Text('Open Modal View'),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -50,10 +50,10 @@ class _AnimatedModalBarrierPageState extends State<AnimatedModalBarrierPage> {
   }
 }
 
-class MyPageRoute extends TransitionRoute {
+class MyPageRoute extends TransitionRoute<void> {
   MyPageRoute({
-    @required this.page,
-    @required this.dismissible,
+    required this.page,
+    required this.dismissible,
   });
 
   final Widget page;
@@ -74,13 +74,12 @@ class MyPageRoute extends TransitionRoute {
   Duration get transitionDuration => const Duration(milliseconds: 500);
 
   Widget _buildModalBarrier(BuildContext context) {
+    final animation = this.animation!;
     return IgnorePointer(
-      ignoring: animation.status ==
-              AnimationStatus
-                  .reverse || // changedInternalState is called when this updates
-          animation.status ==
-              AnimationStatus
-                  .dismissed, // dismissed is possible when doing a manual pop gesture
+      // changedInternalState is called when this updates
+      ignoring: animation.status == AnimationStatus.reverse ||
+          // dismissed is possible when doing a manual pop gesture
+          animation.status == AnimationStatus.dismissed,
       child: AnimatedModalBarrier(
         color: animation.drive(
           ColorTween(
@@ -105,11 +104,11 @@ class _ModalPage extends StatelessWidget {
           children: [
             const Text('(　´･‿･｀)'),
             const SizedBox(height: 8),
-            RaisedButton(
-              child: const Text('Close'),
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
+              child: const Text('Close'),
             )
           ],
         ),

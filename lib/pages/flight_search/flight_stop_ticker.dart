@@ -3,11 +3,11 @@ import 'package:meta/meta.dart';
 @immutable
 class FlightStopTicket {
   const FlightStopTicket({
-    this.from,
-    this.fromShort,
-    this.to,
-    this.toShort,
-    this.flightNumber,
+    required this.from,
+    required this.fromShort,
+    required this.to,
+    required this.toShort,
+    required this.flightNumber,
   });
   final String from;
   final String fromShort;

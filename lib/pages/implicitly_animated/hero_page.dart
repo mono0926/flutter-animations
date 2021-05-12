@@ -13,6 +13,9 @@ class HeroPage extends StatelessWidget {
     return AppScaffold(
       title: 'Hero',
       child: InkWell(
+        onTap: () => Navigator.of(context).push<void>(
+          MaterialPageRoute(builder: (context) => DetailScreen()),
+        ),
         child: SizedBox(
           height: 60,
           child: Row(
@@ -26,14 +29,12 @@ class HeroPage extends StatelessWidget {
                 tag: _heroTagText,
                 child: Material(
                   color: Colors.transparent,
-                  child: const Text(_text),
+                  child: Text(_text),
                 ),
               ),
             ],
           ),
         ),
-        onTap: () => Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => DetailScreen())),
       ),
     );
   }

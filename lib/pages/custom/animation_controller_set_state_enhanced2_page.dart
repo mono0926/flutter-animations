@@ -28,19 +28,14 @@ class _AnimationControllerSetStateEnhanced2PageState
   String get _currentText => _texts[_index % 3];
   Color get _currentColor => _colors[_index % 3];
 
-  GhostFadeTween _colorTween;
-  SwitchStringTween _stringTween;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _colorTween = GhostFadeTween(end: _currentColor);
-    _stringTween = SwitchStringTween(
-      begin: _currentText,
-      end: _currentText,
-    );
-  }
+  late GhostFadeTween _colorTween = GhostFadeTween(
+    begin: _currentColor,
+    end: _currentColor,
+  );
+  late SwitchStringTween _stringTween = SwitchStringTween(
+    begin: _currentText,
+    end: _currentText,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -74,9 +69,9 @@ class _AnimationControllerSetStateEnhanced2PageState
 
 class _MyAnimatedWidget extends StatefulWidget {
   const _MyAnimatedWidget({
-    Key key,
-    @required this.stringTween,
-    @required this.colorTween,
+    Key? key,
+    required this.stringTween,
+    required this.colorTween,
   }) : super(key: key);
 
   final SwitchStringTween stringTween;
@@ -88,18 +83,12 @@ class _MyAnimatedWidget extends StatefulWidget {
 
 class __MyAnimatedWidgetState extends State<_MyAnimatedWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _animation = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    )..addListener(() {
-        setState(() => {});
-      });
-  }
+  late final AnimationController _animation = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1000),
+  )..addListener(() {
+      setState(() {});
+    });
 
   @override
   void dispose() {
@@ -120,7 +109,7 @@ class __MyAnimatedWidgetState extends State<_MyAnimatedWidget>
   Widget build(BuildContext context) {
     return Text(
       widget.stringTween.evaluate(_animation),
-      style: Theme.of(context).textTheme.headline6.copyWith(
+      style: Theme.of(context).textTheme.headline6!.copyWith(
             color: widget.colorTween.evaluate(_animation),
           ),
     );

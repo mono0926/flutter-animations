@@ -11,17 +11,11 @@ class AlignTransitionPage extends StatefulWidget {
 
 class _AlignTransitionPageState extends State<AlignTransitionPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 500),
+  );
   var _isMoved = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 500),
-    );
-  }
 
   @override
   void dispose() {

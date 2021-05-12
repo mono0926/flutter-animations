@@ -11,17 +11,11 @@ class AnimatedIconPage extends StatefulWidget {
 
 class _AnimatedIconPageState extends State<AnimatedIconPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 500),
+  );
   var _playButtonEnabled = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 500),
-    );
-  }
 
   @override
   void dispose() {
@@ -29,12 +23,12 @@ class _AnimatedIconPageState extends State<AnimatedIconPage>
     super.dispose();
   }
 
-  void _play() async {
+  Future<void> _play() async {
     setState(() {
       _playButtonEnabled = false;
     });
     await _animationController.forward(from: 0);
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     await _animationController.reverse();
     setState(() {
       _playButtonEnabled = true;
@@ -66,7 +60,7 @@ class _AnimatedIconPageState extends State<AnimatedIconPage>
     );
   }
 
-  Widget _buildAnimatedIcon(AnimatedIconData icon, {@required String label}) {
+  Widget _buildAnimatedIcon(AnimatedIconData icon, {required String label}) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

@@ -28,7 +28,7 @@ class _AnimatedThemePageState extends State<AnimatedThemePage> {
           data: _isLightTheme ? ThemeData.light() : ThemeData.dark(),
           duration: const Duration(milliseconds: 500),
           child: const Card(
-            child: const Padding(
+            child: Padding(
               padding: EdgeInsets.all(16),
               child: Text(
                 'hello',

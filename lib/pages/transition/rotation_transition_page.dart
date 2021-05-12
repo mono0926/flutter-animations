@@ -11,16 +11,10 @@ class RotationTransitionPage extends StatefulWidget {
 
 class _RotationTransitionPageState extends State<RotationTransitionPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 3000),
-    );
-  }
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 3000),
+  );
 
   @override
   void dispose() {

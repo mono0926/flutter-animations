@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class TicketCard extends StatelessWidget {
   const TicketCard({
-    Key key,
-    this.stop,
+    Key? key,
+    required this.stop,
   }) : super(key: key);
 
   final FlightStopTicket stop;
@@ -41,8 +41,8 @@ class TicketCard extends StatelessWidget {
     );
   }
 
-  Container _buildCardContent(BuildContext context) {
-    return Container(
+  Widget _buildCardContent(BuildContext context) {
+    return SizedBox(
       height: 104,
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -86,8 +86,8 @@ class TicketCard extends StatelessWidget {
   }
 
   Widget _buildLocation({
-    @required String name,
-    @required String nameShort,
+    required String name,
+    required String nameShort,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -111,7 +111,7 @@ class TicketCard extends StatelessWidget {
 
 class TicketClipper extends CustomClipper<Path> {
   TicketClipper({
-    @required this.radius,
+    required this.radius,
   });
 
   final double radius;

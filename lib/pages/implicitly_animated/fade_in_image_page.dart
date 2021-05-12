@@ -10,25 +10,25 @@ class FadeInImagePage extends StatefulWidget {
 }
 
 class _FadeInImagePageState extends State<FadeInImagePage> {
-  var index = 0;
+  var _index = 0;
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'FadeInImage',
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() => index++);
+          setState(() => _index++);
         },
         child: const Icon(Icons.refresh),
       ),
-      child: index % 2 == 0
+      child: _index.isEven
           ? Stack(
               children: [
-                const Center(child: const CircularProgressIndicator()),
+                const Center(child: CircularProgressIndicator()),
                 Center(
                   child: FadeInImage.memoryNetwork(
                     placeholder: kTransparentImage,
-                    image: 'https://picsum.photos/400?image=$index',
+                    image: 'https://picsum.photos/400?image=$_index',
                     fadeInCurve: Curves.easeInOut,
                   ),
                   /*
@@ -42,7 +42,7 @@ class _FadeInImagePageState extends State<FadeInImagePage> {
               ],
             )
           : const Center(
-              child: const Text('Press button one more.'),
+              child: Text('Press button one more.'),
             ),
     );
   }

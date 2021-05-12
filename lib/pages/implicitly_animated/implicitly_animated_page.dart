@@ -27,72 +27,72 @@ class ImplicitlyAnimatedPage extends StatelessWidget {
     return AppScaffold(
       title: 'Animated',
       child: ListView(
-        children: [
-          const AppListTile(
+        children: const [
+          AppListTile(
             title: 'AnimatedAlign',
             nextRouteName: AnimatedAlignPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedContainer',
             nextRouteName: AnimatedContainerPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedCrossFade',
             nextRouteName: AnimatedCrossFadePage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedDefaultTextStyle',
             nextRouteName: AnimatedDefaultTextStylePage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedIcon',
             nextRouteName: AnimatedIconPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedList',
             nextRouteName: AnimatedListPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedModalBarrier',
             nextRouteName: AnimatedModalBarrierPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedOpacity',
             nextRouteName: AnimatedOpacityPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedPadding',
             nextRouteName: AnimatedPaddingPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedPhysicalModel',
             nextRouteName: AnimatedPhysicalModelPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedPositioned',
             nextRouteName: AnimatedPositionedPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedPositionedDirectional',
             nextRouteName: AnimatedPositionedDirectionalPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedTheme',
             nextRouteName: AnimatedThemePage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedSwitcher',
             nextRouteName: AnimatedSwitcherPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedSize',
             nextRouteName: AnimatedSizePage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'Hero',
             nextRouteName: HeroPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'FadeInImage',
             nextRouteName: FadeInImagePage.routeName,
           ),

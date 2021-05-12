@@ -26,25 +26,18 @@ class _AnimatedWidgetPageState extends State<AnimatedWidgetPage>
   String get _currentText => _texts[_index % 3];
   Color get _currentColor => _colors[_index % 3];
 
-  AnimationController _animation;
-  GhostFadeTween _colorTween;
-  SwitchStringTween _stringTween;
-
-  @override
-  void initState() {
-    super.initState();
-    _animation = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    );
-    // setState不要になった
-
-    _colorTween = GhostFadeTween(end: _currentColor);
-    _stringTween = SwitchStringTween(
-      begin: _currentText,
-      end: _currentText,
-    );
-  }
+  late final AnimationController _animation = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1000),
+  );
+  late GhostFadeTween _colorTween = GhostFadeTween(
+    begin: _currentColor,
+    end: _currentColor,
+  );
+  late SwitchStringTween _stringTween = SwitchStringTween(
+    begin: _currentText,
+    end: _currentText,
+  );
 
   @override
   void dispose() {
@@ -76,7 +69,7 @@ class _AnimatedWidgetPageState extends State<AnimatedWidgetPage>
       child: Center(
         child: _TextStyleColorTransition(
           animation: _animation.drive(_colorTween),
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.headline6!,
           child: _StringTransition(animation: _animation.drive(_stringTween)),
         ),
       ),
@@ -86,10 +79,10 @@ class _AnimatedWidgetPageState extends State<AnimatedWidgetPage>
 
 class _TextStyleColorTransition extends AnimatedWidget {
   const _TextStyleColorTransition({
-    Key key,
-    @required this.child,
-    @required this.style,
-    @required Animation<Color> animation,
+    Key? key,
+    required this.child,
+    required this.style,
+    required Animation<Color> animation,
   }) : super(
           key: key,
           listenable: animation,
@@ -102,16 +95,16 @@ class _TextStyleColorTransition extends AnimatedWidget {
   Widget build(BuildContext context) {
     final animation = listenable as Animation<Color>;
     return DefaultTextStyle(
-      child: child,
       style: style.copyWith(color: animation.value),
+      child: child,
     );
   }
 }
 
 class _StringTransition extends AnimatedWidget {
   const _StringTransition({
-    Key key,
-    @required Animation<String> animation,
+    Key? key,
+    required Animation<String> animation,
   }) : super(
           key: key,
           listenable: animation,

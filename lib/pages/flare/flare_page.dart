@@ -10,8 +10,8 @@ class FlarePage extends StatelessWidget {
     return AppScaffold(
       title: 'Flare',
       child: ListView(
-        children: [
-          const AppListTile(
+        children: const [
+          AppListTile(
             title: 'Apple Lock',
             nextRouteName: AppleLockPage.routeName,
           ),

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
-    Key key,
-    @required this.text,
+    Key? key,
+    required this.text,
     this.selected = false,
     this.onPressed,
   }) : super(key: key);
 
   final String text;
   final bool selected;
-  final GestureTapCallback onPressed;
+  final GestureTapCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -28,28 +28,30 @@ class RoundedButton extends StatelessWidget {
     );
   }
 
-  OutlineButton _buildUnselectedButton() {
+  Widget _buildUnselectedButton() {
     final color = Colors.white;
-    return OutlineButton(
-      borderSide: BorderSide(color: color),
-      highlightedBorderColor: color,
-      textColor: color,
-      color: Colors.white,
+    return TextButton(
+      style: TextButton.styleFrom(
+        side: BorderSide(color: color),
+        primary: Colors.white,
+        onSurface: color,
+        shape: const StadiumBorder(),
+      ),
       onPressed: onPressed,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       child: Center(child: Text(text)),
     );
   }
 
   Widget _buildSelectedButton(BuildContext context) {
     final textColor = Theme.of(context).primaryColor;
-    return RaisedButton(
-      elevation: 0,
-      highlightElevation: 0,
-      textColor: textColor,
-      color: Colors.white,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        elevation: 0,
+        primary: Colors.white,
+        onPrimary: textColor,
+        shape: const StadiumBorder(),
+      ),
       onPressed: onPressed ?? () {},
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       child: Center(child: Text(text)),
     );
   }

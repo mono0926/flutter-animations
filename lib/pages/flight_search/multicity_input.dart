@@ -104,8 +104,8 @@ class _MulticityInputState extends State<MulticityInput> {
   }
 
   TextFormField _buildTextField({
-    @required String labelText,
-    IconData icon,
+    required String labelText,
+    IconData? icon,
   }) {
     return TextFormField(
       decoration: InputDecoration(

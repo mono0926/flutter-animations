@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AppScaffold extends StatelessWidget {
-  const AppScaffold(
-      {Key key,
-      @required this.title,
-      @required this.child,
-      this.floatingActionButton})
-      : super(key: key);
+  const AppScaffold({
+    Key? key,
+    required this.title,
+    required this.child,
+    this.floatingActionButton,
+  }) : super(key: key);
 
   final String title;
   final Widget child;
-  final FloatingActionButton floatingActionButton;
+  final FloatingActionButton? floatingActionButton;
 
   @override
   Widget build(BuildContext context) {

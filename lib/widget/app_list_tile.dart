@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class AppListTile extends StatelessWidget {
   const AppListTile({
-    Key key,
-    this.title,
-    this.nextRouteName,
+    Key? key,
+    required this.title,
+    required this.nextRouteName,
   }) : super(key: key);
 
   final String title;

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class ContentCard extends StatelessWidget {
   const ContentCard({
-    @required this.showInput,
-    @required this.onCompleted,
+    required this.showInput,
+    required this.onCompleted,
   });
 
   final bool showInput;
@@ -38,7 +38,7 @@ class ContentCard extends StatelessWidget {
     );
   }
 
-  Widget _buildTabBar({bool showFirstOption}) {
+  Widget _buildTabBar() {
     return Stack(
       children: [
         Positioned.fill(
@@ -59,15 +59,15 @@ class ContentCard extends StatelessWidget {
 
   Widget _buildTabContent() {
     return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 200),
       child: SizedBox.expand(
         child: showInput
             ? const SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                child: const MulticityInput(),
+                physics: AlwaysScrollableScrollPhysics(),
+                child: MulticityInput(),
               )
             : PriceTab(onCompleted: onCompleted),
       ),
-      duration: const Duration(milliseconds: 200),
     );
   }
 }

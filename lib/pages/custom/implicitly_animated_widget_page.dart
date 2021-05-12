@@ -51,9 +51,9 @@ class _ImplicitlyAnimatedWidgetPageState
 
 class Headline extends ImplicitlyAnimatedWidget {
   const Headline({
-    Key key,
-    @required this.targetColor,
-    @required this.targetString,
+    Key? key,
+    required this.targetColor,
+    required this.targetString,
   }) : super(
           key: key,
           duration: const Duration(milliseconds: 1000),
@@ -67,17 +67,17 @@ class Headline extends ImplicitlyAnimatedWidget {
 }
 
 class _HeadlineState extends AnimatedWidgetBaseState<Headline> {
-  GhostFadeTween _colorTween;
-  SwitchStringTween _stringTween;
+  GhostFadeTween? _colorTween;
+  SwitchStringTween? _stringTween;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      _stringTween.evaluate(animation),
+      _stringTween!.evaluate(animation),
       style: Theme.of(context)
           .textTheme
-          .headline6
-          .copyWith(color: _colorTween.evaluate(animation)),
+          .headline6!
+          .copyWith(color: _colorTween!.evaluate(animation)),
     );
   }
 
@@ -86,13 +86,13 @@ class _HeadlineState extends AnimatedWidgetBaseState<Headline> {
     _colorTween = visitor(
       _colorTween,
       widget.targetColor,
-      (color) => GhostFadeTween(begin: color as Color),
-    ) as GhostFadeTween;
+      (dynamic color) => GhostFadeTween(begin: color as Color),
+    ) as GhostFadeTween?;
 
     _stringTween = visitor(
       _stringTween,
       widget.targetString,
-      (string) => SwitchStringTween(begin: string as String),
-    ) as SwitchStringTween;
+      (dynamic string) => SwitchStringTween(begin: string as String),
+    ) as SwitchStringTween?;
   }
 }

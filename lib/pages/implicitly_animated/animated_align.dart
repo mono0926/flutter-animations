@@ -35,8 +35,8 @@ class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
       child: AnimatedAlign(
         alignment: _alignment,
         duration: const Duration(milliseconds: 500),
-        child: AnimationObject(),
         curve: Curves.easeInOut,
+        child: AnimationObject(),
       ),
     );
   }

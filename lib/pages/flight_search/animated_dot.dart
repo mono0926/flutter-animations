@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class AnimatedDot extends AnimatedWidget {
   const AnimatedDot({
-    Key key,
-    @required Animation<double> animation,
-    @required this.color,
+    Key? key,
+    required Animation<double> animation,
+    required this.color,
   }) : super(
           key: key,
           listenable: animation,

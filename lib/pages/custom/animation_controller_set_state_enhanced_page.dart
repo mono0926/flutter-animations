@@ -28,25 +28,20 @@ class _AnimationControllerSetStateEnhancedPageState
   String get _currentText => _texts[_index % 3];
   Color get _currentColor => _colors[_index % 3];
 
-  AnimationController _animation;
-  GhostFadeTween _colorTween;
-  SwitchStringTween _stringTween;
-
-  @override
-  void initState() {
-    super.initState();
-    _animation = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    )..addListener(() {
-        setState(() => {});
-      });
-    _colorTween = GhostFadeTween(end: _currentColor);
-    _stringTween = SwitchStringTween(
-      begin: _currentText,
-      end: _currentText,
-    );
-  }
+  late final AnimationController _animation = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1000),
+  )..addListener(() {
+      setState(() {});
+    });
+  late GhostFadeTween _colorTween = GhostFadeTween(
+    begin: _currentColor,
+    end: _currentColor,
+  );
+  late SwitchStringTween _stringTween = SwitchStringTween(
+    begin: _currentText,
+    end: _currentText,
+  );
 
   @override
   void dispose() {
@@ -78,7 +73,7 @@ class _AnimationControllerSetStateEnhancedPageState
       child: Center(
         child: Text(
           _stringTween.evaluate(_animation),
-          style: Theme.of(context).textTheme.headline6.copyWith(
+          style: Theme.of(context).textTheme.headline6!.copyWith(
                 color: _colorTween.evaluate(_animation),
               ),
         ),

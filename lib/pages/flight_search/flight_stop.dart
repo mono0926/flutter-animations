@@ -3,12 +3,12 @@ import 'package:meta/meta.dart';
 @immutable
 class FlightStop {
   const FlightStop({
-    @required this.from,
-    @required this.to,
-    @required this.date,
-    @required this.duration,
-    @required this.price,
-    @required this.fromToTime,
+    required this.from,
+    required this.to,
+    required this.date,
+    required this.duration,
+    required this.price,
+    required this.fromToTime,
   });
 
   final String from;

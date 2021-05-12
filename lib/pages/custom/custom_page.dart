@@ -16,32 +16,32 @@ class CustomPage extends StatelessWidget {
     return AppScaffold(
       title: 'Custom',
       child: ListView(
-        children: [
-          const AppListTile(
+        children: const [
+          AppListTile(
             title: 'AnimationController - SetState',
             nextRouteName: AnimationControllerSetStatePage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimationController - SetState (Enhanced)',
             nextRouteName: AnimationControllerSetStateEnhancedPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimationController - SetState (Enhanced2)',
             nextRouteName: AnimationControllerSetStateEnhanced2Page.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedWidget',
             nextRouteName: AnimatedWidgetPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedBuilder',
             nextRouteName: AnimatedBuilderPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'AnimatedSwitcher',
             nextRouteName: AnimatedSwitcher2Page.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'ImplicitlyAnimatedWidget',
             nextRouteName: ImplicitlyAnimatedWidgetPage.routeName,
           ),

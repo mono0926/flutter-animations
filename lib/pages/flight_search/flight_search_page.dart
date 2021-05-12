@@ -10,7 +10,7 @@ import 'package:keyboard_visibility/keyboard_visibility.dart';
 enum FlightSearchMode { normal, plane, done }
 
 class FlightSearchPage extends StatefulWidget {
-  const FlightSearchPage({Key key}) : super(key: key);
+  const FlightSearchPage({Key? key}) : super(key: key);
 
   static const routeName = 'FlightSearchPage';
 
@@ -23,7 +23,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
   var _isKeyboardVisible = false;
   var _selectedButtonIndex = 2;
   final _keyboardVisibilityNotification = KeyboardVisibilityNotification();
-  int _keyboardVisibilityNotificationSubscription;
+  late final int _keyboardVisibilityNotificationSubscription;
 
   @override
   void initState() {
@@ -55,7 +55,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
               icon: const BackButtonIcon(),
               tooltip: MaterialLocalizations.of(context).backButtonTooltip,
               onPressed: () {
-                rootNavigatorKey.currentState.pop();
+                rootNavigatorKey.currentState!.pop();
               },
             ),
           ),
@@ -84,7 +84,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
     );
   }
 
-  Widget _buildFab() {
+  Widget? _buildFab() {
     if (_isKeyboardVisible) {
       return null;
     }
@@ -107,7 +107,7 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
         return FloatingActionButton(
           onPressed: () {
             Navigator.of(context)
-                .push(FadeRoute(builder: (context) => TicketsPage()));
+                .push<void>(FadeRoute(builder: (context) => TicketsPage()));
           },
           child: const Icon(
             Icons.check,
@@ -115,8 +115,6 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
           ),
         );
     }
-    assert(false);
-    return null;
   }
 
   Widget _buildButtonsRow() {

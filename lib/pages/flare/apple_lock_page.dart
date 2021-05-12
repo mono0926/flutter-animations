@@ -31,11 +31,11 @@ class _AppleLockPageState extends State<AppleLockPage> {
                     : null,
               ),
               const SizedBox(height: 16),
-              RaisedButton(
-                child: const Text('LOCK'),
+              ElevatedButton(
                 onPressed: () {
                   setState(() => _isLocked = !_isLocked);
                 },
+                child: const Text('LOCK'),
               )
             ],
           ),

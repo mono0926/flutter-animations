@@ -13,24 +13,24 @@ class HomePage extends StatelessWidget {
     return AppScaffold(
       title: 'Animation',
       child: ListView(
-        children: [
-          const AppListTile(
+        children: const [
+          AppListTile(
             title: 'ImplicitlyAnimated',
             nextRouteName: ImplicitlyAnimatedPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'Transition',
             nextRouteName: TransitionPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'Flight Search (Advanced Example)',
             nextRouteName: FlightSearchPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'Custom',
             nextRouteName: CustomPage.routeName,
           ),
-          const AppListTile(
+          AppListTile(
             title: 'Flare',
             nextRouteName: FlarePage.routeName,
           ),

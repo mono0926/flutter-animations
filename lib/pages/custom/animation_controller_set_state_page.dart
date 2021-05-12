@@ -26,20 +26,13 @@ class _AnimationControllerSetStatePageState
   String get _currentText => _texts[_index % 3];
   Color get _currentColor => _colors[_index % 3];
 
-  AnimationController _animation;
-  ColorTween _colorTween;
-
-  @override
-  void initState() {
-    super.initState();
-    _animation = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    )..addListener(() {
-        setState(() => {});
-      });
-    _colorTween = ColorTween(end: _currentColor);
-  }
+  late final AnimationController _animation = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1000),
+  )..addListener(() {
+      setState(() {});
+    });
+  late ColorTween _colorTween = ColorTween(end: _currentColor);
 
   @override
   void dispose() {
@@ -67,7 +60,7 @@ class _AnimationControllerSetStatePageState
       child: Center(
         child: Text(
           _currentText,
-          style: Theme.of(context).textTheme.headline6.copyWith(
+          style: Theme.of(context).textTheme.headline6!.copyWith(
                 color: _colorTween.evaluate(_animation),
               ),
         ),

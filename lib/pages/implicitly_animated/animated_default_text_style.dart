@@ -17,26 +17,26 @@ class _AnimatedDefaultTextStylePageState
       case 0:
         return Theme.of(context)
             .textTheme
-            .headline4
+            .headline4!
             .copyWith(color: Colors.red);
       case 1:
         return Theme.of(context)
             .textTheme
-            .headline3
+            .headline3!
             .copyWith(color: Colors.green);
       case 2:
         return Theme.of(context)
             .textTheme
-            .headline2
+            .headline2!
             .copyWith(color: Colors.blue);
       case 3:
         return Theme.of(context)
             .textTheme
-            .headline1
+            .headline1!
             .copyWith(color: Colors.orange);
     }
     assert(false);
-    return null;
+    return const TextStyle();
   }
 
   @override
@@ -54,9 +54,9 @@ class _AnimatedDefaultTextStylePageState
       child: Center(
         child: AnimatedDefaultTextStyle(
           duration: const Duration(milliseconds: 500),
-          child: const Text('Flutter'),
           curve: Curves.easeInOut,
           style: _textStyle,
+          child: const Text('Flutter'),
         ),
       ),
     );

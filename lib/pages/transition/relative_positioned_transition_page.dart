@@ -13,17 +13,11 @@ class RelativePositionedTransitionPage extends StatefulWidget {
 class _RelativePositionedTransitionPageState
     extends State<RelativePositionedTransitionPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 3000),
+  );
   var _isMoved = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 3000),
-    );
-  }
 
   @override
   void dispose() {
@@ -49,6 +43,8 @@ class _RelativePositionedTransitionPageState
       child: Stack(
         children: [
           RelativePositionedTransition(
+            // TODO(mono): broken
+            // type 'RectTween' is not a subtype of type 'Animatable<Rect>' in type cast
             rect: _animationController
                 .drive(
                   CurveTween(
@@ -59,7 +55,7 @@ class _RelativePositionedTransitionPageState
                   RectTween(
                     begin: const Rect.fromLTRB(10, 10, -100, -400),
                     end: const Rect.fromLTRB(200, 500, 0, 0),
-                  ),
+                  ) as Animatable<Rect>,
                 ),
             size: const Size(50, 50),
             child: Image.asset(
