@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
-    Key? key,
+    super.key,
     required this.title,
     required this.child,
     this.floatingActionButton,
-  }) : super(key: key);
+  });
 
   final String title;
   final Widget child;

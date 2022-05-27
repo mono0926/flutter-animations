@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class TicketCard extends StatelessWidget {
   const TicketCard({
-    Key? key,
+    super.key,
     required this.stop,
-  }) : super(key: key);
+  });
 
   final FlightStopTicket stop;
   static const airportNameStyle = TextStyle(
@@ -45,7 +45,6 @@ class TicketCard extends StatelessWidget {
     return SizedBox(
       height: 104,
       child: Row(
-        mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
             child: _buildLocation(
@@ -67,7 +66,6 @@ class TicketCard extends StatelessWidget {
 
   Widget _buildFlightNumber(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
@@ -90,7 +88,6 @@ class TicketCard extends StatelessWidget {
     required String nameShort,
   }) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
@@ -125,11 +122,11 @@ class TicketClipper extends CustomClipper<Path> {
       ..addOval(Rect.fromCircle(
         center: Offset(0, size.height / 2),
         radius: radius,
-      ))
+      ),)
       ..addOval(Rect.fromCircle(
         center: Offset(size.width, size.height / 2),
         radius: radius,
-      ));
+      ),);
   }
 
   @override

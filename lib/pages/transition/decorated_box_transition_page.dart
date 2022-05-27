@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class DecoratedBoxTransitionPage extends StatefulWidget {
+  const DecoratedBoxTransitionPage({super.key});
+
   static const routeName = 'DecoratedBoxTransition';
 
   @override
-  _DecoratedBoxTransitionPageState createState() =>
+  State<DecoratedBoxTransitionPage> createState() =>
       _DecoratedBoxTransitionPageState();
 }
 

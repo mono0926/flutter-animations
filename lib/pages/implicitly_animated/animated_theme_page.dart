@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedThemePage extends StatefulWidget {
+  const AnimatedThemePage({super.key});
+
   static const routeName = 'animatedTheme';
 
   @override
-  _AnimatedThemePageState createState() => _AnimatedThemePageState();
+  State<AnimatedThemePage> createState() => _AnimatedThemePageState();
 }
 
 class _AnimatedThemePageState extends State<AnimatedThemePage> {

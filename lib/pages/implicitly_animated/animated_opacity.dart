@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedOpacityPage extends StatefulWidget {
+  const AnimatedOpacityPage({super.key});
+
   static const routeName = 'animatedOpacity';
 
   @override
-  _AnimatedOpacityPageState createState() => _AnimatedOpacityPageState();
+  State<AnimatedOpacityPage> createState() => _AnimatedOpacityPageState();
 }
 
 class _AnimatedOpacityPageState extends State<AnimatedOpacityPage> {

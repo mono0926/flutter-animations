@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class SlideTransitionPage extends StatefulWidget {
+  const SlideTransitionPage({super.key});
+
   static const routeName = 'slideTransition';
 
   @override
-  _SlideTransitionPageState createState() => _SlideTransitionPageState();
+  State<SlideTransitionPage> createState() => _SlideTransitionPageState();
 }
 
 class _SlideTransitionPageState extends State<SlideTransitionPage>
@@ -60,7 +62,7 @@ class _SlideTransitionPageState extends State<SlideTransitionPage>
 
   Widget _buildTransitionScreen() {
     return SizedBox.expand(
-      child: Container(
+      child: ColoredBox(
         color: Colors.black,
         child: Center(
           child: ElevatedButton(

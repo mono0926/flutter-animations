@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedSwitcher2Page extends StatefulWidget {
+  const AnimatedSwitcher2Page({super.key});
+
   static const routeName = 'AnimatedSwitcher2Page';
 
   @override
-  _AnimatedSwitcher2PageState createState() => _AnimatedSwitcher2PageState();
+  State<AnimatedSwitcher2Page> createState() => _AnimatedSwitcher2PageState();
 }
 
 class _AnimatedSwitcher2PageState extends State<AnimatedSwitcher2Page> {
@@ -45,12 +47,14 @@ class _AnimatedSwitcher2PageState extends State<AnimatedSwitcher2Page> {
               child: child,
             );
           },
-          child: Text(_currentText,
-              key: ValueKey(_currentText),
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6!
-                  .copyWith(color: _currentColor)),
+          child: Text(
+            _currentText,
+            key: ValueKey(_currentText),
+            style: Theme.of(context)
+                .textTheme
+                .headline6!
+                .copyWith(color: _currentColor),
+          ),
         ),
       ),
     );

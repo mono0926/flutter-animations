@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 class FadeRoute<T> extends MaterialPageRoute<T> {
   FadeRoute({
-    required WidgetBuilder builder,
+    required super.builder,
   }) : super(
-          builder: builder,
           fullscreenDialog: true,
         );
 

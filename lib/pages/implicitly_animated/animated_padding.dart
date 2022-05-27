@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedPaddingPage extends StatefulWidget {
+  const AnimatedPaddingPage({super.key});
+
   static const routeName = 'animatedPadding';
 
   @override
-  _AnimatedPaddingPageState createState() => _AnimatedPaddingPageState();
+  State<AnimatedPaddingPage> createState() => _AnimatedPaddingPageState();
 }
 
 class _AnimatedPaddingPageState extends State<AnimatedPaddingPage> {

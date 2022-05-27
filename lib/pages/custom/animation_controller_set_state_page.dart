@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimationControllerSetStatePage extends StatefulWidget {
+  const AnimationControllerSetStatePage({super.key});
+
   static const routeName = 'AnimationControllerSetState';
 
   @override
-  _AnimationControllerSetStatePageState createState() =>
+  State<AnimationControllerSetStatePage> createState() =>
       _AnimationControllerSetStatePageState();
 }
 

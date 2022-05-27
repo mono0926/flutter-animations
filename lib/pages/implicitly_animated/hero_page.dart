@@ -7,6 +7,8 @@ final _image = Image.asset('assets/love.png');
 const _text = 'I am a dog 🐶';
 
 class HeroPage extends StatelessWidget {
+  const HeroPage({super.key});
+
   static const routeName = 'Hero';
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class HeroPage extends StatelessWidget {
       title: 'Hero',
       child: InkWell(
         onTap: () => Navigator.of(context).push<void>(
-          MaterialPageRoute(builder: (context) => DetailScreen()),
+          MaterialPageRoute(builder: (context) => const DetailScreen()),
         ),
         child: SizedBox(
           height: 60,
@@ -41,6 +43,8 @@ class HeroPage extends StatelessWidget {
 }
 
 class DetailScreen extends StatelessWidget {
+  const DetailScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(

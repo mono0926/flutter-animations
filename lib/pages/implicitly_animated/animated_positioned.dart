@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedPositionedPage extends StatefulWidget {
+  const AnimatedPositionedPage({super.key});
+
   static const routeName = 'animatedPositioned';
 
   @override
-  _AnimatedPositionedPageState createState() => _AnimatedPositionedPageState();
+  State<AnimatedPositionedPage> createState() => _AnimatedPositionedPageState();
 }
 
 class _AnimatedPositionedPageState extends State<AnimatedPositionedPage> {

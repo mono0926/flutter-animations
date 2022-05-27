@@ -4,6 +4,8 @@ import 'package:animations_app/util/util.dart';
 import 'package:flutter/material.dart';
 
 class AnimationObject extends StatelessWidget {
+  const AnimationObject({super.key});
+
   @override
   Widget build(BuildContext context) {
     logger.info('build');

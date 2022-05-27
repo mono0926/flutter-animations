@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class AnimatedPlaneIcon extends StatelessWidget {
   const AnimatedPlaneIcon({
-    Key? key,
+    super.key,
     required this.size,
     required this.scaleAnimation,
-  }) : super(key: key);
+  });
 
   final double size;
   final Animation<double> scaleAnimation;

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class RelativePositionedTransitionPage extends StatefulWidget {
+  const RelativePositionedTransitionPage({super.key});
+
   static const routeName = 'RelativePositionedTransition';
 
   @override
-  _RelativePositionedTransitionPageState createState() =>
+  State<RelativePositionedTransitionPage> createState() =>
       _RelativePositionedTransitionPageState();
 }
 
@@ -44,7 +46,8 @@ class _RelativePositionedTransitionPageState
         children: [
           RelativePositionedTransition(
             // TODO(mono): broken
-            // type 'RectTween' is not a subtype of type 'Animatable<Rect>' in type cast
+            // type 'RectTween' is not a subtype
+            // of type 'Animatable<Rect>' in type cast
             rect: _animationController
                 .drive(
                   CurveTween(

@@ -3,10 +3,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedContainerPage extends StatefulWidget {
+  const AnimatedContainerPage({super.key});
+
   static const routeName = 'animatedContainer';
 
   @override
-  _AnimatedContainerPageState createState() => _AnimatedContainerPageState();
+  State<AnimatedContainerPage> createState() => _AnimatedContainerPageState();
 }
 
 class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
@@ -46,7 +48,7 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
         padding: EdgeInsets.all(20 * (_index.toDouble() % 4)),
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
-        child: AnimationObject(),
+        child: const AnimationObject(),
       ),
     );
   }

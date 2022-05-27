@@ -4,10 +4,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimationControllerSetStateEnhanced2Page extends StatefulWidget {
+  const AnimationControllerSetStateEnhanced2Page({super.key});
+
   static const routeName = 'AnimationControllerSetStateEnhanced2';
 
   @override
-  _AnimationControllerSetStateEnhanced2PageState createState() =>
+  State<AnimationControllerSetStateEnhanced2Page> createState() =>
       _AnimationControllerSetStateEnhanced2PageState();
 }
 
@@ -69,16 +71,15 @@ class _AnimationControllerSetStateEnhanced2PageState
 
 class _MyAnimatedWidget extends StatefulWidget {
   const _MyAnimatedWidget({
-    Key? key,
     required this.stringTween,
     required this.colorTween,
-  }) : super(key: key);
+  });
 
   final SwitchStringTween stringTween;
   final GhostFadeTween colorTween;
 
   @override
-  __MyAnimatedWidgetState createState() => __MyAnimatedWidgetState();
+  State<_MyAnimatedWidget> createState() => __MyAnimatedWidgetState();
 }
 
 class __MyAnimatedWidgetState extends State<_MyAnimatedWidget>

@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedPhysicalModelPage extends StatefulWidget {
+  const AnimatedPhysicalModelPage({super.key});
+
   static const routeName = 'animatedPhysicalModel';
 
   @override
-  _AnimatedPhysicalModelPageState createState() =>
+  State<AnimatedPhysicalModelPage> createState() =>
       _AnimatedPhysicalModelPageState();
 }
 

@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 
 class PriceTab extends StatefulWidget {
   const PriceTab({
-    Key? key,
+    super.key,
     required this.onCompleted,
-  }) : super(key: key);
+  });
 
   final void Function() onCompleted;
 
   @override
-  _PriceTabState createState() => _PriceTabState();
+  State<PriceTab> createState() => _PriceTabState();
 }
 
 class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
@@ -79,7 +79,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
     ),
   ];
   final _stopKeys =
-      _flightStops.map((_s) => GlobalKey<FlightStopCardState>()).toList();
+      _flightStops.map((s) => GlobalKey<FlightStopCardState>()).toList();
 
   @override
   void initState() {
@@ -100,7 +100,7 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
     });
   }
 
-  Future _animateFlightStopCards() async {
+  Future<void> _animateFlightStopCards() async {
     for (final stopKey in _stopKeys) {
       await Future<void>.delayed(const Duration(milliseconds: 250));
       // ignore: unawaited_futures
@@ -230,7 +230,6 @@ class _PriceTabState extends State<PriceTab> with TickerProviderStateMixin {
       child: Padding(
         padding: EdgeInsets.only(top: topMargin),
         child: Row(
-          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             isLeft ? Container() : Expanded(child: Container()),

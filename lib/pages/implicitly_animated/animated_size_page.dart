@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 // MEMO: ImplicitlyAnimatedWidgetの派生クラスではない
 /// See: https://medium.com/flutter-community/flutter-working-with-animatedsize-35253ff8f16a
 class AnimatedSizePage extends StatefulWidget {
+  const AnimatedSizePage({super.key});
+
   static const routeName = 'animatedSize';
 
   @override
-  _AnimatedSizePageState createState() => _AnimatedSizePageState();
+  State<AnimatedSizePage> createState() => _AnimatedSizePageState();
 }
 
-class _AnimatedSizePageState extends State<AnimatedSizePage>
-    with SingleTickerProviderStateMixin {
+class _AnimatedSizePageState extends State<AnimatedSizePage> {
   var _isSmall = true;
 
   @override
@@ -28,7 +29,6 @@ class _AnimatedSizePageState extends State<AnimatedSizePage>
       ),
       child: Center(
         child: AnimatedSize(
-          vsync: this,
           duration: const Duration(milliseconds: 500),
           child: SizedBox(
             width: _isSmall ? 100 : 200,

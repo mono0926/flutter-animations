@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 // MEMO: ImplicitlyAnimatedWidgetの派生クラスではない
 class AnimatedIconPage extends StatefulWidget {
+  const AnimatedIconPage({super.key});
+
   static const routeName = 'AnimatedIcon';
 
   @override
-  _AnimatedIconPageState createState() => _AnimatedIconPageState();
+  State<AnimatedIconPage> createState() => _AnimatedIconPageState();
 }
 
 class _AnimatedIconPageState extends State<AnimatedIconPage>
@@ -52,8 +54,10 @@ class _AnimatedIconPageState extends State<AnimatedIconPage>
             _buildAnimatedIcon(AnimatedIcons.add_event, label: 'add_event'),
             _buildAnimatedIcon(AnimatedIcons.pause_play, label: 'pause_play'),
             _buildAnimatedIcon(AnimatedIcons.close_menu, label: 'close_menu'),
-            _buildAnimatedIcon(AnimatedIcons.ellipsis_search,
-                label: 'ellipsis_search'),
+            _buildAnimatedIcon(
+              AnimatedIcons.ellipsis_search,
+              label: 'ellipsis_search',
+            ),
           ],
         ),
       ),

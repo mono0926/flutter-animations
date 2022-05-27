@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 // MEMO: ImplicitlyAnimatedWidgetの派生クラスではない
 class AnimatedCrossFadePage extends StatefulWidget {
+  const AnimatedCrossFadePage({super.key});
+
   static const routeName = 'animatedCrossFade';
 
   @override
-  _AnimatedCrossFadePageState createState() => _AnimatedCrossFadePageState();
+  State<AnimatedCrossFadePage> createState() => _AnimatedCrossFadePageState();
 }
 
 class _AnimatedCrossFadePageState extends State<AnimatedCrossFadePage> {

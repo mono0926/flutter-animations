@@ -4,10 +4,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class ImplicitlyAnimatedWidgetPage extends StatefulWidget {
+  const ImplicitlyAnimatedWidgetPage({super.key});
+
   static const routeName = 'ImplicitlyAnimatedWidgetPage';
 
   @override
-  _ImplicitlyAnimatedWidgetPageState createState() =>
+  State<ImplicitlyAnimatedWidgetPage> createState() =>
       _ImplicitlyAnimatedWidgetPageState();
 }
 
@@ -51,11 +53,10 @@ class _ImplicitlyAnimatedWidgetPageState
 
 class Headline extends ImplicitlyAnimatedWidget {
   const Headline({
-    Key? key,
+    super.key,
     required this.targetColor,
     required this.targetString,
   }) : super(
-          key: key,
           duration: const Duration(milliseconds: 1000),
         );
 
@@ -63,7 +64,7 @@ class Headline extends ImplicitlyAnimatedWidget {
   final String targetString;
 
   @override
-  _HeadlineState createState() => _HeadlineState();
+  AnimatedWidgetBaseState<Headline> createState() => _HeadlineState();
 }
 
 class _HeadlineState extends AnimatedWidgetBaseState<Headline> {

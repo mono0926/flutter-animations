@@ -5,8 +5,10 @@ import 'package:animations_app/pages/flight_search/ticket_card.dart';
 import 'package:flutter/material.dart';
 
 class TicketsPage extends StatefulWidget {
+  const TicketsPage({super.key});
+
   @override
-  _TicketsPageState createState() => _TicketsPageState();
+  State<TicketsPage> createState() => _TicketsPageState();
 }
 
 class _TicketsPageState extends State<TicketsPage>

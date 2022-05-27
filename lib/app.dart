@@ -45,6 +45,8 @@ import 'package:mono_kit/mono_kit.dart';
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,71 +54,75 @@ class App extends StatelessWidget {
       title: 'Animations',
       theme: lightTheme(),
       darkTheme: darkTheme(),
-      home: HomePage(),
+      home: const HomePage(),
       routes: {
         // Animated
-        ImplicitlyAnimatedPage.routeName: (_context) =>
-            ImplicitlyAnimatedPage(),
-        AnimatedAlignPage.routeName: (_context) => AnimatedAlignPage(),
-        AnimatedContainerPage.routeName: (_context) => AnimatedContainerPage(),
-        AnimatedCrossFadePage.routeName: (_context) => AnimatedCrossFadePage(),
-        AnimatedDefaultTextStylePage.routeName: (_context) =>
-            AnimatedDefaultTextStylePage(),
-        AnimatedIconPage.routeName: (_context) => AnimatedIconPage(),
-        AnimatedListPage.routeName: (_context) => AnimatedListPage(),
-        AnimatedModalBarrierPage.routeName: (_context) =>
-            AnimatedModalBarrierPage(),
-        AnimatedOpacityPage.routeName: (_context) => AnimatedOpacityPage(),
-        AnimatedPaddingPage.routeName: (_context) => AnimatedPaddingPage(),
-        AnimatedPhysicalModelPage.routeName: (_context) =>
-            AnimatedPhysicalModelPage(),
-        AnimatedPositionedPage.routeName: (_context) =>
-            AnimatedPositionedPage(),
-        AnimatedPositionedDirectionalPage.routeName: (_context) =>
-            AnimatedPositionedDirectionalPage(),
-        AnimatedThemePage.routeName: (_context) => AnimatedThemePage(),
-        AnimatedSwitcherPage.routeName: (_context) => AnimatedSwitcherPage(),
-        AnimatedSizePage.routeName: (_context) => AnimatedSizePage(),
-        HeroPage.routeName: (_context) => HeroPage(),
-        FadeInImagePage.routeName: (_context) => FadeInImagePage(),
+        ImplicitlyAnimatedPage.routeName: (context) =>
+            const ImplicitlyAnimatedPage(),
+        AnimatedAlignPage.routeName: (context) => const AnimatedAlignPage(),
+        AnimatedContainerPage.routeName: (context) =>
+            const AnimatedContainerPage(),
+        AnimatedCrossFadePage.routeName: (context) =>
+            const AnimatedCrossFadePage(),
+        AnimatedDefaultTextStylePage.routeName: (context) =>
+            const AnimatedDefaultTextStylePage(),
+        AnimatedIconPage.routeName: (context) => const AnimatedIconPage(),
+        AnimatedListPage.routeName: (context) => const AnimatedListPage(),
+        AnimatedModalBarrierPage.routeName: (context) =>
+            const AnimatedModalBarrierPage(),
+        AnimatedOpacityPage.routeName: (context) => const AnimatedOpacityPage(),
+        AnimatedPaddingPage.routeName: (context) => const AnimatedPaddingPage(),
+        AnimatedPhysicalModelPage.routeName: (context) =>
+            const AnimatedPhysicalModelPage(),
+        AnimatedPositionedPage.routeName: (context) =>
+            const AnimatedPositionedPage(),
+        AnimatedPositionedDirectionalPage.routeName: (context) =>
+            const AnimatedPositionedDirectionalPage(),
+        AnimatedThemePage.routeName: (context) => const AnimatedThemePage(),
+        AnimatedSwitcherPage.routeName: (context) =>
+            const AnimatedSwitcherPage(),
+        AnimatedSizePage.routeName: (context) => const AnimatedSizePage(),
+        HeroPage.routeName: (context) => const HeroPage(),
+        FadeInImagePage.routeName: (context) => const FadeInImagePage(),
         // Transition
-        TransitionPage.routeName: (_context) => TransitionPage(),
-        SlideTransitionPage.routeName: (_context) => SlideTransitionPage(),
-        ScaleTransitionPage.routeName: (_context) => ScaleTransitionPage(),
-        RotationTransitionPage.routeName: (_context) =>
-            RotationTransitionPage(),
-        SizeTransitionPage.routeName: (_context) => SizeTransitionPage(),
-        FadeTransitionPage.routeName: (_context) => FadeTransitionPage(),
-        PositionedTransitionPage.routeName: (_context) =>
-            PositionedTransitionPage(),
-        RelativePositionedTransitionPage.routeName: (_context) =>
-            RelativePositionedTransitionPage(),
-        DecoratedBoxTransitionPage.routeName: (_context) =>
-            DecoratedBoxTransitionPage(),
-        AlignTransitionPage.routeName: (_context) => AlignTransitionPage(),
-        DefaultTextStyleTransitionPage.routeName: (_context) =>
-            DefaultTextStyleTransitionPage(),
+        TransitionPage.routeName: (context) => const TransitionPage(),
+        SlideTransitionPage.routeName: (context) => const SlideTransitionPage(),
+        ScaleTransitionPage.routeName: (context) => const ScaleTransitionPage(),
+        RotationTransitionPage.routeName: (context) =>
+            const RotationTransitionPage(),
+        SizeTransitionPage.routeName: (context) => const SizeTransitionPage(),
+        FadeTransitionPage.routeName: (context) => const FadeTransitionPage(),
+        PositionedTransitionPage.routeName: (context) =>
+            const PositionedTransitionPage(),
+        RelativePositionedTransitionPage.routeName: (context) =>
+            const RelativePositionedTransitionPage(),
+        DecoratedBoxTransitionPage.routeName: (context) =>
+            const DecoratedBoxTransitionPage(),
+        AlignTransitionPage.routeName: (context) => const AlignTransitionPage(),
+        DefaultTextStyleTransitionPage.routeName: (context) =>
+            const DefaultTextStyleTransitionPage(),
         // ここ配下に別テーマを適用させるためにMaterialAppを使ったが問題あり
         // - ナビゲーションで戻れない(とりあえずグローバルなrootNavigatorKeyで暫定対処)
         // - インスペクターがエラーになる
-        FlightSearchPage.routeName: (_context) => MaterialApp(
+        FlightSearchPage.routeName: (context) => MaterialApp(
               theme: ThemeData(primarySwatch: Colors.red),
               home: const FlightSearchPage(),
             ),
-        CustomPage.routeName: (_context) => CustomPage(),
-        AnimationControllerSetStatePage.routeName: (_context) =>
-            AnimationControllerSetStatePage(),
-        AnimationControllerSetStateEnhancedPage.routeName: (_context) =>
-            AnimationControllerSetStateEnhancedPage(),
-        AnimationControllerSetStateEnhanced2Page.routeName: (_context) =>
-            AnimationControllerSetStateEnhanced2Page(),
-        AnimatedWidgetPage.routeName: (_context) => AnimatedWidgetPage(),
-        AnimatedBuilderPage.routeName: (_context) => AnimatedBuilderPage(),
-        AnimatedSwitcher2Page.routeName: (_context) => AnimatedSwitcher2Page(),
-        ImplicitlyAnimatedWidgetPage.routeName: (_context) =>
-            ImplicitlyAnimatedWidgetPage(),
-        FlarePage.routeName: (_context) => FlarePage(),
-        AppleLockPage.routeName: (_context) => AppleLockPage(),
+        CustomPage.routeName: (context) => const CustomPage(),
+        AnimationControllerSetStatePage.routeName: (context) =>
+            const AnimationControllerSetStatePage(),
+        AnimationControllerSetStateEnhancedPage.routeName: (context) =>
+            const AnimationControllerSetStateEnhancedPage(),
+        AnimationControllerSetStateEnhanced2Page.routeName: (context) =>
+            const AnimationControllerSetStateEnhanced2Page(),
+        AnimatedWidgetPage.routeName: (context) => const AnimatedWidgetPage(),
+        AnimatedBuilderPage.routeName: (context) => const AnimatedBuilderPage(),
+        AnimatedSwitcher2Page.routeName: (context) =>
+            const AnimatedSwitcher2Page(),
+        ImplicitlyAnimatedWidgetPage.routeName: (context) =>
+            const ImplicitlyAnimatedWidgetPage(),
+        FlarePage.routeName: (context) => const FlarePage(),
+        AppleLockPage.routeName: (context) => const AppleLockPage(),
       },
     );
   }

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class RotationTransitionPage extends StatefulWidget {
+  const RotationTransitionPage({super.key});
+
   static const routeName = 'RotationTransition';
 
   @override
-  _RotationTransitionPageState createState() => _RotationTransitionPageState();
+  State<RotationTransitionPage> createState() => _RotationTransitionPageState();
 }
 
 class _RotationTransitionPageState extends State<RotationTransitionPage>

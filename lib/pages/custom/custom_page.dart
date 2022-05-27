@@ -10,6 +10,8 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class CustomPage extends StatelessWidget {
+  const CustomPage({super.key});
+
   static const routeName = 'Custom';
   @override
   Widget build(BuildContext context) {

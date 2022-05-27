@@ -4,10 +4,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedBuilderPage extends StatefulWidget {
+  const AnimatedBuilderPage({super.key});
+
   static const routeName = 'AnimatedBuilderPage';
 
   @override
-  _AnimatedBuilderPageState createState() => _AnimatedBuilderPageState();
+  State<AnimatedBuilderPage> createState() => _AnimatedBuilderPageState();
 }
 
 class _AnimatedBuilderPageState extends State<AnimatedBuilderPage>
@@ -69,7 +71,7 @@ class _AnimatedBuilderPageState extends State<AnimatedBuilderPage>
       child: Center(
         child: AnimatedBuilder(
           animation: _animation,
-          builder: (context, _child) {
+          builder: (context, child) {
             // 一般的にchildは利用するべきだが今回は不要
             return Text(
               _stringTween.evaluate(_animation),

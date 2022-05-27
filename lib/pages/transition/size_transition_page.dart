@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class SizeTransitionPage extends StatefulWidget {
+  const SizeTransitionPage({super.key});
+
   static const routeName = 'SizeTransition';
 
   @override
-  _SizeTransitionPageState createState() => _SizeTransitionPageState();
+  State<SizeTransitionPage> createState() => _SizeTransitionPageState();
 }
 
 class _SizeTransitionPageState extends State<SizeTransitionPage>
@@ -39,7 +41,6 @@ class _SizeTransitionPageState extends State<SizeTransitionPage>
         child: const Icon(Icons.refresh),
       ),
       child: SizeTransition(
-        axis: Axis.vertical, // default
         axisAlignment: -0.3,
         sizeFactor: _animationController
             .drive(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class ContentCard extends StatelessWidget {
   const ContentCard({
+    super.key,
     required this.showInput,
     required this.onCompleted,
   });

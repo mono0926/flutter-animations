@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedDefaultTextStylePage extends StatefulWidget {
+  const AnimatedDefaultTextStylePage({super.key});
+
   static const routeName = 'AnimatedDefaultTextStyle';
 
   @override
-  _AnimatedDefaultTextStylePageState createState() =>
+  State<AnimatedDefaultTextStylePage> createState() =>
       _AnimatedDefaultTextStylePageState();
 }
 

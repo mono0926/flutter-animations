@@ -4,10 +4,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedListPage extends StatefulWidget {
+  const AnimatedListPage({super.key});
+
   static const routeName = 'AnimatedList';
 
   @override
-  _AnimatedListPageState createState() => _AnimatedListPageState();
+  State<AnimatedListPage> createState() => _AnimatedListPageState();
 }
 
 class _AnimatedListPageState extends State<AnimatedListPage> {

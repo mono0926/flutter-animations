@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class DefaultTextStyleTransitionPage extends StatefulWidget {
+  const DefaultTextStyleTransitionPage({super.key});
+
   static const routeName = 'DefaultTextStyleTransition';
 
   @override
-  _DefaultTextStyleTransitionPageState createState() =>
+  State<DefaultTextStyleTransitionPage> createState() =>
       _DefaultTextStyleTransitionPageState();
 }
 

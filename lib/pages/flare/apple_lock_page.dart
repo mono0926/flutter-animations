@@ -3,9 +3,11 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 class AppleLockPage extends StatefulWidget {
+  const AppleLockPage({super.key});
+
   static const routeName = 'AppleLock';
   @override
-  _AppleLockPageState createState() => _AppleLockPageState();
+  State<AppleLockPage> createState() => _AppleLockPageState();
 }
 
 class _AppleLockPageState extends State<AppleLockPage> {
@@ -14,7 +16,7 @@ class _AppleLockPageState extends State<AppleLockPage> {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Flare Example ',
-      child: Container(
+      child: ColoredBox(
         color: Colors.black,
         child: Center(
           child: Column(

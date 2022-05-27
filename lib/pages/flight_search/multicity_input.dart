@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class MulticityInput extends StatefulWidget {
-  const MulticityInput();
+  const MulticityInput({super.key});
 
   static const double _rightMargin = 64;
   static const double _rowSpace = 8;
   static const rowSpaceBox = SizedBox(height: _rowSpace);
 
   @override
-  _MulticityInputState createState() => _MulticityInputState();
+  State<MulticityInput> createState() => _MulticityInputState();
 }
 
 class _MulticityInputState extends State<MulticityInput> {

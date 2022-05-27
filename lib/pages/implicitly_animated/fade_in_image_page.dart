@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class FadeInImagePage extends StatefulWidget {
+  const FadeInImagePage({super.key});
+
   static const routeName = 'FadeInImage';
 
   @override
-  _FadeInImagePageState createState() => _FadeInImagePageState();
+  State<FadeInImagePage> createState() => _FadeInImagePageState();
 }
 
 class _FadeInImagePageState extends State<FadeInImagePage> {

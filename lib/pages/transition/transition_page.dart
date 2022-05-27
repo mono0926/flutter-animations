@@ -14,6 +14,8 @@ import 'package:flutter/material.dart';
 
 /// Examples of [TransitionPage]
 class TransitionPage extends StatelessWidget {
+  const TransitionPage({super.key});
+
   static const routeName = 'TransitionPage';
   @override
   Widget build(BuildContext context) {

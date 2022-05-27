@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class PositionedTransitionPage extends StatefulWidget {
+  const PositionedTransitionPage({super.key});
+
   static const routeName = 'PositionedTransition';
 
   @override
-  _PositionedTransitionPageState createState() =>
+  State<PositionedTransitionPage> createState() =>
       _PositionedTransitionPageState();
 }
 

@@ -1,6 +1,5 @@
 import 'package:animations_app/pages/flight_search/flight_stop.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 // DefaultTextStyleTransitionで分けているのはやり過ぎかも
 class FlightStopCard extends StatefulWidget {
@@ -29,31 +28,31 @@ class FlightStopCardState extends State<FlightStopCard>
   late final Animation<double> _cardSizeAnimation =
       _animationController.drive(CurveTween(
     curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.8)),
-  ));
+  ),);
   late final Animation<double> _durationPositionAnimation =
       _animationController.drive(CurveTween(
     curve: const Interval(0.05, 0.95, curve: ElasticOutCurve(0.95)),
-  ));
+  ),);
   late final Animation<double> _airportsPositionAnimation =
       _animationController.drive(CurveTween(
     curve: const Interval(0.1, 1, curve: ElasticOutCurve(0.95)),
-  ));
+  ),);
   late final Animation<double> _datePositionAnimation =
       _animationController.drive(CurveTween(
     curve: const Interval(0.1, 0.8, curve: ElasticOutCurve(0.95)),
-  ));
+  ),);
   late final Animation<double> _pricePositionAnimation =
       _animationController.drive(CurveTween(
     curve: const Interval(0, 0.9, curve: ElasticOutCurve(0.95)),
-  ));
+  ),);
   late final Animation<double> _fromToPositionAnimation =
       _animationController.drive(CurveTween(
     curve: const Interval(0.1, 0.95, curve: ElasticOutCurve(0.95)),
-  ));
+  ),);
   late final Animation<double> _lineAnimation =
       _animationController.drive(CurveTween(
-    curve: const Interval(0, 0.2, curve: Curves.linear),
-  ));
+    curve: const Interval(0, 0.2),
+  ),);
 
   @override
   void dispose() {
@@ -142,7 +141,7 @@ class FlightStopCardState extends State<FlightStopCard>
       builder: (context, child) => Positioned(
         top: _getMarginTop(_durationPositionAnimation.value),
         right: _getMarginRight(_durationPositionAnimation.value,
-            maxWidth: maxWidth),
+            maxWidth: maxWidth,),
         child: child!,
       ),
       child: DefaultTextStyleTransition(
@@ -168,7 +167,7 @@ class FlightStopCardState extends State<FlightStopCard>
       builder: (context, child) => Positioned(
         top: _getMarginTop(_airportsPositionAnimation.value),
         left: _getMarginLeft(_airportsPositionAnimation.value,
-            maxWidth: maxWidth),
+            maxWidth: maxWidth,),
         child: child!,
       ),
       child: DefaultTextStyleTransition(
@@ -206,7 +205,7 @@ class FlightStopCardState extends State<FlightStopCard>
           ),
         ),
         child: Text(
-          '${widget.flightStop.date}',
+          widget.flightStop.date,
           style: const TextStyle(color: Colors.grey),
         ),
       ),
@@ -233,7 +232,7 @@ class FlightStopCardState extends State<FlightStopCard>
           ),
         ),
         child: Text(
-          '${widget.flightStop.price}',
+          widget.flightStop.price,
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -264,7 +263,7 @@ class FlightStopCardState extends State<FlightStopCard>
           ),
         ),
         child: Text(
-          '${widget.flightStop.fromToTime}',
+          widget.flightStop.fromToTime,
           style: const TextStyle(
             color: Colors.grey,
             fontWeight: FontWeight.w500,

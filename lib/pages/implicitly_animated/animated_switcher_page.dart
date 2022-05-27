@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 // MEMO: ImplicitlyAnimatedWidgetの派生クラスではない
 /// See: https://medium.com/flutter-community/what-do-you-know-about-aniamtedswitcher-53cc3a4bebb8
 class AnimatedSwitcherPage extends StatefulWidget {
+  const AnimatedSwitcherPage({super.key});
+
   static const routeName = 'animatedSwitcher';
 
   @override
-  _AnimatedSwitcherPageState createState() => _AnimatedSwitcherPageState();
+  State<AnimatedSwitcherPage> createState() => _AnimatedSwitcherPageState();
 }
 
 class _AnimatedSwitcherPageState extends State<AnimatedSwitcherPage> {

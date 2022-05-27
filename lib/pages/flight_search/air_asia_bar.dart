@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class AirAsiaBar extends StatelessWidget {
   const AirAsiaBar({
-    Key? key,
+    super.key,
     required this.height,
     this.leading,
-  }) : super(key: key);
+  });
 
   final double height;
   final Widget? leading;

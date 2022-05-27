@@ -4,6 +4,8 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class FlarePage extends StatelessWidget {
+  const FlarePage({super.key});
+
   static const routeName = 'Flare';
   @override
   Widget build(BuildContext context) {

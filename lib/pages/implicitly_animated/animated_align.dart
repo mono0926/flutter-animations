@@ -3,10 +3,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedAlignPage extends StatefulWidget {
+  const AnimatedAlignPage({super.key});
+
   static const routeName = 'animatedAlign';
 
   @override
-  _AnimatedAlignPageState createState() => _AnimatedAlignPageState();
+  State<AnimatedAlignPage> createState() => _AnimatedAlignPageState();
 }
 
 class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
@@ -36,7 +38,7 @@ class _AnimatedAlignPageState extends State<AnimatedAlignPage> {
         alignment: _alignment,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
-        child: AnimationObject(),
+        child: const AnimationObject(),
       ),
     );
   }

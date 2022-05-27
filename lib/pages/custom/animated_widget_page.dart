@@ -4,10 +4,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedWidgetPage extends StatefulWidget {
+  const AnimatedWidgetPage({super.key});
+
   static const routeName = 'AnimatedWidgetPage';
 
   @override
-  _AnimatedWidgetPageState createState() => _AnimatedWidgetPageState();
+  State<AnimatedWidgetPage> createState() => _AnimatedWidgetPageState();
 }
 
 class _AnimatedWidgetPageState extends State<AnimatedWidgetPage>
@@ -79,12 +81,10 @@ class _AnimatedWidgetPageState extends State<AnimatedWidgetPage>
 
 class _TextStyleColorTransition extends AnimatedWidget {
   const _TextStyleColorTransition({
-    Key? key,
     required this.child,
     required this.style,
     required Animation<Color> animation,
   }) : super(
-          key: key,
           listenable: animation,
         );
 
@@ -103,10 +103,8 @@ class _TextStyleColorTransition extends AnimatedWidget {
 
 class _StringTransition extends AnimatedWidget {
   const _StringTransition({
-    Key? key,
     required Animation<String> animation,
   }) : super(
-          key: key,
           listenable: animation,
         );
 

@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 class AnimatedDot extends AnimatedWidget {
   const AnimatedDot({
-    Key? key,
+    super.key,
     required Animation<double> animation,
     required this.color,
   }) : super(
-          key: key,
           listenable: animation,
         );
 
@@ -26,7 +25,6 @@ class AnimatedDot extends AnimatedWidget {
           shape: BoxShape.circle,
           border: Border.all(
             color: const Color(0xFFDDDDDD),
-            width: 1,
           ),
         ),
         child: Container(

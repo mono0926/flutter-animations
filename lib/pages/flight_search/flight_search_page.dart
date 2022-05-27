@@ -10,12 +10,12 @@ import 'package:keyboard_visibility/keyboard_visibility.dart';
 enum FlightSearchMode { normal, plane, done }
 
 class FlightSearchPage extends StatefulWidget {
-  const FlightSearchPage({Key? key}) : super(key: key);
+  const FlightSearchPage({super.key});
 
   static const routeName = 'FlightSearchPage';
 
   @override
-  _FlightSearchPageState createState() => _FlightSearchPageState();
+  State<FlightSearchPage> createState() => _FlightSearchPageState();
 }
 
 class _FlightSearchPageState extends State<FlightSearchPage> {
@@ -29,11 +29,13 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
   void initState() {
     super.initState();
     _keyboardVisibilityNotificationSubscription =
-        _keyboardVisibilityNotification.addNewListener(onChange: (visible) {
-      setState(() {
-        _isKeyboardVisible = visible;
-      });
-    });
+        _keyboardVisibilityNotification.addNewListener(
+      onChange: (visible) {
+        setState(() {
+          _isKeyboardVisible = visible;
+        });
+      },
+    );
   }
 
   @override
@@ -106,8 +108,9 @@ class _FlightSearchPageState extends State<FlightSearchPage> {
       case FlightSearchMode.done:
         return FloatingActionButton(
           onPressed: () {
-            Navigator.of(context)
-                .push<void>(FadeRoute(builder: (context) => TicketsPage()));
+            Navigator.of(context).push<void>(
+              FadeRoute(builder: (context) => const TicketsPage()),
+            );
           },
           child: const Icon(
             Icons.check,

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class ScaleTransitionPage extends StatefulWidget {
+  const ScaleTransitionPage({super.key});
+
   static const routeName = 'ScaleTransition';
 
   @override
-  _ScaleTransitionPageState createState() => _ScaleTransitionPageState();
+  State<ScaleTransitionPage> createState() => _ScaleTransitionPageState();
 }
 
 class _ScaleTransitionPageState extends State<ScaleTransitionPage>

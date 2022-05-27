@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedModalBarrierPage extends StatefulWidget {
+  const AnimatedModalBarrierPage({super.key});
+
   static const routeName = 'AnimatedModalBarrier';
 
   @override
-  _AnimatedModalBarrierPageState createState() {
+  State<AnimatedModalBarrierPage> createState() {
     return _AnimatedModalBarrierPageState();
   }
 }
@@ -22,10 +24,12 @@ class _AnimatedModalBarrierPageState extends State<AnimatedModalBarrierPage> {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push<void>(MyPageRoute(
-                  page: _ModalPage(),
-                  dismissible: _dismissible,
-                ));
+                Navigator.of(context).push<void>(
+                  MyPageRoute(
+                    page: _ModalPage(),
+                    dismissible: _dismissible,
+                  ),
+                );
               },
               child: const Text('Open Modal View'),
             ),

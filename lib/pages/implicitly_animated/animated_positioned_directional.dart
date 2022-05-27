@@ -2,10 +2,12 @@ import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedPositionedDirectionalPage extends StatefulWidget {
+  const AnimatedPositionedDirectionalPage({super.key});
+
   static const routeName = 'animatedPositionedDirectional';
 
   @override
-  _AnimatedPositionedDirectionalPageState createState() =>
+  State<AnimatedPositionedDirectionalPage> createState() =>
       _AnimatedPositionedDirectionalPageState();
 }
 

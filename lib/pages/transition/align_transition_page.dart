@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class AlignTransitionPage extends StatefulWidget {
+  const AlignTransitionPage({super.key});
+
   static const routeName = 'AlignTransition';
 
   @override
-  _AlignTransitionPageState createState() => _AlignTransitionPageState();
+  State<AlignTransitionPage> createState() => _AlignTransitionPageState();
 }
 
 class _AlignTransitionPageState extends State<AlignTransitionPage>

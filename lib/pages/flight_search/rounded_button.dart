@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
-    Key? key,
+    super.key,
     required this.text,
     this.selected = false,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final String text;
   final bool selected;
@@ -29,10 +29,10 @@ class RoundedButton extends StatelessWidget {
   }
 
   Widget _buildUnselectedButton() {
-    final color = Colors.white;
+    const color = Colors.white;
     return TextButton(
       style: TextButton.styleFrom(
-        side: BorderSide(color: color),
+        side: const BorderSide(color: color),
         primary: Colors.white,
         onSurface: color,
         shape: const StadiumBorder(),

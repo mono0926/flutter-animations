@@ -21,6 +21,8 @@ import 'package:flutter/material.dart';
 
 /// Examples of [ImplicitlyAnimatedWidget]
 class ImplicitlyAnimatedPage extends StatelessWidget {
+  const ImplicitlyAnimatedPage({super.key});
+
   static const routeName = 'implicitlyAnimated';
   @override
   Widget build(BuildContext context) {

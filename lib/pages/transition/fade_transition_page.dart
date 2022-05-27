@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../widget/app_scaffold.dart';
 
 class FadeTransitionPage extends StatefulWidget {
+  const FadeTransitionPage({super.key});
+
   static const routeName = 'FadeTransition';
 
   @override
-  _FadeTransitionPageState createState() => _FadeTransitionPageState();
+  State<FadeTransitionPage> createState() => _FadeTransitionPageState();
 }
 
 class _FadeTransitionPageState extends State<FadeTransitionPage>
@@ -69,11 +71,12 @@ class _FadeTransitionPageState extends State<FadeTransitionPage>
       opacity: _animationController
           .drive(
             CurveTween(
-                curve: Interval(
-              start,
-              start + 0.4,
-              curve: Curves.fastOutSlowIn,
-            )),
+              curve: Interval(
+                start,
+                start + 0.4,
+                curve: Curves.fastOutSlowIn,
+              ),
+            ),
           )
           .drive(
             Tween<double>(

@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 
 class GhostFadeTween extends Tween<Color> {
   GhostFadeTween({
-    Color? begin,
-    Color? end,
-  }) : super(
-          begin: begin,
-          end: end,
-        );
+    super.begin,
+    super.end,
+  });
   final middle = Colors.white;
 
   @override
