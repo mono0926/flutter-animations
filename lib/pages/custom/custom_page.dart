@@ -9,6 +9,8 @@ import 'package:animations_app/widget/app_list_tile.dart';
 import 'package:animations_app/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
+import 'tween_animation_builder_page.dart';
+
 class CustomPage extends StatelessWidget {
   const CustomPage({super.key});
 
@@ -46,6 +48,10 @@ class CustomPage extends StatelessWidget {
           AppListTile(
             title: 'ImplicitlyAnimatedWidget',
             nextRouteName: ImplicitlyAnimatedWidgetPage.routeName,
+          ),
+          AppListTile(
+            title: 'TweenAnimationBuilder',
+            nextRouteName: TweenAnimationBuilderPage.routeName,
           ),
         ],
       ),

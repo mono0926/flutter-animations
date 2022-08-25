@@ -9,10 +9,8 @@ class GhostFadeTween extends Tween<Color> {
 
   @override
   Color lerp(double t) {
-    if (t < 0.5) {
-      return Color.lerp(begin, middle, t * 2)!;
-    } else {
-      return Color.lerp(middle, end, (t - 0.5) * 2)!;
-    }
+    return t < 0.5
+        ? Color.lerp(begin, middle, t * 2)!
+        : Color.lerp(middle, end, (t - 0.5) * 2)!;
   }
 }

@@ -6,6 +6,7 @@ import 'package:animations_app/pages/custom/animation_controller_set_state_enhan
 import 'package:animations_app/pages/custom/animation_controller_set_state_page.dart';
 import 'package:animations_app/pages/custom/custom_page.dart';
 import 'package:animations_app/pages/custom/implicitly_animated_widget_page.dart';
+import 'package:animations_app/pages/custom/tween_animation_builder_page.dart';
 import 'package:animations_app/pages/flare/apple_lock_page.dart';
 import 'package:animations_app/pages/flare/flare_page.dart';
 import 'package:animations_app/pages/flight_search/flight_search_page.dart';
@@ -121,6 +122,8 @@ class App extends StatelessWidget {
             const AnimatedSwitcher2Page(),
         ImplicitlyAnimatedWidgetPage.routeName: (context) =>
             const ImplicitlyAnimatedWidgetPage(),
+        TweenAnimationBuilderPage.routeName: (context) =>
+            const TweenAnimationBuilderPage(),
         FlarePage.routeName: (context) => const FlarePage(),
         AppleLockPage.routeName: (context) => const AppleLockPage(),
       },
