@@ -45,9 +45,6 @@ class _RelativePositionedTransitionPageState
       child: Stack(
         children: [
           RelativePositionedTransition(
-            // TODO(mono): broken
-            // type 'RectTween' is not a subtype
-            // of type 'Animatable<Rect>' in type cast
             rect: _animationController
                 .drive(
                   CurveTween(
@@ -58,7 +55,7 @@ class _RelativePositionedTransitionPageState
                   RectTween(
                     begin: const Rect.fromLTRB(10, 10, -100, -400),
                     end: const Rect.fromLTRB(200, 500, 0, 0),
-                  ) as Animatable<Rect>,
+                  ),
                 ),
             size: const Size(50, 50),
             child: Image.asset(
