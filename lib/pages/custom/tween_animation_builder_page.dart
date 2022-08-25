@@ -64,7 +64,7 @@ class ColoredLabelTween extends Tween<ColoredLabel> {
     super.begin,
     super.end,
   });
-  final _middleColor = Colors.white;
+  final _middleColor = Colors.transparent;
 
   @override
   ColoredLabel lerp(double t) => ColoredLabel(

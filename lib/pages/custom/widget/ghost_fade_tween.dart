@@ -5,7 +5,7 @@ class GhostFadeTween extends Tween<Color> {
     super.begin,
     super.end,
   });
-  final middle = Colors.white;
+  final middle = Colors.transparent;
 
   @override
   Color lerp(double t) {

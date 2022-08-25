@@ -34,7 +34,10 @@ class _AnimationControllerSetStatePageState
   )..addListener(() {
       setState(() {});
     });
-  late ColorTween _colorTween = ColorTween(end: _currentColor);
+  late ColorTween _colorTween = ColorTween(
+    begin: _currentColor,
+    end: _currentColor,
+  );
 
   @override
   void dispose() {
